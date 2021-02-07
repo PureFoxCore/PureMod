@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using VRC.Core;
 using VRC.SDKBase;
 using PureMod.API;
+using PureMod.API.ButtonAPI;
 
 namespace PureMod.Addons
 {
@@ -8,13 +9,14 @@ namespace PureMod.Addons
     {
         public override string ModName => "Avatar clone";
 
-        public override void OnUpdate()
+        public override void OnStart()
         {
-            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.Alpha5))
-                foreach (var player in VRCPlayerApi.AllPlayers)
-                {
-
-                }
+            new QuickMenuSingleHalfButton(QuickMenuMenu.mainMenuP1, 2, 0, "Allow Clone", delegate ()
+            {
+                for (int i = 0; i < 5; i++)
+                    foreach (var apiUser in Utils.GetAPIUsers())
+                        apiUser.allowAvatarCopying = true;
+            }, "Allow avatar cloning for all players");
         }
     }
 }

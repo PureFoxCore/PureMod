@@ -18,7 +18,9 @@ namespace PureMod
             Mods.Add(new Addons.Test());
             Mods.Add(new Addons.EarRape());
             Mods.Add(new Addons.Teleport());
+            Mods.Add(new Addons.AllowJump());
             Mods.Add(new Addons.AllowClone());
+            Mods.Add(new Addons.RayTeleport());
 
             foreach (ModSystem mod in Mods)
             {

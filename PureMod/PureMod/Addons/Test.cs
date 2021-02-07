@@ -1,22 +1,12 @@
 ﻿using UnityEngine;
 using VRC.SDKBase;
 using PureMod.API;
-using PureMod.API.Logger;
-using PureMod.API.ButtonAPI;
 
 namespace PureMod.Addons
 {
     public class Test : ModSystem
     {
         public override bool ShowName => false;
-
-        public override void OnStart()
-        {
-            new QuickMenuToggleButton("ShortcutMenu", 0, 0, "T BT", "T ToolTip", delegate (bool state)
-            {
-                Core.CoreLogger.Log(state ? "T On Pressed" : "T Off Pressed", state ? LogLevel.Info : LogLevel.Error);
-            }, true, Color.green, Color.red);
-        }
 
         public override void OnUpdate()
         {

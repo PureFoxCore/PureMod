@@ -126,9 +126,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Addons\AllowClone.cs" />
-    <Compile Include="Addons\EarRape.cs" />
+    <Compile Include="Addons\AllowJump.cs" />
     <Compile Include="Addons\Fly.cs" />
     <Compile Include="Addons\QuickMenuMenu.cs" />
+    <Compile Include="Addons\RayTeleport.cs" />
     <Compile Include="Addons\Teleport.cs" />
     <Compile Include="Addons\Test.cs" />
     <Compile Include="API\ButtonAPI\QuickMenuButtonBase.cs" />

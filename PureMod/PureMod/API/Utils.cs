@@ -2,6 +2,8 @@
 using VRC.SDKBase;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using VRC;
+using VRC.Core;
 
 namespace PureMod.API
 {
@@ -33,23 +35,32 @@ namespace PureMod.API
             return VRCPlayerApi.GetPlayerById(ID);
         }
 
-        //public static Player GetSelectedPlayerOrNull()
-        //{
-        //    Player Foundplayer = null;
+        public static PlayerManager GetPlayerManager()
+        {
+            return GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
+        }
 
-        //    foreach (GameObject playerObject in GetAllPlayers())
-        //        if (playerObject.GetComponent<Player>().field_Private_APIUser_0.id == GameObject.Find("/UserInterface/QuickMenu/ShortcutMenu").transform.parent.GetComponent<QuickMenu>().field_Private_APIUser_0.id)
-        //            Foundplayer = playerObject.GetComponent<Player>();
+        public static Il2CppSystem.Collections.Generic.List<Player> GetPlayers()
+        {
+            return GetPlayerManager().field_Private_List_1_Player_0;
+        }
 
-        //    return Foundplayer;
-        //}
+        public static Il2CppSystem.Collections.Generic.List<APIUser> GetAPIUsers()
+        {
+            var list = new Il2CppSystem.Collections.Generic.List<APIUser>();
+
+            foreach (var player in GetPlayers())
+                list.Add(player.prop_APIUser_0);
+
+            return list;
+        }
 
         public static GameObject GetLocalPlayerCamera()
         {
             return GameObject.Find("Camera (eye)"); // Success
         }
 
-        public static Il2CppSystem.Collections.Generic.List<VRCPlayerApi> GetPlayers()
+        public static Il2CppSystem.Collections.Generic.List<VRCPlayerApi> GetPlayerAPIs()
         {
             return VRCPlayerApi.AllPlayers;
         }
