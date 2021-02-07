@@ -83,7 +83,7 @@ namespace PureModInstaller
 
             }
             else
-                MessageBox.Show("Please select VRChat.exe", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Selected .exe file is not VRChat.exe\nPlease select VRChat.exe", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
