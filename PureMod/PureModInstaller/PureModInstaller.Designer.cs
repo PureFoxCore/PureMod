@@ -39,9 +39,10 @@ namespace PureModInstaller
             this.LinksLabel = new System.Windows.Forms.Label();
             this.LogoPic = new System.Windows.Forms.PictureBox();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.InstallButton = new System.Windows.Forms.Button();
-            this.SelectPathButton = new System.Windows.Forms.Button();
             this.SelectedPathBox = new System.Windows.Forms.TextBox();
+            this.SelectPathButton = new System.Windows.Forms.Button();
+            this.InstallButton = new System.Windows.Forms.Button();
+            this.FrechInstallCBox = new System.Windows.Forms.CheckBox();
             this.DragPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPic)).BeginInit();
@@ -158,34 +159,35 @@ namespace PureModInstaller
             // MainPanel
             // 
             this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.MainPanel.Controls.Add(this.FrechInstallCBox);
             this.MainPanel.Controls.Add(this.SelectedPathBox);
             this.MainPanel.Controls.Add(this.SelectPathButton);
             this.MainPanel.Controls.Add(this.InstallButton);
-            this.MainPanel.Location = new System.Drawing.Point(12, 235);
+            this.MainPanel.Location = new System.Drawing.Point(12, 204);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(376, 100);
+            this.MainPanel.Size = new System.Drawing.Size(376, 131);
             this.MainPanel.TabIndex = 3;
             // 
-            // InstallButton
+            // SelectedPathBox
             // 
-            this.InstallButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.InstallButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.InstallButton.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InstallButton.Location = new System.Drawing.Point(3, 32);
-            this.InstallButton.Name = "InstallButton";
-            this.InstallButton.Size = new System.Drawing.Size(370, 65);
-            this.InstallButton.TabIndex = 4;
-            this.InstallButton.TabStop = false;
-            this.InstallButton.Text = "INSTALL | UPDATE";
-            this.InstallButton.UseVisualStyleBackColor = false;
-            this.InstallButton.Click += new System.EventHandler(this.InstallButton_Click);
+            this.SelectedPathBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.SelectedPathBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedPathBox.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectedPathBox.ForeColor = System.Drawing.Color.White;
+            this.SelectedPathBox.Location = new System.Drawing.Point(63, 28);
+            this.SelectedPathBox.Name = "SelectedPathBox";
+            this.SelectedPathBox.ReadOnly = true;
+            this.SelectedPathBox.Size = new System.Drawing.Size(310, 22);
+            this.SelectedPathBox.TabIndex = 5;
+            this.SelectedPathBox.TabStop = false;
+            this.SelectedPathBox.Text = "Select VRChat.exe";
             // 
             // SelectPathButton
             // 
             this.SelectPathButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.SelectPathButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SelectPathButton.Font = new System.Drawing.Font("Comic Sans MS", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectPathButton.Location = new System.Drawing.Point(3, 3);
+            this.SelectPathButton.Location = new System.Drawing.Point(3, 28);
             this.SelectPathButton.Name = "SelectPathButton";
             this.SelectPathButton.Size = new System.Drawing.Size(54, 22);
             this.SelectPathButton.TabIndex = 4;
@@ -194,19 +196,30 @@ namespace PureModInstaller
             this.SelectPathButton.UseVisualStyleBackColor = false;
             this.SelectPathButton.Click += new System.EventHandler(this.SelectPathButton_Click);
             // 
-            // SelectedPathBox
+            // InstallButton
             // 
-            this.SelectedPathBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.SelectedPathBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SelectedPathBox.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectedPathBox.ForeColor = System.Drawing.Color.White;
-            this.SelectedPathBox.Location = new System.Drawing.Point(63, 3);
-            this.SelectedPathBox.Name = "SelectedPathBox";
-            this.SelectedPathBox.ReadOnly = true;
-            this.SelectedPathBox.Size = new System.Drawing.Size(310, 22);
-            this.SelectedPathBox.TabIndex = 5;
-            this.SelectedPathBox.TabStop = false;
-            this.SelectedPathBox.Text = "Select VRChat.exe";
+            this.InstallButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.InstallButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InstallButton.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InstallButton.Location = new System.Drawing.Point(3, 56);
+            this.InstallButton.Name = "InstallButton";
+            this.InstallButton.Size = new System.Drawing.Size(370, 72);
+            this.InstallButton.TabIndex = 4;
+            this.InstallButton.TabStop = false;
+            this.InstallButton.Text = "INSTALL | UPDATE";
+            this.InstallButton.UseVisualStyleBackColor = false;
+            this.InstallButton.Click += new System.EventHandler(this.InstallButton_Click);
+            // 
+            // FrechInstallCBox
+            // 
+            this.FrechInstallCBox.AutoSize = true;
+            this.FrechInstallCBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FrechInstallCBox.Location = new System.Drawing.Point(3, 3);
+            this.FrechInstallCBox.Name = "FrechInstallCBox";
+            this.FrechInstallCBox.Size = new System.Drawing.Size(85, 19);
+            this.FrechInstallCBox.TabIndex = 6;
+            this.FrechInstallCBox.Text = "Fresh install";
+            this.FrechInstallCBox.UseVisualStyleBackColor = true;
             // 
             // PureModInstaller
             // 
@@ -223,7 +236,7 @@ namespace PureModInstaller
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PureModInstaller";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PureModInstaller";
+            this.Text = " ";
             this.DragPanel.ResumeLayout(false);
             this.DragPanel.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -250,6 +263,7 @@ namespace PureModInstaller
         private System.Windows.Forms.TextBox SelectedPathBox;
         private System.Windows.Forms.Button SelectPathButton;
         private System.Windows.Forms.Button InstallButton;
+        private System.Windows.Forms.CheckBox FrechInstallCBox;
     }
 }
 

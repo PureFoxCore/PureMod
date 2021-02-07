@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Net;
 using System.Drawing;
 using System.Diagnostics;
 using System.Windows.Forms;
@@ -8,10 +9,15 @@ namespace PureModInstaller
 {
     public partial class PureModInstaller : Form
     {
+        #region Init & Variables
+
+        private WebClient client = new WebClient();
         private bool isVRChatGame = false;
 
         public PureModInstaller() =>
             InitializeComponent();
+
+        #endregion
 
         #region Drag
 
@@ -56,6 +62,8 @@ namespace PureModInstaller
 
         #endregion
 
+        #region Select & Install
+
         private void SelectPathButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
@@ -65,10 +73,11 @@ namespace PureModInstaller
             fileDialog.InitialDirectory = Application.ExecutablePath;
 
             if (fileDialog.ShowDialog() == DialogResult.OK)
-            {
-                SelectedPathBox.Text = fileDialog.FileName;
-                isVRChatGame = Path.GetFileName(fileDialog.FileName) == "VRChat.exe";
-            }
+                if (File.Exists(fileDialog.FileName))
+                {
+                    SelectedPathBox.Text = fileDialog.FileName;
+                    isVRChatGame = Path.GetFileName(fileDialog.FileName) == "VRChat.exe";
+                }
         }
 
         private void InstallButton_Click(object sender, EventArgs e)
@@ -76,14 +85,40 @@ namespace PureModInstaller
             if (isVRChatGame)
             {
                 string dir = SelectedPathBox.Text.Replace("VRChat.exe", "Mods");
+                string file = $"{dir}\\PureMod.dll";
 
                 if (!Directory.Exists(dir))
                     Directory.CreateDirectory(dir);
 
+                if (FrechInstallCBox.Checked)
+                {
+                    DirectoryInfo di = new DirectoryInfo(dir);
+                    foreach (FileInfo files in di.GetFiles())
+                        files.Delete();
+                    foreach (DirectoryInfo dirs in di.GetDirectories())
+                        dirs.Delete(true);
+                }
+                else if (File.Exists(file))
+                    File.Delete(file);
 
+                client.DownloadFileCompleted += (object cs, System.ComponentModel.AsyncCompletedEventArgs ce) =>
+                {
+                    try
+                    {
+                        if (ce.Cancelled)
+                            MessageBox.Show("Download cancelled", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        else
+                            MessageBox.Show("Download completed successfully", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception) { throw; }
+                };
+
+                client.DownloadFileAsync(new Uri("https://github.com/PureFoxCore/PureMod/releases/latest/download/PureMod.dll"), file);
             }
             else
                 MessageBox.Show("Selected .exe file is not VRChat.exe\nPlease select VRChat.exe", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        #endregion
     }
 }
