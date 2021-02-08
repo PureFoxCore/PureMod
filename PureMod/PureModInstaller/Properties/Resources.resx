@@ -121,10 +121,10 @@
   <data name="GitHub-Mark-32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icons\GitHub-Mark-32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Discord-Logo-White-Small" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\Discord-Logo-White-Small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Discord-Logo-Black (Custom)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icons\Discord-Logo-Black (Custom).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PureModLogo128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icons\PureModLogo128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -8,25 +8,25 @@ namespace PureMod.API.ButtonAPI
     {
         public bool m_State { get; private set; }
 
-        public QuickMenuToggleHalfButton(QuickMenuNestedButton buttonMenu, int xLocation, int yLocation, string text, string toolTip, Action<bool> action, bool state = false, Color? textColorOn = null, Color? textColorOff = null, Color? backgroundColor = null)
+        public QuickMenuToggleHalfButton(QuickMenuNestedButton buttonMenu, int xLocation, int yLocation, string text, string toolTip, Action<bool> action, Color textColorOn, Color textColorOff, bool state = false, Color? backgroundColor = null)
         {
             buttonQuickMenuLocation = buttonMenu.menuName;
-            initializeButton(xLocation, yLocation, text, toolTip, action, state, backgroundColor, textColorOn, textColorOff);
+            initializeButton(xLocation, yLocation, text, toolTip, action, state, textColorOn, textColorOff, backgroundColor);
         }
 
-        public QuickMenuToggleHalfButton(QuickMenuNestedHalfButton buttonMenu, int xLocation, int yLocation, string text, string toolTip, Action<bool> action, bool state = false, Color? textColorOn = null, Color? textColorOff = null, Color? backgroundColor = null)
+        public QuickMenuToggleHalfButton(QuickMenuNestedHalfButton buttonMenu, int xLocation, int yLocation, string text, string toolTip, Action<bool> action, Color textColorOn, Color textColorOff, bool state = false, Color? backgroundColor = null)
         {
             buttonQuickMenuLocation = buttonMenu.menuName;
-            initializeButton(xLocation, yLocation, text, toolTip, action, state, backgroundColor, textColorOn, textColorOff);
+            initializeButton(xLocation, yLocation, text, toolTip, action, state, textColorOn, textColorOff, backgroundColor);
         }
 
-        public QuickMenuToggleHalfButton(string buttonMenu, int xLocation, int yLocation, string text, string toolTip, Action<bool> action, bool state = false, Color? textColorOn = null, Color? textColorOff = null, Color? backgroundColor = null)
+        public QuickMenuToggleHalfButton(string buttonMenu, int xLocation, int yLocation, string text, string toolTip, Action<bool> action, Color textColorOn, Color textColorOff, bool state = false, Color? backgroundColor = null)
         {
             buttonQuickMenuLocation = buttonMenu;
-            initializeButton(xLocation, yLocation, text, toolTip, action, state, backgroundColor, textColorOn, textColorOff);
+            initializeButton(xLocation, yLocation, text, toolTip, action, state, textColorOn, textColorOff, backgroundColor);
         }
 
-        private void initializeButton(int xLocation, int yLocation, string text, string toolTip, Action<bool> action, bool state, Color? backgroundColor = null, Color? textColorOn = null, Color? textColorOff = null)
+        private void initializeButton(int xLocation, int yLocation, string text, string toolTip, Action<bool> action, bool state, Color textColorOn, Color textColorOff, Color? backgroundColor = null)
         {
             buttonType = "ToggleButton";
             button = UnityEngine.Object.Instantiate(s_SingleButton, s_QuickMenu.transform.Find(buttonQuickMenuLocation), true);
@@ -37,7 +37,7 @@ namespace PureMod.API.ButtonAPI
             SetLocation(xLocation, yLocation);
             SetButtonText(text);
             SetToolTip(toolTip);
-            SetButtonAction(action, textColorOn != null ? (Color)textColorOn : OriginalTextColor, textColorOff != null ? (Color)textColorOff : OriginalTextColor);
+            SetButtonAction(action, textColorOn, textColorOff);
 
             m_State = state;
 
@@ -46,10 +46,10 @@ namespace PureMod.API.ButtonAPI
             else
                 OriginalBackgroundColor = button.GetComponentInChildren<Image>().color;
 
-            if (state && textColorOn != null)
-                SetTextColor((Color)textColorOn);
-            else if (!state && textColorOff != null)
-                SetTextColor((Color)textColorOff);
+            if (state)
+                SetTextColor(textColorOn);
+            else if (!state)
+                SetTextColor(textColorOff);
 
             else
                 OriginalTextColor = button.GetComponentInChildren<Text>().color;

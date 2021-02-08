@@ -73,9 +73,9 @@ namespace PureModInstaller.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Discord_Logo_White_Small {
+        internal static System.Drawing.Bitmap GitHub_Mark_32px {
             get {
-                object obj = ResourceManager.GetObject("Discord-Logo-White-Small", resourceCulture);
+                object obj = ResourceManager.GetObject("GitHub-Mark-32px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace PureModInstaller.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap GitHub_Mark_32px {
+        internal static System.Drawing.Bitmap PureModLogo128 {
             get {
-                object obj = ResourceManager.GetObject("GitHub-Mark-32px", resourceCulture);
+                object obj = ResourceManager.GetObject("PureModLogo128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

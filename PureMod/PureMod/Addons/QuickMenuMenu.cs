@@ -15,8 +15,8 @@ namespace PureMod.Addons
             mainMenuP1 = new QuickMenuNestedButton("ShortcutMenu", 0, -1, "Pure\nMod", "Pure Mod Menu");
             mainMenuP2 = new QuickMenuNestedButton(mainMenuP1.menuName, 5, 1, "Page 2", "Pure Mod Menu Page 2");
 
-            Core.CoreLogger.Trace(mainMenuP1.menuName);
-            Core.CoreLogger.Trace(mainMenuP2.menuName);
+            Utils.CoreLogger.Trace(mainMenuP1.menuName);
+            Utils.CoreLogger.Trace(mainMenuP2.menuName);
         }
     }
 }

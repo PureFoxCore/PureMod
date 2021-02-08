@@ -1,6 +1,6 @@
-﻿using PureMod.API;
+﻿using UnityEngine;
+using PureMod.API;
 using PureMod.API.ButtonAPI;
-using UnityEngine;
 
 namespace PureMod.Addons
 {
@@ -13,7 +13,8 @@ namespace PureMod.Addons
             new QuickMenuToggleHalfButton(QuickMenuMenu.mainMenuP1, 3, 0, "VSync", "Toggle vertical synchronization", delegate (bool state)
             {
                 QualitySettings.vSyncCount = state ? 1 : 0;
-            });
+                Utils.CoreLogger.Info(state ? "VSync On" : "VSync Off");
+            }, Color.yellow, Color.white);
         }
     }
 }

@@ -2,6 +2,7 @@
 {
     public class ModSystem
     {
+        public virtual int LoadOrder => 0;
         public virtual bool ShowName => true;
         public virtual string ModName => "Default Mod";
         public virtual void OnEarlierStart() { }

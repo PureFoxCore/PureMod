@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\..\..\Games\SteamLibrary\steamapps\common\VRChat\Mods\</OutputPath>
+    <OutputPath>output\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -37,10 +37,6 @@
     </Reference>
     <Reference Include="Il2Cppmscorlib">
       <HintPath>..\..\..\..\..\Games\SteamLibrary\steamapps\common\VRChat\MelonLoader\Managed\Il2Cppmscorlib.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MelonLoader">
-      <HintPath>..\..\..\..\..\Games\SteamLibrary\steamapps\common\VRChat\MelonLoader\MelonLoader.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -141,12 +137,15 @@
     <Compile Include="API\ButtonAPI\QuickMenuSingleButton.cs" />
     <Compile Include="API\ButtonAPI\QuickMenuToggleButton.cs" />
     <Compile Include="API\ButtonAPI\QuickMenuToggleHalfButton.cs" />
-    <Compile Include="API\Logger\LogLevel.cs" />
-    <Compile Include="API\Logger\PureLogger.cs" />
-    <Compile Include="API\ModSystem.cs" />
     <Compile Include="API\Utils.cs" />
-    <Compile Include="Core.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PureModLoader\PureModLoader.csproj">
+      <Project>{e0ad13c6-cdfe-4d27-91db-c9cc25fa1f2b}</Project>
+      <Name>PureModLoader</Name>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

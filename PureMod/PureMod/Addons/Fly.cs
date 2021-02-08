@@ -18,7 +18,7 @@ namespace PureMod.Addons
             {
                 isFly = !isFly;
                 Utils.GetLocalPlayer().gameObject.GetComponent<CharacterController>().enabled = !isFly;
-                Core.CoreLogger.Log(isFly ? "Fly enabled" : "Fly Disabled", isFly ? LogLevel.Warn : LogLevel.Info);
+                Utils.CoreLogger.Log(isFly ? "Fly enabled" : "Fly Disabled", isFly ? LogLevel.Warn : LogLevel.Info);
             }
 
             if (isFly)
@@ -32,7 +32,7 @@ namespace PureMod.Addons
 
                     if (flySpeed <= 0)
                         flySpeed = 1;
-                    Core.CoreLogger.Trace($"Speed: {flySpeed}");
+                    Utils.CoreLogger.Trace($"Speed: {flySpeed}");
                 }
 
                 if (Input.GetKey(KeyCode.W))

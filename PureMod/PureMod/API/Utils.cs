@@ -1,14 +1,16 @@
-﻿using UnityEngine;
+﻿using VRC;
+using VRC.Core;
+using UnityEngine;
 using VRC.SDKBase;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-using VRC;
-using VRC.Core;
 
 namespace PureMod.API
 {
     public class Utils
     {
+        public static Logger.Logger CoreLogger = new Logger.Logger("PureMod", Logger.LogLevel.Trace);
+
         public static GameObject[] GetAllGameObjects()
         {
             return SceneManager.GetActiveScene().GetRootGameObjects();

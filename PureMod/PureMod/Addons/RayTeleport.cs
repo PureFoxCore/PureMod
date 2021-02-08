@@ -18,7 +18,7 @@ namespace PureMod.Addons
                 if (hits.Length > 0)
                 {
                     RaycastHit raycastHit = hits[0];
-                    Utils.GetLocalPlayer().gameObject.transform.position = raycastHit.point;
+                    Utils.GetLocalPlayer().TeleportTo(raycastHit.point, Utils.GetLocalPlayer().GetRotation());
                 }
             }
         }

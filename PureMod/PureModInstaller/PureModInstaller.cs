@@ -103,14 +103,10 @@ namespace PureModInstaller
 
                 client.DownloadFileCompleted += (object cs, System.ComponentModel.AsyncCompletedEventArgs ce) =>
                 {
-                    try
-                    {
-                        if (ce.Cancelled)
-                            MessageBox.Show("Download cancelled", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        else
-                            MessageBox.Show("Download completed successfully", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception) { throw; }
+                    if (ce.Cancelled)
+                        MessageBox.Show("Download cancelled", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    else
+                        MessageBox.Show("Download completed successfully", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 };
 
                 client.DownloadFileAsync(new Uri("https://github.com/PureFoxCore/PureMod/releases/latest/download/PureMod.dll"), file);

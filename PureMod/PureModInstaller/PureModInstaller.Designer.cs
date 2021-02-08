@@ -37,16 +37,16 @@ namespace PureModInstaller
             this.GithubButton = new System.Windows.Forms.Button();
             this.DiscordButton = new System.Windows.Forms.Button();
             this.LinksLabel = new System.Windows.Forms.Label();
-            this.LogoPic = new System.Windows.Forms.PictureBox();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.FrechInstallCBox = new System.Windows.Forms.CheckBox();
             this.SelectedPathBox = new System.Windows.Forms.TextBox();
             this.SelectPathButton = new System.Windows.Forms.Button();
             this.InstallButton = new System.Windows.Forms.Button();
-            this.FrechInstallCBox = new System.Windows.Forms.CheckBox();
+            this.LogoPic = new System.Windows.Forms.PictureBox();
             this.DragPanel.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoPic)).BeginInit();
             this.MainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoPic)).BeginInit();
             this.SuspendLayout();
             // 
             // DragPanel
@@ -147,15 +147,6 @@ namespace PureModInstaller
             this.LinksLabel.TabIndex = 4;
             this.LinksLabel.Text = "Links:";
             // 
-            // LogoPic
-            // 
-            this.LogoPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.LogoPic.Location = new System.Drawing.Point(128, 48);
-            this.LogoPic.Name = "LogoPic";
-            this.LogoPic.Size = new System.Drawing.Size(150, 150);
-            this.LogoPic.TabIndex = 2;
-            this.LogoPic.TabStop = false;
-            // 
             // MainPanel
             // 
             this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
@@ -167,6 +158,17 @@ namespace PureModInstaller
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(376, 131);
             this.MainPanel.TabIndex = 3;
+            // 
+            // FrechInstallCBox
+            // 
+            this.FrechInstallCBox.AutoSize = true;
+            this.FrechInstallCBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FrechInstallCBox.Location = new System.Drawing.Point(3, 3);
+            this.FrechInstallCBox.Name = "FrechInstallCBox";
+            this.FrechInstallCBox.Size = new System.Drawing.Size(85, 19);
+            this.FrechInstallCBox.TabIndex = 6;
+            this.FrechInstallCBox.Text = "Fresh install";
+            this.FrechInstallCBox.UseVisualStyleBackColor = true;
             // 
             // SelectedPathBox
             // 
@@ -206,20 +208,20 @@ namespace PureModInstaller
             this.InstallButton.Size = new System.Drawing.Size(370, 72);
             this.InstallButton.TabIndex = 4;
             this.InstallButton.TabStop = false;
-            this.InstallButton.Text = "INSTALL | UPDATE";
+            this.InstallButton.Text = "DOWNLOAD | UPDATE";
             this.InstallButton.UseVisualStyleBackColor = false;
             this.InstallButton.Click += new System.EventHandler(this.InstallButton_Click);
             // 
-            // FrechInstallCBox
+            // LogoPic
             // 
-            this.FrechInstallCBox.AutoSize = true;
-            this.FrechInstallCBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FrechInstallCBox.Location = new System.Drawing.Point(3, 3);
-            this.FrechInstallCBox.Name = "FrechInstallCBox";
-            this.FrechInstallCBox.Size = new System.Drawing.Size(85, 19);
-            this.FrechInstallCBox.TabIndex = 6;
-            this.FrechInstallCBox.Text = "Fresh install";
-            this.FrechInstallCBox.UseVisualStyleBackColor = true;
+            this.LogoPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.LogoPic.Image = global::PureModInstaller.Properties.Resources.PureModLogo128;
+            this.LogoPic.Location = new System.Drawing.Point(128, 48);
+            this.LogoPic.Name = "LogoPic";
+            this.LogoPic.Size = new System.Drawing.Size(150, 150);
+            this.LogoPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LogoPic.TabIndex = 2;
+            this.LogoPic.TabStop = false;
             // 
             // PureModInstaller
             // 
@@ -241,9 +243,9 @@ namespace PureModInstaller
             this.DragPanel.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoPic)).EndInit();
             this.MainPanel.ResumeLayout(false);
             this.MainPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoPic)).EndInit();
             this.ResumeLayout(false);
 
         }

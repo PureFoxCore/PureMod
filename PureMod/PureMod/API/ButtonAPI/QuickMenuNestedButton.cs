@@ -93,7 +93,7 @@ namespace PureMod.API.ButtonAPI
             Transform pageTransform = quickmenu.transform.Find(pagename);
 
             if (pageTransform == null)
-                Core.CoreLogger.Critical("pageTransform is null !");
+                Utils.CoreLogger.Critical("pageTransform is null !");
 
             if (currentPageGetter == null)
             {
@@ -115,7 +115,7 @@ namespace PureMod.API.ButtonAPI
                 }
                 if (currentPageGetter == null)
                 {
-                    Core.CoreLogger.Critical("Unable to find field currentPage in QuickMenu");
+                    Utils.CoreLogger.Critical("Unable to find field currentPage in QuickMenu");
                     return;
                 }
             }

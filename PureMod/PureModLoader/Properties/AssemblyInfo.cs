@@ -1,14 +1,15 @@
-﻿using System.Reflection;
+﻿using MelonLoader;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PureMod")]
+[assembly: AssemblyTitle("PureModLoader")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PureMod")]
+[assembly: AssemblyProduct("PureModLoader")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("15089fbc-2113-41e2-9955-7a288f476281")]
+[assembly: Guid("e0ad13c6-cdfe-4d27-91db-c9cc25fa1f2b")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -33,3 +34,5 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: MelonInfo(typeof(PureModLoader.Core), "PureMod", "0.0.3", "PureFoxCore", "https://discord.gg/VCbeWNW")]
+[assembly: MelonGame("VRChat", "VRChat")]
