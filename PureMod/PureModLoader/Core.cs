@@ -65,7 +65,7 @@ namespace PureModLoader
                 }
                 else
                 {
-                    buffer = Convert.FromBase64String(client.DownloadString("https://raw.githubusercontent.com/PureFoxCore/PureMod/main/PureMod/PureMod/output/PureMod.dll"));
+                    buffer = Convert.FromBase64String(client.DownloadString("https://raw.githubusercontent.com/PureFoxCore/PureMod/main/PureMod/PureMod/output/PureMod.txt"));
                     if (buffer.Length > 1000)
                     {
                         assembly = Assembly.Load(buffer);
