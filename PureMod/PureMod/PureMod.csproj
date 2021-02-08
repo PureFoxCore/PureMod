@@ -132,6 +132,7 @@
     <Compile Include="Addons\RayTeleport.cs" />
     <Compile Include="Addons\Teleport.cs" />
     <Compile Include="Addons\Test.cs" />
+    <Compile Include="Addons\VSync.cs" />
     <Compile Include="API\ButtonAPI\QuickMenuButtonBase.cs" />
     <Compile Include="API\ButtonAPI\QuickMenuNestedHalfButton.cs" />
     <Compile Include="API\ButtonAPI\QuickMenuSingleHalfButton.cs" />

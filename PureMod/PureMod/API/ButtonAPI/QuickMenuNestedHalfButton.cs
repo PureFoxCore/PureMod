@@ -58,8 +58,8 @@ namespace PureMod.API.ButtonAPI
         {
             ButtonType = "NestedButton";
 
-            Transform menu = UnityEngine.Object.Instantiate<Transform>(s_NestedButton, QuickMenuButtonBase.s_QuickMenu.transform);
-            menuName = $"{QuickMenuButtonBase.Identifer}{buttonQuickMenuLocation}_{xLocation}_{yLocation}";
+            Transform menu = UnityEngine.Object.Instantiate(s_NestedButton, QuickMenuButtonBase.s_QuickMenu.transform);
+            menuName = $"{QuickMenuButtonBase.Identifer}_{buttonQuickMenuLocation}_{xLocation}_{yLocation}";
             menu.name = menuName;
 
             mainButton = new QuickMenuSingleHalfButton(buttonQuickMenuLocation, xLocation, yLocation, text, delegate ()
@@ -90,7 +90,7 @@ namespace PureMod.API.ButtonAPI
         private void ShowQuickMenuPage(string pagename)
         {
             QuickMenu quickmenu = QuickMenuButtonBase.s_QuickMenu;
-            Transform pageTransform = quickmenu?.transform.Find(pagename);
+            Transform pageTransform = quickmenu.transform.Find(pagename);
 
             if (pageTransform == null)
                 Core.CoreLogger.Critical("pageTransform is null !");

@@ -16,6 +16,7 @@ namespace PureMod
 
             Mods.Add(new Addons.Fly());
             Mods.Add(new Addons.Test());
+            Mods.Add(new Addons.VSync());
             Mods.Add(new Addons.Teleport());
             Mods.Add(new Addons.AllowJump());
             Mods.Add(new Addons.AllowClone());
