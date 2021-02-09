@@ -27,6 +27,7 @@ namespace PureMod.Addons
                     if (player.isSuper)
                         Utils.CoreLogger.Warn($"Super: {player.displayName}");
                 }
+                Utils.CoreLogger.Trace("Test!");
             }
 
             //if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.U))

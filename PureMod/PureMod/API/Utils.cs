@@ -26,6 +26,11 @@ namespace PureMod.API
             return objectsInScene;
         }
 
+        public static int GetPlayerCount()
+        {
+            return VRCPlayerApi.GetPlayerCount();
+        }
+
         public static VRCPlayerApi GetLocalPlayer()
         {
             int ID = 0;

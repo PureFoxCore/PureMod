@@ -19,21 +19,12 @@ namespace PureModLoader
 
         private void LoadMods()
         {
-            var filePath = Path.Combine(Environment.CurrentDirectory, "Mods\\PureMod.file");
-            var tempFilePath = Path.Combine(Environment.CurrentDirectory, "Mods\\PureMod.tempfile");
+            var filePath = Path.Combine(Environment.CurrentDirectory, "Mods\\PureMod.dll");
 
             try
             {
-                client.DownloadFile("https://raw.githubusercontent.com/PureFoxCore/PureMod/main/PureMod/PureMod/output/PureMod.file", tempFilePath);
-
                 if (!File.Exists(filePath))
-                    if (File.ReadAllText(tempFilePath) != File.ReadAllText(filePath))
-                    {
-                        File.Delete(filePath);
-                        File.Move(filePath, tempFilePath);
-                    }
-                else
-                    client.DownloadFile("https://raw.githubusercontent.com/PureFoxCore/PureMod/main/PureMod/PureMod/output/PureMod.file", filePath);
+                    client.DownloadFile("https://github.com/PureFoxCore/PureMod/releases/latest/download/PureMod.dll", filePath);
 
                 if (File.Exists(filePath))
                 {
@@ -111,11 +102,6 @@ namespace PureModLoader
 
         public override void OnApplicationQuit()
         {
-            string filePath = Path.Combine(Environment.CurrentDirectory, "Mods\\PureMod.file");
-
-            if (File.Exists(filePath))
-                File.Delete(filePath);
-
             foreach (ModSystem mod in Mods)
                 mod.OnQuit();
         }

@@ -13,27 +13,34 @@ namespace PureMod.Addons
         public static int flySpeed = 2;
         public static bool isFly = false;
 
+        private GameObject player;
+        private GameObject playerCamera;
+
         public override void OnUpdate()
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                isFly = !isFly;
-                Utils.GetLocalPlayer().gameObject.GetComponent<CharacterController>().enabled = !isFly;
-                Utils.CoreLogger.Log(isFly ? "Fly enabled" : "Fly Disabled", isFly ? LogLevel.Warn : LogLevel.Info);
+                try
+                {
+                    isFly = !isFly;
+                    Utils.GetLocalPlayer().gameObject.GetComponent<CharacterController>().enabled = !isFly;
+                    Utils.CoreLogger.Trace(isFly ? "Fly enabled" : "Fly Disabled");
+
+                    player = Utils.GetLocalPlayer().gameObject;
+                    playerCamera = Utils.GetLocalPlayerCamera();
+                }
+                catch (Exception) { throw; }
             }
 
             if (isFly)
             {
-                GameObject player = Utils.GetLocalPlayer().gameObject;
-                GameObject playerCamera = Utils.GetLocalPlayerCamera();
-
                 if (Input.mouseScrollDelta.y != 0)
                 {
                     flySpeed += (int)Input.mouseScrollDelta.y;
 
                     if (flySpeed <= 0)
                         flySpeed = 1;
-                    Utils.CoreLogger.Trace($"Speed: {flySpeed}");
+                    //Utils.CoreLogger.Trace($"Speed: {flySpeed}");
                 }
 
                 if (Input.GetKey(KeyCode.W))

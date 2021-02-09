@@ -18,6 +18,8 @@ namespace PureMod.Addons
                 var jumpComponent = Utils.GetLocalPlayer().gameObject.AddComponent<PlayerModComponentJump>();
                 jumpComponent.field_Private_Single_0 = 5;
                 jumpComponent.field_Private_Single_1 = 5;
+
+                Utils.CoreLogger.Info("Jump added!");
             }, "Add jump on this map");
         }
     }

@@ -1,6 +1,4 @@
-﻿using VRC.Core;
-using VRC.SDKBase;
-using PureMod.API;
+﻿using PureMod.API;
 using PureMod.API.ButtonAPI;
 
 namespace PureMod.Addons
@@ -17,6 +15,7 @@ namespace PureMod.Addons
                 for (int i = 0; i < 5; i++)
                     foreach (var apiUser in Utils.GetAPIUsers())
                         apiUser.allowAvatarCopying = true;
+                Utils.CoreLogger.Info("Public avatar clone allowed!");
             }, "Allow avatar cloning for all players");
         }
     }

@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>output\</OutputPath>
+    <OutputPath>..\..\..\..\..\Games\SteamLibrary\steamapps\common\VRChat\Mods\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -124,10 +124,13 @@
     <Compile Include="Addons\AllowClone.cs" />
     <Compile Include="Addons\AllowJump.cs" />
     <Compile Include="Addons\Fly.cs" />
+    <Compile Include="Addons\FPSUnlimiter.cs" />
+    <Compile Include="Addons\MirrorOptimize.cs" />
     <Compile Include="Addons\QuickMenuMenu.cs" />
     <Compile Include="Addons\RayTeleport.cs" />
     <Compile Include="Addons\Teleport.cs" />
     <Compile Include="Addons\Test.cs" />
+    <Compile Include="Addons\UpdateModule.cs" />
     <Compile Include="Addons\VSync.cs" />
     <Compile Include="API\ButtonAPI\QuickMenuButtonBase.cs" />
     <Compile Include="API\ButtonAPI\QuickMenuNestedHalfButton.cs" />
