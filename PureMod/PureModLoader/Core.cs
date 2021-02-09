@@ -53,36 +53,30 @@ namespace PureModLoader
 
         private void LoadMods()
         {
+            var filePath = Path.Combine(Environment.CurrentDirectory, "Mods\\PureMod.txt");
+
             try
             {
-                if (File.Exists(Path.Combine(Environment.CurrentDirectory, "Mods\\IceBurn.txt")))
+                if (!File.Exists(filePath))
+                    client.DownloadFile("https://raw.githubusercontent.com/PureFoxCore/PureMod/main/PureMod/PureMod/output/PureMod.txt", filePath);
+
+                buffer = Convert.FromBase64String(File.ReadAllText(filePath));
+
+                if (buffer.Length > 1000)
                 {
-                    CoreLogger.Info("IceBurn.txt Exits. Loading From File");
-                    buffer = Convert.FromBase64String(File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "Mods\\PureMod.txt")));
                     assembly = Assembly.Load(buffer);
                     CoreLogger.Info($"Buffer Loaded IN TO RAM [Length: {buffer.Length}]");
                     FindMods();
                 }
                 else
                 {
-                    buffer = Convert.FromBase64String(client.DownloadString("https://raw.githubusercontent.com/PureFoxCore/PureMod/main/PureMod/PureMod/output/PureMod.txt"));
-                    if (buffer.Length > 1000)
-                    {
-                        assembly = Assembly.Load(buffer);
-                        CoreLogger.Info($"Buffer Loaded IN TO RAM [Length: {buffer.Length}]");
-                        FindMods();
-                    }
-                    else
-                    {
-                        CoreLogger.Error("IceLoader Can't Load IceBurn2!");
-                        CoreLogger.Error("Access Denied!");
-                        Application.Quit();
-                    }
+                    CoreLogger.Error("Can't Load PureMod!");
+                    Application.Quit();
                 }
             }
             catch (Exception ex)
             {
-                CoreLogger.Error("IceLoader Can't Load IceBurn2 !");
+                CoreLogger.Error("Can't Load PureMod!");
                 CoreLogger.Error(ex.ToString());
             }
         }
@@ -127,6 +121,11 @@ namespace PureModLoader
 
         public override void OnApplicationQuit()
         {
+            string filePath = Path.Combine(Environment.CurrentDirectory, "Mods\\PureMod.txt");
+
+            if (File.Exists(filePath))
+                File.Delete(filePath);
+
             foreach (ModSystem mod in Mods)
                 mod.OnQuit();
         }
