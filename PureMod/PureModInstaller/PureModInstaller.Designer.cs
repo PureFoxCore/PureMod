@@ -29,6 +29,7 @@ namespace PureModInstaller
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PureModInstaller));
             this.DragPanel = new System.Windows.Forms.Panel();
             this.ProgramNameLabel = new System.Windows.Forms.Label();
             this.MinimizeAppButton = new System.Windows.Forms.Button();
@@ -236,6 +237,7 @@ namespace PureModInstaller
             this.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PureModInstaller";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";

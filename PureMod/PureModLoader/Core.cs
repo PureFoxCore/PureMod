@@ -13,18 +13,26 @@ namespace PureModLoader
 {
     public class Core : MelonMod
     {
-        public static List<ModSystem> Mods = new List<ModSystem>();
-        public static Logger CoreLogger = new Logger("PureModLoader", LogLevel.Trace);
-
+        private static List<ModSystem> Mods = new List<ModSystem>();
+        private static Logger CoreLogger = new Logger("PureModLoader", LogLevel.Trace);
         private static WebClient client = new WebClient();
 
         private void LoadMods()
         {
             var filePath = Path.Combine(Environment.CurrentDirectory, "Mods\\PureMod.file");
+            var tempFilePath = Path.Combine(Environment.CurrentDirectory, "Mods\\PureMod.tempfile");
 
             try
             {
+                client.DownloadFile("https://raw.githubusercontent.com/PureFoxCore/PureMod/main/PureMod/PureMod/output/PureMod.file", tempFilePath);
+
                 if (!File.Exists(filePath))
+                    if (File.ReadAllText(tempFilePath) != File.ReadAllText(filePath))
+                    {
+                        File.Delete(filePath);
+                        File.Move(filePath, tempFilePath);
+                    }
+                else
                     client.DownloadFile("https://raw.githubusercontent.com/PureFoxCore/PureMod/main/PureMod/PureMod/output/PureMod.file", filePath);
 
                 if (File.Exists(filePath))
@@ -49,7 +57,7 @@ namespace PureModLoader
                     Mods = Mods.OrderBy(owo => owo.LoadOrder).ToList();
                 }
                 else
-                    CoreLogger.Error("Can't Load PureMod!");
+                    CoreLogger.Error("Can't Load PureMod! [File not found]");
             }
             catch (Exception ex)
             {
@@ -63,7 +71,12 @@ namespace PureModLoader
             LoadMods();
 
             foreach (ModSystem mod in Mods)
+            {
+                if (mod.ShowName)
+                    CoreLogger.Info($"{mod.ModName} loaded!");
+
                 mod.OnEarlierStart();
+            }
         }
 
         public override void VRChat_OnUiManagerInit()
