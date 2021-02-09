@@ -7,6 +7,7 @@ namespace PureMod.Addons
 {
     public class Fly : ModSystem
     {
+        public override int LoadOrder => 1;
         public override string ModName => "Fly";
 
         public static int flySpeed = 2;

@@ -6,6 +6,7 @@ namespace PureMod.Addons
 {
     public class Test : ModSystem
     {
+        public override int LoadOrder => 7;
         public override bool ShowName => false;
 
         public override void OnUpdate()

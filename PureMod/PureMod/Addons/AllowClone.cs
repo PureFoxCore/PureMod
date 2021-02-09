@@ -7,6 +7,7 @@ namespace PureMod.Addons
 {
     public class AllowClone : ModSystem
     {
+        public override int LoadOrder => 3;
         public override string ModName => "Avatar clone";
 
         public override void OnStart()

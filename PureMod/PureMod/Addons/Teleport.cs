@@ -6,6 +6,7 @@ namespace PureMod.Addons
 {
     public class Teleport : ModSystem
     {
+        public override int LoadOrder => 5;
         public override string ModName => "Test teleport";
 
         public override void OnGUI()

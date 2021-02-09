@@ -5,6 +5,7 @@ namespace PureMod.Addons
 {
     public class QuickMenuMenu : ModSystem
     {
+        public override int LoadOrder => 0;
         public override bool ShowName => false;
 
         public static QuickMenuNestedButton mainMenuP1;

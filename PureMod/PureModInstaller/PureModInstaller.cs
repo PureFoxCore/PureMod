@@ -59,7 +59,6 @@ namespace PureModInstaller
         private void GithubButton_Click(object sender, EventArgs e) =>
             Process.Start("https://github.com/PureFoxCore/PureMod");
 
-
         #endregion
 
         #region Select & Install
@@ -85,7 +84,7 @@ namespace PureModInstaller
             if (isVRChatGame)
             {
                 string dir = SelectedPathBox.Text.Replace("VRChat.exe", "Mods");
-                string file = $"{dir}\\PureMod.dll";
+                string file = $"{dir}\\PureModLoader.dll";
 
                 if (!Directory.Exists(dir))
                     Directory.CreateDirectory(dir);
@@ -109,7 +108,7 @@ namespace PureModInstaller
                         MessageBox.Show("Download completed successfully", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 };
 
-                client.DownloadFileAsync(new Uri("https://github.com/PureFoxCore/PureMod/releases/latest/download/PureMod.dll"), file);
+                client.DownloadFileAsync(new Uri("https://github.com/PureFoxCore/PureMod/releases/latest/download/PureModLoader.dll"), file);
             }
             else
                 MessageBox.Show("Selected .exe file is not VRChat.exe\nPlease select VRChat.exe", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);

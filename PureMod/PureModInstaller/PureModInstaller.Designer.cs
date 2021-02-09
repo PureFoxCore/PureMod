@@ -208,7 +208,7 @@ namespace PureModInstaller
             this.InstallButton.Size = new System.Drawing.Size(370, 72);
             this.InstallButton.TabIndex = 4;
             this.InstallButton.TabStop = false;
-            this.InstallButton.Text = "DOWNLOAD | UPDATE";
+            this.InstallButton.Text = "INSTALL | UPDATE";
             this.InstallButton.UseVisualStyleBackColor = false;
             this.InstallButton.Click += new System.EventHandler(this.InstallButton_Click);
             // 
