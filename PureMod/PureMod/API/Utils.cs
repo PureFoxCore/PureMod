@@ -4,6 +4,7 @@ using UnityEngine;
 using VRC.SDKBase;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 namespace PureMod.API
 {
@@ -11,46 +12,26 @@ namespace PureMod.API
     {
         public static Logger.Logger CoreLogger = new Logger.Logger("PureMod", Logger.LogLevel.Trace);
 
-        public static GameObject[] GetAllGameObjects()
-        {
-            return SceneManager.GetActiveScene().GetRootGameObjects();
-        }
+        public static GameObject[] GetAllGameObjects()=>
+            SceneManager.GetActiveScene().GetRootGameObjects();
 
-        public static List<GameObject> GetAllObjectsInSceneTree()
-        {
-            List<GameObject> objectsInScene = new List<GameObject>();
+        public static List<GameObject> GetAllObjectsInSceneTree() =>
+            Resources.FindObjectsOfTypeAll<GameObject>().ToList();
 
-            foreach (GameObject go in Resources.FindObjectsOfTypeAll<GameObject>())
-                objectsInScene.Add(go);
+        public static int GetPlayerCount() =>
+            VRCPlayerApi.GetPlayerCount();
 
-            return objectsInScene;
-        }
+        public static VRCPlayerApi GetLocalPlayer() =>
+            Networking.LocalPlayer;
 
-        public static int GetPlayerCount()
-        {
-            return VRCPlayerApi.GetPlayerCount();
-        }
+        public static VRCPlayerApi GetVRCPlayerApiByID(int ID) =>
+            VRCPlayerApi.GetPlayerById(ID);
 
-        public static VRCPlayerApi GetLocalPlayer()
-        {
-            int ID = 0;
+        public static PlayerManager GetPlayerManager() =>
+            GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
 
-            foreach (var player in VRCPlayerApi.AllPlayers)
-                if (player.isLocal)
-                    ID = player.playerId;
-
-            return VRCPlayerApi.GetPlayerById(ID);
-        }
-
-        public static PlayerManager GetPlayerManager()
-        {
-            return GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
-        }
-
-        public static Il2CppSystem.Collections.Generic.List<Player> GetPlayers()
-        {
-            return GetPlayerManager().field_Private_List_1_Player_0;
-        }
+        public static Il2CppSystem.Collections.Generic.List<Player> GetPlayers() =>
+            GetPlayerManager().field_Private_List_1_Player_0;
 
         public static Il2CppSystem.Collections.Generic.List<APIUser> GetAPIUsers()
         {
@@ -62,14 +43,10 @@ namespace PureMod.API
             return list;
         }
 
-        public static GameObject GetLocalPlayerCamera()
-        {
-            return GameObject.Find("Camera (eye)"); // Success
-        }
+        public static GameObject GetLocalPlayerCamera() =>
+            GameObject.Find("Camera (eye)");
 
-        public static Il2CppSystem.Collections.Generic.List<VRCPlayerApi> GetPlayerAPIs()
-        {
-            return VRCPlayerApi.AllPlayers;
-        }
+        public static Il2CppSystem.Collections.Generic.List<VRCPlayerApi> GetPlayerAPIs() =>
+            VRCPlayerApi.AllPlayers;
     }
 }

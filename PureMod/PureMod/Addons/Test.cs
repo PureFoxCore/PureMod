@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using VRC.SDKBase;
 using PureMod.API;
+using UnhollowerRuntimeLib;
 
 namespace PureMod.Addons
 {
@@ -11,28 +11,11 @@ namespace PureMod.Addons
 
         public override void OnUpdate()
         {
-            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.T))
+            if (Input.GetKeyDown(KeyCode.Keypad8))
             {
-                foreach (var player in VRCPlayerApi.AllPlayers)
-                    Utils.CoreLogger.Trace($"Player: {player.displayName} || ID: {player.playerId}");
-
-                foreach (var player in VRCPlayerApi.AllPlayers)
-                {
-                    if (player.isMaster)
-                        Utils.CoreLogger.Trace($"Master: {player.displayName}");
-                    if (player.isLocal)
-                        Utils.CoreLogger.Trace($"Local: {player.displayName}");
-                    if (player.isModerator)
-                        Utils.CoreLogger.Warn($"Moderator: {player.displayName}");
-                    if (player.isSuper)
-                        Utils.CoreLogger.Warn($"Super: {player.displayName}");
-                }
-                Utils.CoreLogger.Trace("Test!");
+                foreach (var component in Utils.GetLocalPlayer().gameObject.GetComponents(Il2CppType.Of<Component>()))
+                    Utils.CoreLogger.Trace(component.GetIl2CppType().ToString());
             }
-
-            //if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.U))
-            //    foreach (var player in Utils.GetPlayers())
-            //        player.TeleportTo(Utils.GetLocalPlayer().GetPosition(), Utils.GetLocalPlayer().GetRotation());
         }
     }
 }

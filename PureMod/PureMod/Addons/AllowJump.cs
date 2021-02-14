@@ -10,7 +10,7 @@ namespace PureMod.Addons
 
         public override void OnStart()
         {
-            new QuickMenuSingleHalfButton(QuickMenuMenu.mainMenuP1, 1, 0, "Add Jump", delegate ()
+            new SingleButton(QMmenu.mainMenuP1.GetMenuName(), 2, 0, true, "Add Jump", "Add jump on this map", delegate ()
             {
                 if (Utils.GetLocalPlayer().gameObject.GetComponent<PlayerModComponentJump>())
                     return;
@@ -20,7 +20,7 @@ namespace PureMod.Addons
                 jumpComponent.field_Private_Single_1 = 5;
 
                 Utils.CoreLogger.Info("Jump added!");
-            }, "Add jump on this map");
+            });
         }
     }
 }

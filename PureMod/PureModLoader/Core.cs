@@ -24,7 +24,7 @@ namespace PureModLoader
             try
             {
                 if (!File.Exists(filePath))
-                    client.DownloadFile("https://github.com/PureFoxCore/PureMod/releases/latest/download/PureMod.dll", filePath);
+                    client.DownloadFile(new Uri("https://github.com/PureFoxCore/PureMod/releases/latest/download/PureMod.dll"), filePath);
 
                 if (File.Exists(filePath))
                 {
@@ -68,6 +68,7 @@ namespace PureModLoader
 
                 mod.OnEarlierStart();
             }
+            CoreLogger.Info($"Loaded {Mods.Count} mods!");
         }
 
         public override void VRChat_OnUiManagerInit()

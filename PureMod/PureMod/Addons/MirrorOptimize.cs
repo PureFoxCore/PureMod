@@ -1,7 +1,7 @@
-﻿using PureMod.API;
-using PureMod.API.ButtonAPI;
-using UnityEngine;
+﻿using UnityEngine;
 using VRC.SDKBase;
+using PureMod.API;
+using PureMod.API.ButtonAPI;
 
 namespace PureMod.Addons
 {
@@ -12,7 +12,7 @@ namespace PureMod.Addons
 
         public override void OnStart()
         {
-            new QuickMenuToggleHalfButton(QuickMenuMenu.mainMenuP1, 1, 1, "Mirror Q.", "Mirror Toggle Quality", delegate (bool state)
+            new ToggleButton(QMmenu.mainMenuP1.GetMenuName(), 2, 1, true, "Mirror Q.", "Mirror Toggle Quality", delegate (bool state)
             {
                 LayerMask mask = new LayerMask();
                 mask.value = state ? 263680 : -1025;

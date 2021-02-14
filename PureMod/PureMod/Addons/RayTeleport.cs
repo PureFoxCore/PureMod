@@ -11,17 +11,8 @@ namespace PureMod.Addons
         public override void OnUpdate()
         {
             if (Input.GetKey(KeyCode.LeftControl) && Input.GetMouseButtonDown(0))
-            {
-                GameObject playerCamera = Utils.GetLocalPlayerCamera();
-
-                Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
-                RaycastHit[] hits = Physics.RaycastAll(ray);
-                if (hits.Length > 0)
-                {
-                    RaycastHit raycastHit = hits[0];
-                    Utils.GetLocalPlayer().TeleportTo(raycastHit.point, Utils.GetLocalPlayer().GetRotation());
-                }
-            }
+                if (Physics.Raycast(Utils.GetLocalPlayerCamera().GetComponent<Camera>().ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
+                    Utils.GetLocalPlayer().TeleportTo(hit.point, Utils.GetLocalPlayer().GetRotation());
         }
     }
 }

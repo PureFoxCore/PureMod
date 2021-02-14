@@ -8,22 +8,23 @@ namespace PureMod.Addons
     class UpdateModule : ModSystem
     {
         public override int LoadOrder => 9;
-
         public override string ModName => "UpdateModule";
 
         public override void OnStart()
         {
-            new QuickMenuSingleHalfButton(QuickMenuMenu.mainMenuP1, 4, 0, "Update", delegate ()
+            new SingleButton(QMmenu.mainMenuP1.GetMenuName(), 1, 1, true, "Update", "Update PureMod", delegate ()
             {
                 var filePath = Path.Combine(Environment.CurrentDirectory, "Mods\\PureMod.dll");
                 if (File.Exists(filePath))
                 {
-                    File.Delete(filePath);
+                    try { File.Delete(filePath); }
+                    catch { throw; }
+
                     Utils.CoreLogger.Info("File removed, you need to restart VRChat");
                 }
                 else
                     Utils.CoreLogger.Warn("File not exits");
-            }, "Update PureMod");
+            });
         }
     }
 }

@@ -10,13 +10,13 @@ namespace PureMod.Addons
 
         public override void OnStart()
         {
-            new QuickMenuSingleHalfButton(QuickMenuMenu.mainMenuP1, 2, 0, "Allow Clone", delegate ()
+            new SingleButton(QMmenu.mainMenuP1.GetMenuName(), 3, 0, true, "Allow Clone", "Allow avatar cloning for all players", delegate ()
             {
                 for (int i = 0; i < 5; i++)
                     foreach (var apiUser in Utils.GetAPIUsers())
                         apiUser.allowAvatarCopying = true;
                 Utils.CoreLogger.Info("Public avatar clone allowed!");
-            }, "Allow avatar cloning for all players");
+            });
         }
     }
 }
