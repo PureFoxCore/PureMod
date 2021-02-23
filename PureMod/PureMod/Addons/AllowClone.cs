@@ -1,5 +1,4 @@
 ﻿using PureMod.API;
-using PureMod.API.ButtonAPI;
 
 namespace PureMod.Addons
 {
@@ -10,7 +9,7 @@ namespace PureMod.Addons
 
         public override void OnStart()
         {
-            new SingleButton(QMmenu.mainMenuP1.GetMenuName(), 3, 0, true, "Allow Clone", "Allow avatar cloning for all players", delegate ()
+            new ButtonAPI.SingleButton(QMmenu.mainMenuP1.GetMenuName(), 3, 0, true, "Allow Clone", "Allow avatar cloning for all players", delegate ()
             {
                 for (int i = 0; i < 5; i++)
                     foreach (var apiUser in Utils.GetAPIUsers())

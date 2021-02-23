@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using VRC.SDKBase;
 using PureMod.API;
-using PureMod.API.ButtonAPI;
 
 namespace PureMod.Addons
 {
@@ -15,7 +14,7 @@ namespace PureMod.Addons
 
         public override void OnStart()
         {
-            new ToggleButton(QMmenu.mainMenuP1.GetMenuName(), 3, 2, true, "Orbit items", "tornado", delegate (bool state)
+            new ButtonAPI.ToggleButton(QMmenu.mainMenuP1.GetMenuName(), 3, 2, true, "Orbit items", "tornado", delegate (bool state)
             {
                 m_State = state;
             }, Color.red, Color.white);

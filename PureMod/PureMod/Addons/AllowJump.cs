@@ -1,5 +1,4 @@
 ﻿using PureMod.API;
-using PureMod.API.ButtonAPI;
 
 namespace PureMod.Addons
 {
@@ -10,7 +9,7 @@ namespace PureMod.Addons
 
         public override void OnStart()
         {
-            new SingleButton(QMmenu.mainMenuP1.GetMenuName(), 2, 0, true, "Add Jump", "Add jump on this map", delegate ()
+            new ButtonAPI.SingleButton(QMmenu.mainMenuP1.GetMenuName(), 2, 0, true, "Add Jump", "Add jump on this map", delegate ()
             {
                 if (Utils.GetLocalPlayer().gameObject.GetComponent<PlayerModComponentJump>())
                     return;

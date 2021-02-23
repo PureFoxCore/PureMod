@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using PureMod.API;
 using System.Diagnostics;
-using PureMod.API.ButtonAPI;
 
 namespace PureMod.Addons
 {
@@ -12,9 +11,12 @@ namespace PureMod.Addons
 
         public override void OnStart()
         {
-            new SingleButton(QMmenu.mainMenuP1.GetMenuName(), 3, 1, true, "Quit", "ShutDown Game", delegate ()
+            new ButtonAPI.SingleButton(QMmenu.mainMenuP1.GetMenuName(), 3, 1, true, "Quit", "ShutDown Game", delegate ()
              {
-                 Process.GetCurrentProcess().Kill();
+                 PopupAPI.CreateConfirmPopup("Quit?", "Are you sure to quit game?\nIt will kill game prosess", "Yes", "No", delegate ()
+                 {
+                     Process.GetCurrentProcess().Kill();
+                 }, null, null, Color.red, Color.white, Color.red, Color.white);
              }, Color.red);
         }
     }

@@ -1,5 +1,4 @@
 ﻿using PureMod.API;
-using PureMod.API.ButtonAPI;
 
 namespace PureMod.Addons
 {
@@ -11,7 +10,7 @@ namespace PureMod.Addons
 
         public override void OnStart()
         {
-            new SingleButton(QMmenu.mainMenuP1.GetMenuName(), 2, 2, true, "Hands", "Control hands in PC", delegate ()
+            new ButtonAPI.SingleButton(QMmenu.mainMenuP1.GetMenuName(), 2, 2, true, "Hands", "Control hands in PC", delegate ()
             {
                 //var controller = Utils.GetLocalPlayer().prop_VRCAvatarManager_0.prop_GameObject_0.GetComponent<RootMotion.FinalIK.VRIK>();
                 //if (Input.GetMouseButton(1))

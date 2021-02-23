@@ -3,8 +3,9 @@ using System.Linq;
 using UnityEngine.UI;
 using UnhollowerRuntimeLib;
 using Il2CppSystem.Reflection;
+using PureMod.API;
 
-namespace PureMod.API.ButtonAPI
+namespace PureMod.ButtonAPI
 {
     public class ButtonBase
     {

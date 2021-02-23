@@ -1,5 +1,4 @@
 ﻿using PureMod.API;
-using PureMod.API.ButtonAPI;
 
 namespace PureMod.Addons
 {
@@ -11,7 +10,7 @@ namespace PureMod.Addons
 
         public override void OnStart()
         {
-            new NestedButton(QMmenu.mainMenuP1.GetMenuName(), 4, 2, true, "Players", "Player list", delegate()
+            new ButtonAPI.NestedButton(QMmenu.mainMenuP1.GetMenuName(), 4, 2, true, "Players", "Player list", delegate()
             {
 
             });

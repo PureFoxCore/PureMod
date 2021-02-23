@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using PureMod.API;
-using PureMod.API.ButtonAPI;
 
 namespace PureMod.Addons
 {
@@ -11,7 +10,7 @@ namespace PureMod.Addons
 
         public override void OnStart()
         {
-            new ToggleButton(QMmenu.mainMenuP1.GetMenuName(), 4, 1, true, "Step Offset", "Allows you climb without jump", delegate (bool state)
+            new ButtonAPI.ToggleButton(QMmenu.mainMenuP1.GetMenuName(), 4, 1, true, "Step Offset", "Allows you climb without jump", delegate (bool state)
             {
                 CharacterController characterController = Utils.GetLocalPlayer().gameObject.GetComponent<CharacterController>();
 

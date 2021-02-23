@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\..\..\Games\SteamLibrary\steamapps\common\VRChat\Mods\</OutputPath>
+    <OutputPath>..\..\..\..\..\Games\SteamLibrary\steamapps\common\VRChat\PureMod\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -153,6 +153,7 @@
     <Compile Include="API\ButtonAPI\NestedButton.cs" />
     <Compile Include="API\ButtonAPI\SingleButton.cs" />
     <Compile Include="API\ButtonAPI\ToggleButton.cs" />
+    <Compile Include="API\PopupAPI.cs" />
     <Compile Include="API\Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

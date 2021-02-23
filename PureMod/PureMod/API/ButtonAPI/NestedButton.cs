@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-namespace PureMod.API.ButtonAPI
+namespace PureMod.ButtonAPI
 {
     public class NestedButton
     {
-        protected SingleButton mainButton;
-        protected SingleButton backButton;
+        protected ButtonAPI.SingleButton mainButton;
+        protected ButtonAPI.SingleButton backButton;
         protected string menuName;
         protected string btnQMLoc;
         protected string btnType;
@@ -24,7 +24,7 @@ namespace PureMod.API.ButtonAPI
             menuName = "PureMOD" + btnQMLoc + "_" + btnXLocation + "_" + btnYLocation;
             menu.name = menuName;
 
-            mainButton = new SingleButton(btnQMLoc, btnXLocation, btnYLocation, btnHalf, btnText, btnToolTip, delegate() 
+            mainButton = new ButtonAPI.SingleButton(btnQMLoc, btnXLocation, btnYLocation, btnHalf, btnText, btnToolTip, delegate() 
             {
                 if (action != null)
                     action.Invoke();
@@ -42,7 +42,7 @@ namespace PureMod.API.ButtonAPI
 
             if (backbtnTextColor == null)
                 backbtnTextColor = Color.yellow;
-            backButton = new SingleButton(menuName, 5, 5, true, "Back", "Go Back", delegate ()
+            backButton = new ButtonAPI.SingleButton(menuName, 5, 5, true, "Back", "Go Back", delegate ()
             { 
                 QMStuff.ShowQuickmenuPage(btnQMLoc);
             }, backbtnTextColor, backbtnBackgroundColor);
@@ -51,7 +51,7 @@ namespace PureMod.API.ButtonAPI
         public string GetMenuName() =>
             menuName;
 
-        public SingleButton GetMainButton() =>
+        public ButtonAPI.SingleButton GetMainButton() =>
             mainButton;
 
         public SingleButton GetBackButton() =>

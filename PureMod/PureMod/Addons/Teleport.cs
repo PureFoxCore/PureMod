@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using VRC.SDKBase;
 using PureMod.API;
 
 namespace PureMod.Addons
@@ -9,20 +8,10 @@ namespace PureMod.Addons
         public override int LoadOrder => 5;
         public override string ModName => "Test teleport";
 
-        private Il2CppSystem.Collections.Generic.List<VRCPlayerApi> playerList;
-        private int playerCount;
-
-        public override void OnUpdate()
-        {
-            if (Input.GetKeyDown(KeyCode.Tab))
-            {
-                playerList = Utils.GetPlayerAPIs();
-                playerCount = Utils.GetPlayerCount();
-            }
-        }
-
         public override void OnGUI()
         {
+            var playerList = Utils.GetPlayerAPIs();
+            var playerCount = Utils.GetPlayerCount();
             if (Input.GetKey(KeyCode.Tab))
             {
                 for (int i = 0; i < playerCount; i++)

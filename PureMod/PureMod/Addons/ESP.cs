@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using PureMod.API;
-using PureMod.API.ButtonAPI;
 
 namespace PureMod.Addons
 {
@@ -12,7 +11,7 @@ namespace PureMod.Addons
 
         public override void OnStart()
         {
-            new ToggleButton(QMmenu.mainMenuP1.GetMenuName(), 1, 2, true, "ESP", "Wall hack", delegate (bool state)
+            new ButtonAPI.ToggleButton(QMmenu.mainMenuP1.GetMenuName(), 1, 2, true, "ESP", "Wall hack", delegate (bool state)
             {
                 var allPlayers = Utils.GetPlayerAPIs();
 

@@ -19,7 +19,10 @@ namespace PureModLoader
 
         private void LoadMods()
         {
-            var filePath = Path.Combine(Environment.CurrentDirectory, "Mods\\PureMod.dll");
+            if (!Directory.Exists(Path.Combine(Environment.CurrentDirectory, "PureMod")))
+                Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "PureMod"));
+
+            var filePath = Path.Combine(Environment.CurrentDirectory, "PureMod\\PureMod.dll");
 
             try
             {

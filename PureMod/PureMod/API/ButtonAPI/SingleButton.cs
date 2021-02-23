@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace PureMod.API.ButtonAPI
+namespace PureMod.ButtonAPI
 {
     public class SingleButton : ButtonBase
     {
