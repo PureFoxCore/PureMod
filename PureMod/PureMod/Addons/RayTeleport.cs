@@ -5,7 +5,7 @@ namespace PureMod.Addons
 {
     public class RayTeleport : ModSystem
     {
-        public override int LoadOrder => 4;
+        public override int LoadOrder => 1;
         public override string ModName => "Ray Teleport";
 
         public override void OnUpdate()

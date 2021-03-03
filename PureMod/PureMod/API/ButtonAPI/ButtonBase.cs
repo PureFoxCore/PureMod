@@ -53,7 +53,7 @@ namespace PureMod.ButtonAPI
         public void SetToolTip(string buttonToolTip) =>
             button.GetComponent<UiTooltip>().field_Public_String_0 = buttonToolTip;
 
-        public void DestroyMe() =>
+        public void Destroy() =>
             Object.Destroy(button);
 
         public virtual void SetBackgroundColor(Color buttonBackgroundColor, bool save = true) { }
@@ -85,36 +85,28 @@ namespace PureMod.ButtonAPI
         public static GameObject ToggleButtonTemplate()
         {
             if (ToggleButtonReference == null)
-            {
                 ToggleButtonReference = GetQuickMenuInstance().transform.Find("UserInteractMenu/BlockButton").gameObject;
-            }
             return ToggleButtonReference;
         }
 
         public static Transform NestedMenuTemplate()
         {
             if (NestedButtonReference == null)
-            {
                 NestedButtonReference = GetQuickMenuInstance().transform.Find("CameraMenu");
-            }
             return NestedButtonReference;
         }
 
         public static QuickMenu GetQuickMenuInstance()
         {
             if (quickmenuInstance == null)
-            {
                 quickmenuInstance = QuickMenu.prop_QuickMenu_0;
-            }
             return quickmenuInstance;
         }
 
         public static VRCUiManager GetVRCUiMInstance()
         {
             if (vrcuimInstance == null)
-            {
                 vrcuimInstance = VRCUiManager.prop_VRCUiManager_0;
-            }
             return vrcuimInstance;
         }
 

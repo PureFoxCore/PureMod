@@ -59,8 +59,8 @@ namespace PureMod.ButtonAPI
 
         public void DestroyMe()
         {
-            mainButton.DestroyMe();
-            backButton.DestroyMe();
+            mainButton.Destroy();
+            backButton.Destroy();
         }
     }
 }

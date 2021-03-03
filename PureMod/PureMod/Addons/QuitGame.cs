@@ -6,7 +6,7 @@ namespace PureMod.Addons
 {
     public class QuitGame : ModSystem
     {
-        public override int LoadOrder => 12;
+        public override int LoadOrder => 1;
         public override string ModName => "Quit Game";
 
         public override void OnStart()

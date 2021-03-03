@@ -4,6 +4,7 @@ using System.Net;
 using MelonLoader;
 using System.Linq;
 using PureMod.API;
+using System.Timers;
 using System.Reflection;
 using PureMod.API.Logger;
 using System.Collections.Generic;
@@ -72,6 +73,12 @@ namespace PureModLoader
                 mod.OnEarlierStart();
             }
             CoreLogger.Info($"Loaded {Mods.Count} mods!");
+
+            new System.Threading.Timer((e) =>
+            {
+                foreach (ModSystem mod in Mods)
+                    mod.OnUpdate10();
+            }, null, TimeSpan.Zero, TimeSpan.FromSeconds(10));
         }
 
         public override void VRChat_OnUiManagerInit()

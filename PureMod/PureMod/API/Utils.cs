@@ -2,15 +2,21 @@
 using VRC.Core;
 using UnityEngine;
 using VRC.SDKBase;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-using System.Linq;
 
 namespace PureMod.API
 {
     public class Utils
     {
         public static Logger.Logger CoreLogger = new Logger.Logger("PureMod", Logger.LogLevel.Trace);
+
+        public static QuickMenu GetQuickMenu() =>
+            GameObject.Find("UserInterface/QuickMenu").GetComponent<QuickMenu>();
+
+        public static Player GetSelectedPlayer() =>
+            GetQuickMenu().field_Private_Player_0;
 
         public static GameObject[] GetAllGameObjects()=>
             SceneManager.GetActiveScene().GetRootGameObjects();
@@ -42,6 +48,9 @@ namespace PureMod.API
 
             return list;
         }
+
+        public static void QMSelectPlayer(Player player) =>
+            GetQuickMenu().Method_Public_Void_Player_0(player);
 
         public static GameObject GetLocalPlayerCamera() =>
             GameObject.Find("Camera (eye)");

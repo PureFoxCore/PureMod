@@ -5,7 +5,7 @@ namespace PureMod.Addons
 {
     public class VSync : ModSystem
     {
-        public override int LoadOrder => 6;
+        public override int LoadOrder => 1;
         public override string ModName => "VSync";
 
         public override void OnStart()

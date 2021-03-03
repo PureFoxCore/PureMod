@@ -4,7 +4,7 @@ namespace PureMod.Addons
 {
     public class AllowJump : ModSystem
     {
-        public override int LoadOrder => 2;
+        public override int LoadOrder => 1;
         public override string ModName => "AllowJump";
 
         public override void OnStart()

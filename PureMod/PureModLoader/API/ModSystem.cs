@@ -12,5 +12,6 @@
         public virtual void OnLateUpdate() { }
         public virtual void OnGUI() { }
         public virtual void OnQuit() { }
+        public virtual void OnUpdate10() { }
     }
 }

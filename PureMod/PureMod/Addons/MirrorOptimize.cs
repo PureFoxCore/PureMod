@@ -6,7 +6,7 @@ namespace PureMod.Addons
 {
     public class MirrorOptimize : ModSystem
     {
-        public override int LoadOrder => 10;
+        public override int LoadOrder => 1;
         public override string ModName => "Mirror Quality";
 
         public override void OnStart()

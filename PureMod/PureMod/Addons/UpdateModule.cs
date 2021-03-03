@@ -6,7 +6,7 @@ namespace PureMod.Addons
 {
     class UpdateModule : ModSystem
     {
-        public override int LoadOrder => 9;
+        public override int LoadOrder => 1;
         public override string ModName => "UpdateModule";
 
         public override void OnStart()

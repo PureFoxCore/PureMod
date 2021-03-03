@@ -10,6 +10,7 @@
     <RootNamespace>PureMod</RootNamespace>
     <AssemblyName>PureMod</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <LangVersion>8.0</LangVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
@@ -39,14 +42,22 @@
       <HintPath>..\..\..\..\..\Games\SteamLibrary\steamapps\common\VRChat\MelonLoader\Managed\Il2Cppmscorlib.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\Games\SteamLibrary\steamapps\common\VRChat\MelonLoader\Managed\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIExpansionKit">
+      <HintPath>..\..\..\..\..\Games\SteamLibrary\steamapps\common\VRChat\MelonLoader\Managed\UIExpansionKit.dll</HintPath>
+    </Reference>
     <Reference Include="UnhollowerBaseLib">
       <HintPath>..\..\..\..\..\Games\SteamLibrary\steamapps\common\VRChat\MelonLoader\Managed\UnhollowerBaseLib.dll</HintPath>
       <Private>False</Private>
@@ -129,24 +140,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Addons\AllowClone.cs" />
     <Compile Include="Addons\AllowJump.cs" />
     <Compile Include="Addons\ESP.cs" />
     <Compile Include="Addons\Fly.cs" />
+    <Compile Include="Addons\ForceClone.cs" />
     <Compile Include="Addons\FPSUnlimiter.cs" />
-    <Compile Include="Addons\HandController.cs" />
+    <Compile Include="Addons\LoadAvatarFromClipboard.cs" />
     <Compile Include="Addons\MirrorOptimize.cs" />
     <Compile Include="Addons\ObjectTeleport.cs" />
-    <Compile Include="Addons\OrbitItem.cs" />
-    <Compile Include="Addons\Pizdec.cs" />
+    <Compile Include="Addons\TPItems.cs" />
     <Compile Include="Addons\PlayerList.cs" />
     <Compile Include="Addons\QMmenu.cs" />
     <Compile Include="Addons\QuitGame.cs" />
     <Compile Include="Addons\RayTeleport.cs" />
     <Compile Include="Addons\RemoveObjects.cs" />
-    <Compile Include="Addons\StepOffset.cs" />
-    <Compile Include="Addons\Teleport.cs" />
-    <Compile Include="Addons\Test.cs" />
+    <Compile Include="Addons\TestTeleport.cs" />
     <Compile Include="Addons\UpdateModule.cs" />
     <Compile Include="Addons\VSync.cs" />
     <Compile Include="API\ButtonAPI\ButtonBase.cs" />
@@ -163,6 +171,9 @@
       <Name>PureModLoader</Name>
       <Private>False</Private>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Config\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
