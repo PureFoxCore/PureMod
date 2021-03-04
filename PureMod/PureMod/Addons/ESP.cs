@@ -23,7 +23,7 @@ namespace PureMod.Addons
                 Update();
             }, Color.magenta, Color.white);
 
-            new ButtonAPI.ToggleButton(menu.GetMenuName(), 2, 0, true, "ESP Objects", "To see all objects", delegate (bool state)
+            new ButtonAPI.ToggleButton(menu.GetMenuName(), 1, 1, true, "ESP Objects", "To see all objects", delegate (bool state)
             {
                 m_ObjectState = state;
                 Update();

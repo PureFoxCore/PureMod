@@ -12,7 +12,7 @@ namespace PureMod.Addons
 
         public override void OnStart()
         {
-            new ButtonAPI.SingleButton(QMmenu.userMenuP1.GetMenuName(), 1, 0, true, "ForceClone", "Force clone public avatar0", delegate ()
+            new ButtonAPI.SingleButton(QMmenu.userMenuP1.GetMenuName(), 1, 0, true, "ForceClone", "Force clone public avatar", delegate ()
             {
                 ApiAvatar avatar = Utils.GetSelectedPlayer().field_Internal_VRCPlayer_0.prop_ApiAvatar_0;
 
