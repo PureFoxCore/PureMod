@@ -1,2 +1,2 @@
-# PureMod
-Simple mod for VRChat
+# PureMod - Simple mod for VRChat
+## Also project is dead ;-;
