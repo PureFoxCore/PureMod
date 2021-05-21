@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
-using PureModLoader.API;
 using UnhollowerRuntimeLib;
 using Il2CppSystem.Reflection;
 
@@ -119,7 +118,7 @@ namespace PureModLoader.ButtonAPI
             QuickMenu quickmenu = GetQuickMenuInstance();
             Transform pageTransform = quickmenu?.transform.Find(pagename);
             if (pageTransform == null)
-                Utils.CoreLogger.Critical("pageTransform is null !");
+                Core.CoreLogger.Critical("pageTransform is null !");
 
             if (currentPageGetter == null)
             {
@@ -141,7 +140,7 @@ namespace PureModLoader.ButtonAPI
                 }
                 if (currentPageGetter == null)
                 {
-                    Utils.CoreLogger.Critical("Unable to find field currentPage in QuickMenu");
+                    Core.CoreLogger.Critical("Unable to find field currentPage in QuickMenu");
                     return;
                 }
             }

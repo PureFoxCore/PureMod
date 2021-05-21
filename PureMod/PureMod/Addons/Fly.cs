@@ -29,7 +29,7 @@ namespace PureMod.Addons
             {
                 isFly = !isFly;
                 Utils.GetLocalPlayer().gameObject.GetComponent<CharacterController>().enabled = !isFly;
-                Utils.CoreLogger.Trace(isFly ? "Fly enabled" : "Fly Disabled");
+                ModUtils.PureModLogger.Trace(isFly ? "Fly enabled" : "Fly Disabled");
 
                 player = Utils.GetLocalPlayer().gameObject;
                 playerCamera = Utils.GetLocalPlayerCamera();

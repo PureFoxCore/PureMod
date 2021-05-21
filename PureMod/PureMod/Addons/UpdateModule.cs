@@ -21,10 +21,10 @@ namespace PureMod.Addons
                     try { File.Delete(filePath); }
                     catch { throw; }
 
-                    Utils.CoreLogger.Info("File removed, you need to restart VRChat");
+                    ModUtils.PureModLogger.Info("File removed, you need to restart VRChat");
                 }
                 else
-                    Utils.CoreLogger.Warn("File not exits");
+                    ModUtils.PureModLogger.Warn("File not exits");
             });
         }
     }

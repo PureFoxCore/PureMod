@@ -13,8 +13,9 @@ namespace PureModLoader
 {
     public class Core : MelonMod
     {
+        public static Logger CoreLogger = new Logger("PureModLoader", LogLevel.Trace);
+        
         private static List<ModSystem> Mods = new List<ModSystem>();
-        private static Logger CoreLogger = new Logger("PureModLoader", LogLevel.Trace);
         private static WebClient client = new WebClient();
 
         private void LoadMods()
@@ -31,7 +32,7 @@ namespace PureModLoader
                     if (file.EndsWith(".dll"))
                     {
                         Assembly.LoadFile(file);
-                        CoreLogger.Info($"{file} Loaded");
+                        CoreLogger.Info($"[{file}] Loaded!");
 
                         var result = new List<Type>();
                         var assemblies = AppDomain.CurrentDomain.GetAssemblies();
@@ -65,7 +66,7 @@ namespace PureModLoader
             foreach (ModSystem mod in Mods)
             {
                 if (mod.ShowName)
-                    CoreLogger.Info($"{mod.ModName} loaded!");
+                    CoreLogger.Trace($"{mod.ModName} loaded!");
 
                 mod.OnEarlierStart();
             }

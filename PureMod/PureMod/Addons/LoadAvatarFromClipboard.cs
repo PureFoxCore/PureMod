@@ -31,7 +31,7 @@ namespace PureMod.Addons
                         }
                     }.ChangeToSelectedAvatar();
                 else
-                    Utils.CoreLogger.Error("Clipboard does not contains Avatar ID!");
+                    ModUtils.PureModLogger.Error("Clipboard does not contains Avatar ID!");
             });
         }
     }

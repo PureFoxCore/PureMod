@@ -7,6 +7,20 @@ namespace PureModLoader.ButtonAPI
     {
         private bool m_State;
 
+        /// <summary>
+        /// Create toggle button to switch
+        /// </summary>
+        /// <param name="btnMenu">Where to place this button</param>
+        /// <param name="btnXLocation">X location of button (0 means place where worlds button in "ESC" menu)</param>
+        /// <param name="btnYLocation">Y location of button (0 means place where worlds button in "ESC" menu)</param>
+        /// <param name="btnHalf">Make half button horizontally</param>
+        /// <param name="btnText">Button text</param>
+        /// <param name="btnToolTip">Button tooltip (shows on top tooltip panel when you hower button)</param>
+        /// <param name="btnAction">What to do when you press button</param>
+        /// <param name="btnTextColorOn">Button text color when swithced on</param>
+        /// <param name="btnTextColorOff">Button text color when swithced off</param>
+        /// <param name="state">Button initial state (by default false)</param>
+        /// <param name="btnBackgroundColor">Button background color (optional)</param>
         public ToggleButton(string btnMenu, int btnXLocation, int btnYLocation, bool btnHalf, string btnText, string btnToolTip, System.Action<bool> btnAction, Color btnTextColorOn, Color btnTextColorOff, bool state = false, Color? btnBackgroundColor = null)
         {
             btnQMLoc = btnMenu;
@@ -15,7 +29,7 @@ namespace PureModLoader.ButtonAPI
 
         private void initButton(int btnXLocation, int btnYLocation, bool btnHalf, string btnText, System.Action<bool> btnAction, string btnToolTip, Color? btnBackgroundColor = null, Color? btnTextColorOn = null, bool state = false, Color? btnTextColorOff = null)
         {
-            btnType = "SingleButton";
+            btnType = "ToggleButton";
             button = Object.Instantiate(QMStuff.SingleButtonTemplate(), QMStuff.GetQuickMenuInstance().transform.Find(btnQMLoc), true);
 
             initShift[0] = -1;

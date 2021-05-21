@@ -15,7 +15,7 @@ namespace PureMod.Addons
             new ToggleButton(QMmenu.mainMenuP1.GetMenuName(), 4, 0, true, "VSync", "Toggle vertical synchronization", delegate (bool state)
             {
                 QualitySettings.vSyncCount = state ? 1 : 0;
-                Utils.CoreLogger.Info(state ? "VSync On" : "VSync Off");
+                ModUtils.PureModLogger.Info(state ? "VSync On" : "VSync Off");
             }, Color.yellow, Color.white);
         }
     }

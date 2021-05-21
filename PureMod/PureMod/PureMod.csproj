@@ -248,6 +248,7 @@
     <Compile Include="Addons\RemoveObjects.cs" />
     <Compile Include="Addons\TestTeleport.cs" />
     <Compile Include="Addons\UpdateModule.cs" />
+    <Compile Include="Addons\Utils.cs" />
     <Compile Include="Addons\VSync.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -26,7 +26,7 @@ namespace PureMod.Addons
                 for (int i = 0; i < array4.Length; i++)
                     array4[i].m_ReflectLayers = mask;
 
-                Utils.CoreLogger.Info(state ? "Mirror quality set to max" : "Mirror quality set to min");
+                ModUtils.PureModLogger.Info(state ? "Mirror quality set to max" : "Mirror quality set to min");
             }, Color.green, Color.white);
         }
     }

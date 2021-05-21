@@ -14,19 +14,30 @@ namespace PureModLoader.API.Logger
         #endregion
 
         #region Constructor [Init]
-
+        /// <summary>
+        /// Initialize logger with [Name] and [Trace level]
+        /// </summary>
         public Logger()
         {
             m_Name = "Name";
             m_Level = LogLevel.Trace;
         }
 
+        /// <summary>
+        /// Initialize logger with [Trace level]
+        /// </summary>
+        /// <param name="name">Logger name (shows in console)</param>
         public Logger(string name)
         {
             m_Name = name;
             m_Level = LogLevel.Trace;
         }
 
+        /// <summary>
+        /// Initialize logger
+        /// </summary>
+        /// <param name="name">Logger name (shows in console)</param>
+        /// <param name="level">Loglevel</param>
         public Logger(string name, LogLevel level)
         {
             m_Name = name;
@@ -36,47 +47,74 @@ namespace PureModLoader.API.Logger
         #endregion
 
         #region Set
-
+        /// <summary>
+        /// Change logger name
+        /// </summary>
+        /// <param name="name">Logger name (shows in console)</param>
         public void SetName(string name) =>
             m_Name = name;
+
+        /// <summary>
+        /// Change logger LogLevel
+        /// </summary>
+        /// <param name="level">LogLevel</param>
         public void SetLevel(LogLevel level) =>
             m_Level = level;
 
         #endregion
 
         #region Log
-
+        /// <summary>
+        /// Log message to console with [Trace] level
+        /// </summary>
+        /// <param name="message">Object to log. It can be anything</param>
         public void Trace(object message)
         {
             if (m_Level >= LogLevel.Trace)
                 InternalLog(message, ConsoleColor.White);
         }
 
+        /// <summary>
+        /// Log message to console with [Info] level
+        /// </summary>
+        /// <param name="message">Object to log. It can be anything</param>
         public void Info(object message)
         {
             if (m_Level >= LogLevel.Info)
                 InternalLog(message, ConsoleColor.Green);
         }
 
+        /// <summary>
+        /// Log message to console with [Warn] level
+        /// </summary>
+        /// <param name="message">Object to log. It can be anything</param>
         public void Warn(object message)
         {
             if (m_Level >= LogLevel.Warn)
                 InternalLog(message, ConsoleColor.Yellow);
         }
 
+        /// <summary>
+        /// Log message to console with [Error] level
+        /// </summary>
+        /// <param name="message">Object to log. It can be anything</param>
         public void Error(object message)
         {
             if (m_Level >= LogLevel.Error)
                 InternalLog(message, ConsoleColor.Red);
         }
 
+        /// <summary>
+        /// Log message to console with [Critical] level
+        /// </summary>
+        /// <param name="message">Object to log. It can be anything</param>
         public void Critical(object message)
         {
             if (m_Level >= LogLevel.Critical)
                 InternalLog(message, ConsoleColor.White, ConsoleColor.Red);
         }
 
-        public void Log(object message, LogLevel level)
+        private void Log(object message, LogLevel level)
         {
             if (level == LogLevel.Trace)
                 Trace(message);

@@ -30,10 +30,10 @@ namespace PureMod.Addons
                             }
                         }
                     }.ChangeToSelectedAvatar();
-                    Utils.CoreLogger.Trace($"Changed to avatar: {avatar.id}");
+                    ModUtils.PureModLogger.Trace($"Changed to avatar: {avatar.id}");
                 }
                 else
-                    Utils.CoreLogger.Warn($"Avatar release status is PRIVATE! ID: {avatar.id}");
+                    ModUtils.PureModLogger.Warn($"Avatar release status is PRIVATE! ID: {avatar.id}");
             });
         }
     }

@@ -20,7 +20,7 @@ namespace PureMod.Addons
                 jumpComponent.field_Private_Single_0 = 5;
                 jumpComponent.field_Private_Single_1 = 5;
 
-                Utils.CoreLogger.Info("Jump added!");
+                ModUtils.PureModLogger.Info("Jump added!");
             });
         }
     }
