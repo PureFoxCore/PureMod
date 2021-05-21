@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using PureMod.API;
 using VRC.SDKBase;
+using PureModLoader.API;
 
 namespace PureMod.Addons
 {

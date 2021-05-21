@@ -4,11 +4,10 @@ using System.Net;
 using MelonLoader;
 using System.Linq;
 using PureMod.API;
-using System.Timers;
 using System.Reflection;
-using PureMod.API.Logger;
+using PureModLoader.API.Logger;
 using System.Collections.Generic;
-using Logger = PureMod.API.Logger.Logger;
+using Logger = PureModLoader.API.Logger.Logger;
 
 namespace PureModLoader
 {
@@ -20,50 +19,48 @@ namespace PureModLoader
 
         private void LoadMods()
         {
-            if (!Directory.Exists(Path.Combine(Environment.CurrentDirectory, "PureMod")))
-                Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "PureMod"));
+            if (!Directory.Exists(Path.Combine(Environment.CurrentDirectory, "PureMod\\Mods")))
+                Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "PureMod\\Mods"));
 
-            var filePath = Path.Combine(Environment.CurrentDirectory, "PureMod\\PureMod.dll");
+            var files = Directory.GetFiles(Path.Combine(Environment.CurrentDirectory, "PureMod\\Mods"));
 
-            try
+            foreach (var file in files)
             {
-                if (!File.Exists(filePath))
-                    client.DownloadFile(new Uri("https://github.com/PureFoxCore/PureMod/releases/latest/download/PureMod.dll"), filePath);
-
-                if (File.Exists(filePath))
+                try
                 {
-                    Assembly.LoadFile(filePath);
-                    CoreLogger.Info("PureMod Loaded");
-
-                    var result = new List<Type>();
-                    var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-
-                    foreach (var assembly in assemblies)
+                    if (file.EndsWith(".dll"))
                     {
-                        var types = assembly.GetTypes();
-                        foreach (var type in types)
-                            if (type.IsSubclassOf(typeof(ModSystem)))
-                                result.Add(type);
+                        Assembly.LoadFile(file);
+                        CoreLogger.Info($"{file} Loaded");
+
+                        var result = new List<Type>();
+                        var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+
+                        foreach (var assembly in assemblies)
+                        {
+                            var types = assembly.GetTypes();
+                            foreach (var type in types)
+                                if (type.IsSubclassOf(typeof(ModSystem)))
+                                    result.Add(type);
+                        }
+
+                        foreach (var item in result)
+                            Mods.Add((ModSystem)Activator.CreateInstance(item));
+
+                        Mods = Mods.OrderBy(owo => owo.LoadOrder).ToList();
                     }
-
-                    foreach (var item in result)
-                        Mods.Add((ModSystem)Activator.CreateInstance(item));
-
-                    Mods = Mods.OrderBy(owo => owo.LoadOrder).ToList();
                 }
-                else
-                    CoreLogger.Error("Can't Load PureMod! [File not found]");
-            }
-            catch (Exception ex)
-            {
-                CoreLogger.Error("Can't Load PureMod!");
-                CoreLogger.Error(ex.ToString());
+                catch (Exception ex)
+                {
+                    CoreLogger.Error($"Can't Load {file}!");
+                    CoreLogger.Error(ex.ToString());
+                }
             }
         }
 
         public override void OnApplicationStart()
         {
-            LoadMods();
+            LoadMods(); 
 
             foreach (ModSystem mod in Mods)
             {

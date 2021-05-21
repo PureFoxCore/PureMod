@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PureMod.API.Logger
+namespace PureModLoader.API.Logger
 {
     public class Logger
     {

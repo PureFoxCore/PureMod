@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using PureMod.API;
 using VRC.SDKBase;
+using PureModLoader.API;
+using PureModLoader.ButtonAPI;
 
 namespace PureMod.Addons
 {
@@ -15,7 +17,7 @@ namespace PureMod.Addons
 
         public override void OnStart()
         {
-            new ButtonAPI.ToggleButton(QMmenu.mainMenuP1.GetMenuName(), 3, 2, true, "TP items", "tornado", delegate (bool state)
+            new ToggleButton(QMmenu.mainMenuP1.GetMenuName(), 3, 2, true, "TP items", "tornado", delegate (bool state)
             {
                 m_State = state;
                 player = Utils.GetLocalPlayer().gameObject;

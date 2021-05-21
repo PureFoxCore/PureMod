@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using PureMod.API;
+using PureModLoader.API;
+using PureModLoader.ButtonAPI;
 
 namespace PureMod.Addons
 {
@@ -10,7 +12,7 @@ namespace PureMod.Addons
 
         public override void OnStart()
         {
-            new ButtonAPI.ToggleButton(QMmenu.mainMenuP1.GetMenuName(), 4, 0, true, "VSync", "Toggle vertical synchronization", delegate (bool state)
+            new ToggleButton(QMmenu.mainMenuP1.GetMenuName(), 4, 0, true, "VSync", "Toggle vertical synchronization", delegate (bool state)
             {
                 QualitySettings.vSyncCount = state ? 1 : 0;
                 Utils.CoreLogger.Info(state ? "VSync On" : "VSync Off");

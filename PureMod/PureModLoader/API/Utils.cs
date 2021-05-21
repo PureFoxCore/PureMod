@@ -6,7 +6,7 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
-namespace PureMod.API
+namespace PureModLoader.API
 {
     public class Utils
     {

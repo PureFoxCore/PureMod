@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\..\..\Program Files %28x86%29\Steam\steamapps\common\VRChat\PureMod\</OutputPath>
+    <OutputPath>..\..\..\..\..\..\..\Program Files %28x86%29\Steam\steamapps\common\VRChat\PureMod\Mods\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -249,12 +249,6 @@
     <Compile Include="Addons\TestTeleport.cs" />
     <Compile Include="Addons\UpdateModule.cs" />
     <Compile Include="Addons\VSync.cs" />
-    <Compile Include="API\ButtonAPI\ButtonBase.cs" />
-    <Compile Include="API\ButtonAPI\NestedButton.cs" />
-    <Compile Include="API\ButtonAPI\SingleButton.cs" />
-    <Compile Include="API\ButtonAPI\ToggleButton.cs" />
-    <Compile Include="API\PopupAPI.cs" />
-    <Compile Include="API\Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

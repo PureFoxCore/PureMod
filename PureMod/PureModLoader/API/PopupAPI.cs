@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Il2CppSystem.Collections.Generic;
 
-namespace PureMod.API
+namespace PureModLoader.API
 {
     public static class PopupAPI
     {

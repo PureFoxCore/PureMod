@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace PureMod.ButtonAPI
+namespace PureModLoader.ButtonAPI
 {
     public class NestedButton
     {

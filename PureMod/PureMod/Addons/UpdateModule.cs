@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using PureMod.API;
+using PureModLoader.API;
+using PureModLoader.ButtonAPI;
 
 namespace PureMod.Addons
 {
@@ -11,7 +13,7 @@ namespace PureMod.Addons
 
         public override void OnStart()
         {
-            new ButtonAPI.SingleButton(QMmenu.mainMenuP1.GetMenuName(), 1, 1, true, "Update", "Update PureMod", delegate ()
+            new SingleButton(QMmenu.mainMenuP1.GetMenuName(), 1, 1, true, "Update", "Update PureMod", delegate ()
             {
                 var filePath = Path.Combine(Environment.CurrentDirectory, "PureMod\\PureMod.dll");
                 if (File.Exists(filePath))

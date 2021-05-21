@@ -1,4 +1,4 @@
-﻿namespace PureMod.API.Logger
+﻿namespace PureModLoader.API.Logger
 {
     public enum LogLevel
     {

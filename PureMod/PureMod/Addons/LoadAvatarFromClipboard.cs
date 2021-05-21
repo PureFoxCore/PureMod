@@ -2,7 +2,9 @@
 using VRC.UI;
 using VRC.Core;
 using PureMod.API;
+using PureModLoader.API;
 using System.Windows.Forms;
+using PureModLoader.ButtonAPI;
 
 namespace PureMod.Addons
 {
@@ -13,7 +15,7 @@ namespace PureMod.Addons
 
         public override void OnStart()
         {
-            new ButtonAPI.SingleButton(QMmenu.mainMenuP1.GetMenuName(), 3, 0, true, "Load Avatar", "Load Avatar From Clipboard", delegate ()
+            new SingleButton(QMmenu.mainMenuP1.GetMenuName(), 3, 0, true, "Load Avatar", "Load Avatar From Clipboard", delegate ()
             {
                 string text = Clipboard.GetText();
 

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using VRC.SDKBase;
 using PureMod.API;
+using PureModLoader.API;
+using PureModLoader.ButtonAPI;
 
 namespace PureMod.Addons
 {
@@ -15,15 +17,15 @@ namespace PureMod.Addons
 
         public override void OnStart()
         {
-            var menu = new ButtonAPI.NestedButton(QMmenu.mainMenuP1.GetMenuName(), 1, 2, true, "ESP Menu", "ESP Menu");
+            var menu = new NestedButton(QMmenu.mainMenuP1.GetMenuName(), 1, 2, true, "ESP Menu", "ESP Menu");
 
-            new ButtonAPI.ToggleButton(menu.GetMenuName(), 1, 0, true, "ESP Players", "To see all players", delegate (bool state)
+            new ToggleButton(menu.GetMenuName(), 1, 0, true, "ESP Players", "To see all players", delegate (bool state)
             {
                 m_PlayerState = state;
                 Update();
             }, Color.magenta, Color.white);
 
-            new ButtonAPI.ToggleButton(menu.GetMenuName(), 1, 1, true, "ESP Objects", "To see all objects", delegate (bool state)
+            new ToggleButton(menu.GetMenuName(), 1, 1, true, "ESP Objects", "To see all objects", delegate (bool state)
             {
                 m_ObjectState = state;
                 Update();

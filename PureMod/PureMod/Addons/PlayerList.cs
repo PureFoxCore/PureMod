@@ -1,4 +1,6 @@
 ﻿using PureMod.API;
+using PureModLoader.API;
+using PureModLoader.ButtonAPI;
 using System.Collections.Generic;
 
 namespace PureMod.Addons
@@ -9,12 +11,12 @@ namespace PureMod.Addons
 
         public override string ModName => "Player list";
 
-        private ButtonAPI.NestedButton teleportMenu;
-        private List<ButtonAPI.SingleButton> playerButtons = new List<ButtonAPI.SingleButton>();
+        private NestedButton teleportMenu;
+        private List<SingleButton> playerButtons = new List<SingleButton>();
 
         public override void OnStart()
         {
-            teleportMenu = new ButtonAPI.NestedButton(QMmenu.mainMenuP1.GetMenuName(), 4, 2, true, "Players", "Player list", delegate()
+            teleportMenu = new NestedButton(QMmenu.mainMenuP1.GetMenuName(), 4, 2, true, "Players", "Player list", delegate()
             {
                 foreach (var button in playerButtons)
                     button.Destroy();
@@ -24,7 +26,7 @@ namespace PureMod.Addons
 
                 for (int i = 0; i < Utils.GetPlayerCount(); i++)
                 {
-                    playerButtons.Add(new ButtonAPI.SingleButton(teleportMenu.GetMenuName(), x, y, true, players[i].prop_APIUser_0.displayName, $"Select {players[i].prop_APIUser_0.displayName}", delegate ()
+                    playerButtons.Add(new SingleButton(teleportMenu.GetMenuName(), x, y, true, players[i].prop_APIUser_0.displayName, $"Select {players[i].prop_APIUser_0.displayName}", delegate ()
                     {
                         Utils.QMSelectPlayer(players[i]);
                     }));
