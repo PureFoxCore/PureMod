@@ -105,16 +105,12 @@ namespace PureModInstaller
                     foreach (DirectoryInfo dirs in dim.GetDirectories())
                         dirs.Delete(true);
                 }
-                else
-                {
-                    // Remove Loader
-                    if (File.Exists(loaderFile))
-                        File.Delete(loaderFile);
+                else if (File.Exists(loaderFile)) // Remove old Loader
+                    File.Delete(loaderFile);
 
-                    // Remove Mods
-                    if (File.Exists(modFile))
-                        File.Delete(modFile);
-                }
+                // Remove old mod
+                if (File.Exists(modFile))
+                    File.Delete(modFile);
 
                 client.DownloadFileCompleted += (object cs, System.ComponentModel.AsyncCompletedEventArgs ce) =>
                 {
