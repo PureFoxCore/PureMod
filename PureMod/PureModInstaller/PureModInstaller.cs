@@ -83,22 +83,38 @@ namespace PureModInstaller
         {
             if (isVRChatGame)
             {
-                string dir = SelectedPathBox.Text.Replace("VRChat.exe", "Mods");
-                string file = $"{dir}\\PureModLoader.dll";
+                string loaderDir = SelectedPathBox.Text.Replace("VRChat.exe", "Mods"); // VRChat/Mods directory
+                string modsDir = SelectedPathBox.Text.Replace("VRChat.exe", "PureMod") + "\\Mods"; // VRChat/PureMod/Mods directory
+                string loaderFile = $"{loaderDir}\\PureModLoader.dll";
+                string modFile = $"{modsDir}\\PureMod.dll";
 
-                if (!Directory.Exists(dir))
-                    Directory.CreateDirectory(dir);
+                if (!Directory.Exists(loaderDir))
+                    Directory.CreateDirectory(loaderDir);
 
                 if (FrechInstallCBox.Checked)
                 {
-                    DirectoryInfo di = new DirectoryInfo(dir);
+                    DirectoryInfo di = new DirectoryInfo(loaderDir);
                     foreach (FileInfo files in di.GetFiles())
                         files.Delete();
                     foreach (DirectoryInfo dirs in di.GetDirectories())
                         dirs.Delete(true);
+
+                    DirectoryInfo dim = new DirectoryInfo(modsDir);
+                    foreach (FileInfo files in dim.GetFiles())
+                        files.Delete();
+                    foreach (DirectoryInfo dirs in dim.GetDirectories())
+                        dirs.Delete(true);
                 }
-                else if (File.Exists(file))
-                    File.Delete(file);
+                else
+                {
+                    // Remove Loader
+                    if (File.Exists(loaderFile))
+                        File.Delete(loaderFile);
+
+                    // Remove Mods
+                    if (File.Exists(modFile))
+                        File.Delete(modFile);
+                }
 
                 client.DownloadFileCompleted += (object cs, System.ComponentModel.AsyncCompletedEventArgs ce) =>
                 {
@@ -108,7 +124,8 @@ namespace PureModInstaller
                         MessageBox.Show("Download completed successfully", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 };
 
-                client.DownloadFileAsync(new Uri("https://github.com/PureFoxCore/PureMod/releases/latest/download/PureModLoader.dll"), file);
+                client.DownloadFileAsync(new Uri("https://github.com/PureFoxCore/PureMod/releases/latest/download/PureModLoader.dll"), loaderFile);
+                client.DownloadFileAsync(new Uri("https://github.com/PureFoxCore/PureMod/releases/latest/download/PureMod.dll"), modFile);
             }
             else
                 MessageBox.Show("Selected .exe file is not VRChat.exe\nPlease select VRChat.exe", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
