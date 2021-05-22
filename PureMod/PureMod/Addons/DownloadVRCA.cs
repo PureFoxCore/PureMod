@@ -5,7 +5,7 @@ using PureModLoader.ButtonAPI;
 
 namespace PureMod.Addons
 {
-    public class DownloadVRCA : ModSystem
+    public class DownloadVRCA : ModBase
     {
         public override int LoadOrder => 1;
         public override string ModName => "Download VRCA";

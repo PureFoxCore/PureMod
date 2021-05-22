@@ -5,7 +5,7 @@ using PureModLoader.ButtonAPI;
 
 namespace PureMod.Addons
 {
-    public class Hands : ModSystem
+    public class Hands : ModBase
     {
         public override int LoadOrder => 1;
 

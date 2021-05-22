@@ -7,7 +7,7 @@ using PureModLoader.ButtonAPI;
 
 namespace PureMod.Addons
 {
-    public class ForceClone : ModSystem
+    public class ForceClone : ModBase
     {
         public override string ModName => "Force Clone";
         public override int LoadOrder => 1;

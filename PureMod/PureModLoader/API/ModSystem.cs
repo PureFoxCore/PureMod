@@ -1,9 +1,9 @@
 ﻿namespace PureMod.API
 {
     /// <summary>
-    /// Virtual mod system
+    /// Virtual mod system base (use for creating mods :D)
     /// </summary>
-    public class ModSystem
+    public class ModBase
     {
         /// <summary>
         /// Load order for mod (by default 0)

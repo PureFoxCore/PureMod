@@ -5,7 +5,7 @@ using PureModLoader.API;
 
 namespace PureMod.Addons
 {
-    public class RemoveObjects : ModSystem
+    public class RemoveObjects : ModBase
     {
         public override int LoadOrder => 1;
         public override string ModName => "Remove Objects";

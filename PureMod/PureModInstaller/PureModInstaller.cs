@@ -63,6 +63,15 @@ namespace PureModInstaller
 
         #region Select & Install
 
+        private void FrechInstallCBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FrechInstallCBox.Checked)
+            {
+                var res = MessageBox.Show("FRESH INSTALL MEANS DELETING ALL MODS AND INSTALLING PUREMOD!\nDo you want this?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                FrechInstallCBox.Checked = res == DialogResult.Yes;
+            }
+        }
+
         private void SelectPathButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
@@ -90,6 +99,9 @@ namespace PureModInstaller
 
                 if (!Directory.Exists(loaderDir))
                     Directory.CreateDirectory(loaderDir);
+                
+                if (!Directory.Exists(modsDir))
+                    Directory.CreateDirectory(modsDir);
 
                 if (FrechInstallCBox.Checked)
                 {

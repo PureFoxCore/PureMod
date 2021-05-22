@@ -4,7 +4,7 @@ using PureModLoader.ButtonAPI;
 
 namespace PureMod.Addons
 {
-    public class QMmenu : ModSystem
+    public class QMmenu : ModBase
     {
         public override int LoadOrder => 0;
         public override bool ShowName => false;

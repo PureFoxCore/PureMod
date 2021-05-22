@@ -8,7 +8,7 @@ using PureModLoader.ButtonAPI;
 
 namespace PureMod.Addons
 {
-    public class LoadAvatarFromClipboard : ModSystem
+    public class LoadAvatarFromClipboard : ModBase
     {
         public override int LoadOrder => 1;
         public override string ModName => "Load Avatar From Clipboard";

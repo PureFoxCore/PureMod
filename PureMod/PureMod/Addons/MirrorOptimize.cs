@@ -6,7 +6,7 @@ using PureModLoader.ButtonAPI;
 
 namespace PureMod.Addons
 {
-    public class MirrorOptimize : ModSystem
+    public class MirrorOptimize : ModBase
     {
         public override int LoadOrder => 1;
         public override string ModName => "Mirror Quality";

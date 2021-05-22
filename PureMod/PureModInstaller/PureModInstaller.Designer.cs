@@ -170,6 +170,7 @@ namespace PureModInstaller
             this.FrechInstallCBox.TabIndex = 6;
             this.FrechInstallCBox.Text = "Fresh install";
             this.FrechInstallCBox.UseVisualStyleBackColor = true;
+            this.FrechInstallCBox.CheckedChanged += new System.EventHandler(this.FrechInstallCBox_CheckedChanged);
             // 
             // SelectedPathBox
             // 

@@ -6,7 +6,7 @@ using PureModLoader.ButtonAPI;
 
 namespace PureMod.Addons
 {
-    public class Fly : ModSystem
+    public class Fly : ModBase
     {
         public override int LoadOrder => 1;
         public override string ModName => "Fly";

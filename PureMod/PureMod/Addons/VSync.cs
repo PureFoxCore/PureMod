@@ -5,7 +5,7 @@ using PureModLoader.ButtonAPI;
 
 namespace PureMod.Addons
 {
-    public class VSync : ModSystem
+    public class VSync : ModBase
     {
         public override int LoadOrder => 1;
         public override string ModName => "VSync";

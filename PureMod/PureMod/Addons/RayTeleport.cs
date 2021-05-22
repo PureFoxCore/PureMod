@@ -4,7 +4,7 @@ using PureModLoader.API;
 
 namespace PureMod.Addons
 {
-    public class RayTeleport : ModSystem
+    public class RayTeleport : ModBase
     {
         public override int LoadOrder => 1;
         public override string ModName => "Ray Teleport";
@@ -13,7 +13,7 @@ namespace PureMod.Addons
         {
             if (Input.GetKey(KeyCode.LeftControl) && Input.GetMouseButtonDown(0))
                 if (Physics.Raycast(Utils.GetLocalPlayerCamera().GetComponent<Camera>().ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
-                    Utils.GetLocalPlayer().TeleportTo(hit.point, Utils.GetLocalPlayer().GetRotation());
+                    Utils.GetLocalPlayer().gameObject.transform.position = hit.point;
         }
     }
 }

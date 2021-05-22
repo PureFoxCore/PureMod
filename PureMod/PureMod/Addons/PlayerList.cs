@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace PureMod.Addons
 {
-    public class PlayerList : ModSystem
+    public class PlayerList : ModBase
     {
         public override int LoadOrder => 1;
 

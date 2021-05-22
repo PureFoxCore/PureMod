@@ -6,7 +6,7 @@ using PureModLoader.ButtonAPI;
 
 namespace PureMod.Addons
 {
-    public class ESP : ModSystem
+    public class ESP : ModBase
     {
         public override int LoadOrder => 1;
 

@@ -4,7 +4,7 @@ using PureModLoader.API;
 
 namespace PureMod.Addons
 {
-    public class TestTeleport : ModSystem
+    public class TestTeleport : ModBase
     {
         public override int LoadOrder => 1;
         public override string ModName => "Test teleport";

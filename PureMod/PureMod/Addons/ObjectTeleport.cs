@@ -5,7 +5,7 @@ using PureModLoader.API;
 
 namespace PureMod.Addons
 {
-    public class ObjectTeleport : ModSystem
+    public class ObjectTeleport : ModBase
     {
         public override int LoadOrder => 1;
         public override string ModName => "Object teleport";

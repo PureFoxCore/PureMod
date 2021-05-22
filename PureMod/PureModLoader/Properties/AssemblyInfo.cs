@@ -34,5 +34,5 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: MelonInfo(typeof(PureModLoader.Core), "PureMod", "0.0.3", "PureFoxCore", "https://discord.gg/VCbeWNW")]
+[assembly: MelonInfo(typeof(PureModLoader.Core), "PureModLoader", "1.0.0", "PureFoxCore", "https://discord.gg/VCbeWNW")]
 [assembly: MelonGame("VRChat", "VRChat")]
