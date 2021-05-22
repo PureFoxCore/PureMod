@@ -44,6 +44,8 @@ namespace PureModInstaller
             this.SelectPathButton = new System.Windows.Forms.Button();
             this.InstallButton = new System.Windows.Forms.Button();
             this.LogoPic = new System.Windows.Forms.PictureBox();
+            this.MainProgressBar = new System.Windows.Forms.ProgressBar();
+            this.InfoLabel = new System.Windows.Forms.Label();
             this.DragPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.MainPanel.SuspendLayout();
@@ -151,6 +153,8 @@ namespace PureModInstaller
             // MainPanel
             // 
             this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.MainPanel.Controls.Add(this.InfoLabel);
+            this.MainPanel.Controls.Add(this.MainProgressBar);
             this.MainPanel.Controls.Add(this.FrechInstallCBox);
             this.MainPanel.Controls.Add(this.SelectedPathBox);
             this.MainPanel.Controls.Add(this.SelectPathButton);
@@ -205,9 +209,9 @@ namespace PureModInstaller
             this.InstallButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.InstallButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.InstallButton.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InstallButton.Location = new System.Drawing.Point(3, 56);
+            this.InstallButton.Location = new System.Drawing.Point(3, 85);
             this.InstallButton.Name = "InstallButton";
-            this.InstallButton.Size = new System.Drawing.Size(370, 72);
+            this.InstallButton.Size = new System.Drawing.Size(370, 43);
             this.InstallButton.TabIndex = 4;
             this.InstallButton.TabStop = false;
             this.InstallButton.Text = "INSTALL | UPDATE";
@@ -224,6 +228,28 @@ namespace PureModInstaller
             this.LogoPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.LogoPic.TabIndex = 2;
             this.LogoPic.TabStop = false;
+            // 
+            // MainProgressBar
+            // 
+            this.MainProgressBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.MainProgressBar.ForeColor = System.Drawing.Color.White;
+            this.MainProgressBar.Location = new System.Drawing.Point(3, 56);
+            this.MainProgressBar.Name = "MainProgressBar";
+            this.MainProgressBar.Size = new System.Drawing.Size(370, 23);
+            this.MainProgressBar.TabIndex = 0;
+            // 
+            // InfoLabel
+            // 
+            this.InfoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.InfoLabel.AutoSize = true;
+            this.InfoLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InfoLabel.Location = new System.Drawing.Point(112, 3);
+            this.InfoLabel.Name = "InfoLabel";
+            this.InfoLabel.Size = new System.Drawing.Size(0, 23);
+            this.InfoLabel.TabIndex = 6;
+            this.InfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PureModInstaller
             // 
@@ -269,6 +295,8 @@ namespace PureModInstaller
         private System.Windows.Forms.Button SelectPathButton;
         private System.Windows.Forms.Button InstallButton;
         private System.Windows.Forms.CheckBox FrechInstallCBox;
+        private System.Windows.Forms.ProgressBar MainProgressBar;
+        private System.Windows.Forms.Label InfoLabel;
     }
 }
 

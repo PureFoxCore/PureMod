@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using PureMod.API;
-using PureModLoader.API;
 using PureModLoader.ButtonAPI;
 
 namespace PureMod.Addons

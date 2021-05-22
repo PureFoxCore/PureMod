@@ -61,15 +61,19 @@ namespace PureModInstaller
 
         #endregion
 
+        #region Utils
+
+        private void ShowInfo(string text) =>
+            InfoLabel.Text = text;
+
+        #endregion
+
         #region Select & Install
 
         private void FrechInstallCBox_CheckedChanged(object sender, EventArgs e)
         {
             if (FrechInstallCBox.Checked)
-            {
-                var res = MessageBox.Show("FRESH INSTALL MEANS DELETING ALL MODS AND INSTALLING PUREMOD!\nDo you want this?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                FrechInstallCBox.Checked = res == DialogResult.Yes;
-            }
+                FrechInstallCBox.Checked = MessageBox.Show("FRESH INSTALL MEANS DELETING ALL MODS AND INSTALLING PUREMOD!\nDo you want this?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
         }
 
         private void SelectPathButton_Click(object sender, EventArgs e)
@@ -99,7 +103,7 @@ namespace PureModInstaller
 
                 if (!Directory.Exists(loaderDir))
                     Directory.CreateDirectory(loaderDir);
-                
+
                 if (!Directory.Exists(modsDir))
                     Directory.CreateDirectory(modsDir);
 
@@ -120,20 +124,25 @@ namespace PureModInstaller
                 else if (File.Exists(loaderFile)) // Remove old Loader
                     File.Delete(loaderFile);
 
-                // Remove old mod
-                if (File.Exists(modFile))
+                if (File.Exists(modFile)) // Remove old mod
                     File.Delete(modFile);
+
+                client.DownloadFileAsync(new Uri("https://github.com/PureFoxCore/PureMod/releases/latest/download/PureModLoader.dll"), loaderFile);
+                while (client.IsBusy) ;
+                client.DownloadFileAsync(new Uri("https://github.com/PureFoxCore/PureMod/releases/latest/download/PureMod.dll"), modFile);
 
                 client.DownloadFileCompleted += (object cs, System.ComponentModel.AsyncCompletedEventArgs ce) =>
                 {
                     if (ce.Cancelled)
                         MessageBox.Show("Download cancelled", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     else
-                        MessageBox.Show("Download completed successfully", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ShowInfo("Downloaded successfully");
                 };
 
-                client.DownloadFileAsync(new Uri("https://github.com/PureFoxCore/PureMod/releases/latest/download/PureModLoader.dll"), loaderFile);
-                client.DownloadFileAsync(new Uri("https://github.com/PureFoxCore/PureMod/releases/latest/download/PureMod.dll"), modFile);
+                client.DownloadProgressChanged += (object cs, DownloadProgressChangedEventArgs ce) =>
+                {
+                    MainProgressBar.Value = ce.ProgressPercentage;
+                };
             }
             else
                 MessageBox.Show("Selected .exe file is not VRChat.exe\nPlease select VRChat.exe", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
