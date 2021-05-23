@@ -4,9 +4,9 @@ using PureModLoader.API;
 using System.Diagnostics;
 using PureModLoader.ButtonAPI;
 
-namespace PureMod.Addons
+namespace PureMod.Modules
 {
-    public class QuitGame : ModBase
+    public class QuitGame : ModuleBase
     {
         public override int LoadOrder => 1;
         public override string ModName => "Quit Game";

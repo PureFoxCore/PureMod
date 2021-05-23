@@ -4,9 +4,9 @@ using VRC.SDKBase;
 using PureModLoader.API;
 using PureModLoader.ButtonAPI;
 
-namespace PureMod.Addons
+namespace PureMod.Modules
 {
-    public class TPItems : ModBase
+    public class TPItems : ModuleBase
     {
         public override int LoadOrder => 1;
         public override string ModName => "TP items";

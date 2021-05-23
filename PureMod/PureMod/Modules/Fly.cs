@@ -1,12 +1,13 @@
 ﻿using System;
 using UnityEngine;
 using PureMod.API;
+using PureMod.Other;
 using PureModLoader.API;
 using PureModLoader.ButtonAPI;
 
-namespace PureMod.Addons
+namespace PureMod.Modules
 {
-    public class Fly : ModBase
+    public class Fly : ModuleBase
     {
         public override int LoadOrder => 1;
         public override string ModName => "Fly";

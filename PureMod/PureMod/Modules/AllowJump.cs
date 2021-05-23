@@ -1,10 +1,11 @@
 ﻿using PureMod.API;
+using PureMod.Other;
 using PureModLoader.API;
 using PureModLoader.ButtonAPI;
 
-namespace PureMod.Addons
+namespace PureMod.Modules
 {
-    public class AllowJump : ModBase
+    public class AllowJump : ModuleBase
     {
         public override int LoadOrder => 1;
         public override string ModName => "AllowJump";

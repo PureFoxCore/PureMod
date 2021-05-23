@@ -2,12 +2,13 @@
 using VRC.UI;
 using VRC.Core;
 using PureMod.API;
+using PureMod.Other;
 using PureModLoader.API;
 using PureModLoader.ButtonAPI;
 
-namespace PureMod.Addons
+namespace PureMod.Modules
 {
-    public class ForceClone : ModBase
+    public class ForceClone : ModuleBase
     {
         public override string ModName => "Force Clone";
         public override int LoadOrder => 1;

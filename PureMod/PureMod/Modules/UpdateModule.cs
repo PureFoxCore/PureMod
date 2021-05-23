@@ -1,11 +1,12 @@
 ﻿using System;
 using System.IO;
 using PureMod.API;
+using PureMod.Other;
 using PureModLoader.ButtonAPI;
 
-namespace PureMod.Addons
+namespace PureMod.Modules
 {
-    class UpdateModule : ModBase
+    class UpdateModule : ModuleBase
     {
         public override int LoadOrder => 1;
         public override string ModName => "UpdateModule";
@@ -14,11 +15,14 @@ namespace PureMod.Addons
         {
             new SingleButton(QMmenu.mainMenuP1.GetMenuName(), 1, 1, true, "Update", "Update PureMod", delegate ()
             {
-                var filePath = Path.Combine(Environment.CurrentDirectory, "PureMod\\PureMod.dll");
-                if (File.Exists(filePath))
+                var modFile = Path.Combine(Environment.CurrentDirectory, "PureMod\\Mods\\PureMod.dll");
+                if (File.Exists(modFile))
                 {
-                    try { File.Delete(filePath); }
+                    try { File.Delete(modFile); }
                     catch { throw; }
+
+                    using (System.Net.WebClient client = new System.Net.WebClient())
+                        client.DownloadFileAsync(new Uri("https://github.com/PureFoxCore/PureMod/releases/latest/download/PureMod.dll"), modFile);
 
                     ModUtils.PureModLogger.Info("File removed, you need to restart VRChat");
                 }

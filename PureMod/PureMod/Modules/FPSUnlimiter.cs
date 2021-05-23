@@ -1,9 +1,9 @@
 ﻿using PureMod.API;
 using UnityEngine;
 
-namespace PureMod.Addons
+namespace PureMod.Modules
 {
-    public class FPSUnlimiter : ModBase
+    public class FPSUnlimiter : ModuleBase
     {
         public override int LoadOrder => 1;
         public override string ModName => "FPS Unlimiter";

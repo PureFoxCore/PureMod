@@ -2,9 +2,9 @@
 using PureMod.API;
 using PureModLoader.API;
 
-namespace PureMod.Addons
+namespace PureMod.Modules
 {
-    public class RayTeleport : ModBase
+    public class RayTeleport : ModuleBase
     {
         public override int LoadOrder => 1;
         public override string ModName => "Ray Teleport";

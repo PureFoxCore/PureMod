@@ -230,26 +230,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Addons\AllowJump.cs" />
-    <Compile Include="Addons\DownloadVRCA.cs" />
-    <Compile Include="Addons\ESP.cs" />
-    <Compile Include="Addons\Fly.cs" />
-    <Compile Include="Addons\ForceClone.cs" />
-    <Compile Include="Addons\FPSUnlimiter.cs" />
-    <Compile Include="Addons\Hands.cs" />
-    <Compile Include="Addons\LoadAvatarFromClipboard.cs" />
-    <Compile Include="Addons\MirrorOptimize.cs" />
-    <Compile Include="Addons\ObjectTeleport.cs" />
-    <Compile Include="Addons\TPItems.cs" />
-    <Compile Include="Addons\PlayerList.cs" />
-    <Compile Include="Addons\QMmenu.cs" />
-    <Compile Include="Addons\QuitGame.cs" />
-    <Compile Include="Addons\RayTeleport.cs" />
-    <Compile Include="Addons\RemoveObjects.cs" />
-    <Compile Include="Addons\TestTeleport.cs" />
-    <Compile Include="Addons\UpdateModule.cs" />
-    <Compile Include="Addons\Utils.cs" />
-    <Compile Include="Addons\VSync.cs" />
+    <Compile Include="Modules\AllowJump.cs" />
+    <Compile Include="Modules\DownloadVRCA.cs" />
+    <Compile Include="Modules\ESP.cs" />
+    <Compile Include="Modules\Fly.cs" />
+    <Compile Include="Modules\ForceClone.cs" />
+    <Compile Include="Modules\FPSUnlimiter.cs" />
+    <Compile Include="Modules\Hands.cs" />
+    <Compile Include="Modules\LoadAvatarFromClipboard.cs" />
+    <Compile Include="Modules\MirrorOptimize.cs" />
+    <Compile Include="Modules\ObjectTeleport.cs" />
+    <Compile Include="Modules\TPItems.cs" />
+    <Compile Include="Modules\PlayerList.cs" />
+    <Compile Include="Modules\QMmenu.cs" />
+    <Compile Include="Modules\QuitGame.cs" />
+    <Compile Include="Modules\RayTeleport.cs" />
+    <Compile Include="Modules\RemoveObjects.cs" />
+    <Compile Include="Modules\TestTeleport.cs" />
+    <Compile Include="Modules\UpdateModule.cs" />
+    <Compile Include="Other\Utils.cs" />
+    <Compile Include="Modules\VSync.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

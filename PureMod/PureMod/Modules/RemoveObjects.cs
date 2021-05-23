@@ -3,9 +3,9 @@ using PureMod.API;
 using VRC.SDKBase;
 using PureModLoader.API;
 
-namespace PureMod.Addons
+namespace PureMod.Modules
 {
-    public class RemoveObjects : ModBase
+    public class RemoveObjects : ModuleBase
     {
         public override int LoadOrder => 1;
         public override string ModName => "Remove Objects";

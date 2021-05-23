@@ -17,8 +17,8 @@ namespace PureModLoader.ButtonAPI
         /// <param name="btnText">Button text</param>
         /// <param name="btnToolTip">Button tooltip (shows on top tooltip panel when you hower button)</param>
         /// <param name="btnAction">What to do when you press button</param>
-        /// <param name="btnTextColor">Button background color (optional)</param>
-        /// <param name="btnBackgroundColor">Button text color (optional)</param>
+        /// <param name="btnTextColor">Button text color (optional)</param>
+        /// <param name="btnBackgroundColor">Button background color (optional)</param>
         public SingleButton(string btnMenu, int btnXLocation, int btnYLocation, bool btnHalf, string btnText, string btnToolTip, System.Action btnAction, Color? btnTextColor = null, Color? btnBackgroundColor = null)
         {
             btnQMLoc = btnMenu;

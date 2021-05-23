@@ -3,9 +3,9 @@ using PureModLoader.API;
 using System.Diagnostics;
 using PureModLoader.ButtonAPI;
 
-namespace PureMod.Addons
+namespace PureMod.Modules
 {
-    public class DownloadVRCA : ModBase
+    public class DownloadVRCA : ModuleBase
     {
         public override int LoadOrder => 1;
         public override string ModName => "Download VRCA";

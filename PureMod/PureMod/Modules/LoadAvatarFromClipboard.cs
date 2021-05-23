@@ -2,13 +2,13 @@
 using VRC.UI;
 using VRC.Core;
 using PureMod.API;
-using PureModLoader.API;
+using PureMod.Other;
 using System.Windows.Forms;
 using PureModLoader.ButtonAPI;
 
-namespace PureMod.Addons
+namespace PureMod.Modules
 {
-    public class LoadAvatarFromClipboard : ModBase
+    public class LoadAvatarFromClipboard : ModuleBase
     {
         public override int LoadOrder => 1;
         public override string ModName => "Load Avatar From Clipboard";

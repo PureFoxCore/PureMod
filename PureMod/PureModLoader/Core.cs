@@ -14,7 +14,7 @@ namespace PureModLoader
     {
         public static Logger CoreLogger = new Logger("PureModLoader", LogLevel.Trace);
         
-        private static List<ModBase> Mods = new List<ModBase>();
+        private static List<ModuleBase> Mods = new List<ModuleBase>();
 
         private void LoadMods()
         {
@@ -39,12 +39,12 @@ namespace PureModLoader
                         {
                             var types = assembly.GetTypes();
                             foreach (var type in types)
-                                if (type.IsSubclassOf(typeof(ModBase)))
+                                if (type.IsSubclassOf(typeof(ModuleBase)))
                                     result.Add(type);
                         }
 
                         foreach (var item in result)
-                            Mods.Add((ModBase)Activator.CreateInstance(item));
+                            Mods.Add((ModuleBase)Activator.CreateInstance(item));
 
                         Mods = Mods.OrderBy(owo => owo.LoadOrder).ToList();
                     }
@@ -59,9 +59,11 @@ namespace PureModLoader
 
         public override void OnApplicationStart()
         {
+            Console.Title = "PureModLoader by PureFoxCore#5212";
+
             LoadMods(); 
 
-            foreach (ModBase mod in Mods)
+            foreach (ModuleBase mod in Mods)
             {
                 if (mod.ShowName)
                     CoreLogger.Trace($"{mod.ModName} loaded!");
@@ -72,44 +74,44 @@ namespace PureModLoader
 
             new System.Threading.Timer((e) =>
             {
-                foreach (ModBase mod in Mods)
+                foreach (ModuleBase mod in Mods)
                     mod.OnUpdate10();
             }, null, TimeSpan.Zero, TimeSpan.FromSeconds(10));
         }
 
         public override void VRChat_OnUiManagerInit()
         {
-            foreach (ModBase mod in Mods)
+            foreach (ModuleBase mod in Mods)
                 mod.OnStart();
         }
 
         public override void OnUpdate()
         {
-            foreach (ModBase mod in Mods)
+            foreach (ModuleBase mod in Mods)
                 mod.OnUpdate();
         }
 
         public override void OnLateUpdate()
         {
-            foreach (ModBase mod in Mods)
+            foreach (ModuleBase mod in Mods)
                 mod.OnLateUpdate();
         }
 
         public override void OnFixedUpdate()
         {
-            foreach (ModBase mod in Mods)
+            foreach (ModuleBase mod in Mods)
                 mod.OnFixedUpdate();
         }
 
         public override void OnGUI()
         {
-            foreach (ModBase mod in Mods)
+            foreach (ModuleBase mod in Mods)
                 mod.OnGUI();
         }
 
         public override void OnApplicationQuit()
         {
-            foreach (ModBase mod in Mods)
+            foreach (ModuleBase mod in Mods)
                 mod.OnQuit();
         }
     }

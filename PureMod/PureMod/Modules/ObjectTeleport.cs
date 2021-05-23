@@ -3,9 +3,9 @@ using PureMod.API;
 using UnityEngine;
 using PureModLoader.API;
 
-namespace PureMod.Addons
+namespace PureMod.Modules
 {
-    public class ObjectTeleport : ModBase
+    public class ObjectTeleport : ModuleBase
     {
         public override int LoadOrder => 1;
         public override string ModName => "Object teleport";

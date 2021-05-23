@@ -115,7 +115,7 @@
     <Compile Include="API\ButtonAPI\ToggleButton.cs" />
     <Compile Include="API\Logger\LogLevel.cs" />
     <Compile Include="API\Logger\PureLogger.cs" />
-    <Compile Include="API\ModSystem.cs" />
+    <Compile Include="API\ModuleBase.cs" />
     <Compile Include="API\PopupAPI.cs" />
     <Compile Include="API\Utils.cs" />
     <Compile Include="Core.cs" />

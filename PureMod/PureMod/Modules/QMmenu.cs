@@ -2,9 +2,9 @@
 using UnityEngine;
 using PureModLoader.ButtonAPI;
 
-namespace PureMod.Addons
+namespace PureMod.Modules
 {
-    public class QMmenu : ModBase
+    public class QMmenu : ModuleBase
     {
         public override int LoadOrder => 0;
         public override bool ShowName => false;

@@ -92,7 +92,7 @@ namespace PureModLoader.API
         }
 
         /// <summary>
-        /// Selects player from "ESC" menu [NOT WORKING CORRECTLY, I'LL FIX THAT]
+        /// Selects player from "ESC" menu
         /// </summary>
         /// <param name="player">Player to select</param>
         public static void QMSelectPlayer(Player player) =>
