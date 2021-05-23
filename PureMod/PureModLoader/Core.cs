@@ -13,15 +13,15 @@ namespace PureModLoader
     public class Core : MelonMod
     {
         public static Logger CoreLogger = new Logger("PureModLoader", LogLevel.Trace);
-        
-        private static List<ModuleBase> Mods = new List<ModuleBase>();
 
-        private void LoadMods()
+        private static List<ModuleBase> Modules = new List<ModuleBase>();
+
+        private void LoadModules()
         {
-            if (!Directory.Exists(Path.Combine(Environment.CurrentDirectory, "PureMod\\Mods")))
-                Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "PureMod\\Mods"));
+            if (!Directory.Exists(Path.Combine(Environment.CurrentDirectory, "PureMod\\Modules")))
+                Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "PureMod\\Modules"));
 
-            var files = Directory.GetFiles(Path.Combine(Environment.CurrentDirectory, "PureMod\\Mods"));
+            var files = Directory.GetFiles(Path.Combine(Environment.CurrentDirectory, "PureMod\\Modules"));
 
             foreach (var file in files)
             {
@@ -44,9 +44,9 @@ namespace PureModLoader
                         }
 
                         foreach (var item in result)
-                            Mods.Add((ModuleBase)Activator.CreateInstance(item));
+                            Modules.Add((ModuleBase)Activator.CreateInstance(item));
 
-                        Mods = Mods.OrderBy(owo => owo.LoadOrder).ToList();
+                        Modules = Modules.OrderBy(owo => owo.LoadOrder).ToList();
                     }
                 }
                 catch (Exception ex)
@@ -61,58 +61,58 @@ namespace PureModLoader
         {
             Console.Title = "PureModLoader by PureFoxCore#5212";
 
-            LoadMods(); 
+            LoadModules();
 
-            foreach (ModuleBase mod in Mods)
+            foreach (ModuleBase module in Modules)
             {
-                if (mod.ShowName)
-                    CoreLogger.Trace($"{mod.ModName} loaded!");
+                if (module.ShowName)
+                    CoreLogger.Trace($"{module.ModName} loaded!");
 
-                mod.OnEarlierStart();
+                module.OnEarlierStart();
             }
-            CoreLogger.Info($"Loaded {Mods.Count} mods!");
+            CoreLogger.Info($"Loaded {Modules.Count} modules!");
 
             new System.Threading.Timer((e) =>
             {
-                foreach (ModuleBase mod in Mods)
-                    mod.OnUpdate10();
+                foreach (ModuleBase module in Modules)
+                    module.OnUpdate10();
             }, null, TimeSpan.Zero, TimeSpan.FromSeconds(10));
         }
 
         public override void VRChat_OnUiManagerInit()
         {
-            foreach (ModuleBase mod in Mods)
-                mod.OnStart();
+            foreach (ModuleBase module in Modules)
+                module.OnStart();
         }
 
         public override void OnUpdate()
         {
-            foreach (ModuleBase mod in Mods)
-                mod.OnUpdate();
+            foreach (ModuleBase module in Modules)
+                module.OnUpdate();
         }
 
         public override void OnLateUpdate()
         {
-            foreach (ModuleBase mod in Mods)
-                mod.OnLateUpdate();
+            foreach (ModuleBase module in Modules)
+                module.OnLateUpdate();
         }
 
         public override void OnFixedUpdate()
         {
-            foreach (ModuleBase mod in Mods)
-                mod.OnFixedUpdate();
+            foreach (ModuleBase module in Modules)
+                module.OnFixedUpdate();
         }
 
         public override void OnGUI()
         {
-            foreach (ModuleBase mod in Mods)
-                mod.OnGUI();
+            foreach (ModuleBase module in Modules)
+                module.OnGUI();
         }
 
         public override void OnApplicationQuit()
         {
-            foreach (ModuleBase mod in Mods)
-                mod.OnQuit();
+            foreach (ModuleBase module in Modules)
+                module.OnQuit();
         }
     }
 }

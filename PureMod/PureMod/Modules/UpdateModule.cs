@@ -15,7 +15,7 @@ namespace PureMod.Modules
         {
             new SingleButton(QMmenu.mainMenuP1.GetMenuName(), 1, 1, true, "Update", "Update PureMod", delegate ()
             {
-                var modFile = Path.Combine(Environment.CurrentDirectory, "PureMod\\Mods\\PureMod.dll");
+                var modFile = Path.Combine(Environment.CurrentDirectory, "PureMod\\Modules\\PureMod.dll");
                 if (File.Exists(modFile))
                 {
                     try { File.Delete(modFile); }

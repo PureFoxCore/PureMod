@@ -73,7 +73,7 @@ namespace PureModInstaller
         private void FrechInstallCBox_CheckedChanged(object sender, EventArgs e)
         {
             if (FrechInstallCBox.Checked)
-                FrechInstallCBox.Checked = MessageBox.Show("FRESH INSTALL MEANS DELETING ALL MODS AND INSTALLING PUREMOD!\nDo you want this?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
+                FrechInstallCBox.Checked = MessageBox.Show("FRESH INSTALL MEANS DELETING ALL Modules AND INSTALLING PUREMOD!\nDo you want this?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
         }
 
         private void SelectPathButton_Click(object sender, EventArgs e)
@@ -96,16 +96,16 @@ namespace PureModInstaller
         {
             if (isVRChatGame)
             {
-                string loaderDir = SelectedPathBox.Text.Replace("VRChat.exe", "Mods"); // VRChat/Mods directory
-                string modsDir = SelectedPathBox.Text.Replace("VRChat.exe", "PureMod") + "\\Mods"; // VRChat/PureMod/Mods directory
+                string loaderDir = SelectedPathBox.Text.Replace("VRChat.exe", "Modules"); // VRChat/Modules directory
+                string modulesDir = SelectedPathBox.Text.Replace("VRChat.exe", "PureMod") + "\\Modules"; // VRChat/PureMod/Modules directory
                 string loaderFile = $"{loaderDir}\\PureModLoader.dll";
-                string modFile = $"{modsDir}\\PureMod.dll";
+                string modFile = $"{modulesDir}\\PureMod.dll";
 
                 if (!Directory.Exists(loaderDir))
                     Directory.CreateDirectory(loaderDir);
 
-                if (!Directory.Exists(modsDir))
-                    Directory.CreateDirectory(modsDir);
+                if (!Directory.Exists(modulesDir))
+                    Directory.CreateDirectory(modulesDir);
 
                 if (FrechInstallCBox.Checked)
                 {
@@ -115,7 +115,7 @@ namespace PureModInstaller
                     foreach (DirectoryInfo dirs in di.GetDirectories())
                         dirs.Delete(true);
 
-                    DirectoryInfo dim = new DirectoryInfo(modsDir);
+                    DirectoryInfo dim = new DirectoryInfo(modulesDir);
                     foreach (FileInfo files in dim.GetFiles())
                         files.Delete();
                     foreach (DirectoryInfo dirs in dim.GetDirectories())
