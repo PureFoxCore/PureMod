@@ -20,6 +20,8 @@ namespace PureModLoader
         {
             if (!Directory.Exists(Path.Combine(Environment.CurrentDirectory, "PureMod\\Modules")))
                 Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "PureMod\\Modules"));
+            if (!Directory.Exists(Path.Combine(Environment.CurrentDirectory, "PureMod\\Configs")))
+                Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "PureMod\\Configs"));
 
             var files = Directory.GetFiles(Path.Combine(Environment.CurrentDirectory, "PureMod\\Modules"));
 

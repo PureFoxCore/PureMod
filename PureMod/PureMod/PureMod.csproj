@@ -230,6 +230,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\DataType\Avatars.cs" />
+    <Compile Include="Config\DataType\ModPrefs.cs" />
     <Compile Include="Modules\AllowJump.cs" />
     <Compile Include="Modules\DownloadVRCA.cs" />
     <Compile Include="Modules\ESP.cs" />
@@ -259,8 +261,6 @@
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Config\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
