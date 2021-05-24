@@ -233,6 +233,7 @@
     <Compile Include="Config\DataType\Avatars.cs" />
     <Compile Include="Config\DataType\ModPrefs.cs" />
     <Compile Include="Modules\AllowJump.cs" />
+    <Compile Include="Modules\AvatarFav.cs" />
     <Compile Include="Modules\DownloadVRCA.cs" />
     <Compile Include="Modules\ESP.cs" />
     <Compile Include="Modules\Fly.cs" />
@@ -248,7 +249,7 @@
     <Compile Include="Modules\QuitGame.cs" />
     <Compile Include="Modules\RayTeleport.cs" />
     <Compile Include="Modules\RemoveObjects.cs" />
-    <Compile Include="Modules\TestTeleport.cs" />
+    <Compile Include="Modules\PlayerTeleport.cs" />
     <Compile Include="Modules\UpdateModule.cs" />
     <Compile Include="Other\Utils.cs" />
     <Compile Include="Modules\VSync.cs" />

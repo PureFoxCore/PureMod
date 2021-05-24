@@ -96,7 +96,7 @@ namespace PureModInstaller
         {
             if (isVRChatGame)
             {
-                string loaderDir = SelectedPathBox.Text.Replace("VRChat.exe", "Modules"); // VRChat/Modules directory
+                string loaderDir = SelectedPathBox.Text.Replace("VRChat.exe", "Mods"); // VRChat/Mods directory
                 string modulesDir = SelectedPathBox.Text.Replace("VRChat.exe", "PureMod") + "\\Modules"; // VRChat/PureMod/Modules directory
                 string loaderFile = $"{loaderDir}\\PureModLoader.dll";
                 string modFile = $"{modulesDir}\\PureMod.dll";
