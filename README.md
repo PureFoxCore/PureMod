@@ -37,7 +37,7 @@
 4. ```csharp
    // Also dont forget to override modname and loadorder
    public override int LoadOrder => 1;
-   public override string ModName => "Beautiful";
+   public override string ModuleName => "Beautiful";
    ```
 
 5. Build your mod in to **VRChat/PureMod/Mods** folder
