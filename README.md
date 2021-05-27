@@ -23,7 +23,7 @@
   4. Create **PureMod/Mods** folder and place [PureMod](https://github.com/PureFoxCore/PureMod/releases/latest/download/PureMod.dll) there
      
 
-## How to make your own mods for this mod
+## How to make your own module for this mod
 
 1. Create new C# dll project in .Net framework 4.7.2
 
