@@ -23,21 +23,21 @@
   4. Create **PureMod/Mods** folder and place [PureMod](https://github.com/PureFoxCore/PureMod/releases/latest/download/PureMod.dll) there
      
 
-## How to make your own mods for this mod
+## How to make your own module for this mod
 
 1. Create new C# dll project in .Net framework 4.7.2
 
 2. Add latest [PureModLoader](https://github.com/PureFoxCore/PureMod/releases/latest/download/PureModLoader.dll) to references
 
 3. ```csharp
-   // Make your class parent of ModBase class
-   class BeautifulMod : ModBase
+   // Make your class parent of ModuleBase class
+   class BeautifulModule : ModuleBase
    ```
 
 4. ```csharp
-   // Also dont forget to override modname and loadorder
+   // Also dont forget to override modulename and loadorder
    public override int LoadOrder => 1;
-   public override string ModName => "BeautifulMod";
+   public override string ModuleName => "Beautiful";
    ```
 
 5. Build your mod in to **VRChat/PureMod/Mods** folder
