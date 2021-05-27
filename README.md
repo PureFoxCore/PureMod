@@ -31,13 +31,13 @@
 
 3. ```csharp
    // Make your class parent of ModBase class
-   class BeautifulMod : ModBase
+   class BeautifulModule : ModuleBase
    ```
 
 4. ```csharp
    // Also dont forget to override modname and loadorder
    public override int LoadOrder => 1;
-   public override string ModName => "BeautifulMod";
+   public override string ModName => "Beautiful";
    ```
 
 5. Build your mod in to **VRChat/PureMod/Mods** folder
