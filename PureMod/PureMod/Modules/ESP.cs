@@ -2,7 +2,9 @@
 using VRC.SDKBase;
 using PureMod.API;
 using PureModLoader.API;
-using PureModLoader.ButtonAPI;
+using PureModLoader.UIAPI.QM;
+using VRC;
+using PureMod.Other;
 
 namespace PureMod.Modules
 {
@@ -10,7 +12,7 @@ namespace PureMod.Modules
     {
         public override int LoadOrder => 1;
 
-        public override string ModName => "ESP";
+        public override string ModuleName => "ESP";
 
         private bool m_PlayerState;
         private bool m_ObjectState;
@@ -34,7 +36,7 @@ namespace PureMod.Modules
 
         private void Update()
         {
-            var allPlayers = Utils.GetPlayerAPIs();
+            var allPlayers = Utils.PlayerAPIs;
             var allObjects = Object.FindObjectsOfType<VRC_Pickup>();
 
             foreach (var player in allPlayers)
@@ -45,9 +47,7 @@ namespace PureMod.Modules
                 HighlightsFX.prop_HighlightsFX_0.Method_Public_Void_Renderer_Boolean_0(pickup.GetComponent<MeshRenderer>(), m_ObjectState);
         }
 
-        public override void OnUpdate10()
-        {
+        public override void OnPlayerJoin(Player player) =>
             Update();
-        }
     }
 }

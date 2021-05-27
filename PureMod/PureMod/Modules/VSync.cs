@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using PureMod.API;
 using PureMod.Other;
-using PureModLoader.ButtonAPI;
+using PureModLoader.UIAPI.QM;
 
 namespace PureMod.Modules
 {
     public class VSync : ModuleBase
     {
         public override int LoadOrder => 1;
-        public override string ModName => "VSync";
+        public override string ModuleName => "VSync";
 
         public override void OnStart()
         {

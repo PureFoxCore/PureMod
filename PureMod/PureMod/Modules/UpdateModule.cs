@@ -2,14 +2,14 @@
 using System.IO;
 using PureMod.API;
 using PureMod.Other;
-using PureModLoader.ButtonAPI;
+using PureModLoader.UIAPI.QM;
 
 namespace PureMod.Modules
 {
     class UpdateModule : ModuleBase
     {
         public override int LoadOrder => 1;
-        public override string ModName => "UpdateModule";
+        public override string ModuleName => "UpdateModule";
 
         public override void OnStart()
         {

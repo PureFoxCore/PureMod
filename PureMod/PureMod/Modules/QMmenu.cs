@@ -1,6 +1,6 @@
 ﻿using PureMod.API;
 using UnityEngine;
-using PureModLoader.ButtonAPI;
+using PureModLoader.UIAPI.QM;
 
 namespace PureMod.Modules
 {

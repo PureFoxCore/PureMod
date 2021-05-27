@@ -7,6 +7,7 @@ using System.Reflection;
 using PureModLoader.API.Logger;
 using System.Collections.Generic;
 using Logger = PureModLoader.API.Logger.Logger;
+using PureModLoader.API;
 
 namespace PureModLoader
 {
@@ -18,38 +19,38 @@ namespace PureModLoader
 
         private void LoadModules()
         {
-            if (!Directory.Exists(Path.Combine(Environment.CurrentDirectory, "PureMod\\Modules")))
-                Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "PureMod\\Modules"));
-            if (!Directory.Exists(Path.Combine(Environment.CurrentDirectory, "PureMod\\Configs")))
-                Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "PureMod\\Configs"));
+            if (!Directory.Exists(Utils.ModulesDirectory))
+                Directory.CreateDirectory(Utils.ModulesDirectory);
+            if (!Directory.Exists(Utils.ConfigsDirectory))
+                Directory.CreateDirectory(Utils.ModulesDirectory);
 
-            var files = Directory.GetFiles(Path.Combine(Environment.CurrentDirectory, "PureMod\\Modules"));
+            var files = Directory.GetFiles(Utils.ModulesDirectory);
 
             foreach (var file in files)
             {
                 try
                 {
-                    if (file.EndsWith(".dll"))
+                    if (!file.EndsWith(".dll"))
+                        return;
+
+                    Assembly.LoadFile(file);
+                    CoreLogger.Info($"[{file}] Loaded!");
+
+                    var result = new List<Type>();
+                    var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+
+                    foreach (var assembly in assemblies)
                     {
-                        Assembly.LoadFile(file);
-                        CoreLogger.Info($"[{file}] Loaded!");
-
-                        var result = new List<Type>();
-                        var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-
-                        foreach (var assembly in assemblies)
-                        {
-                            var types = assembly.GetTypes();
-                            foreach (var type in types)
-                                if (type.IsSubclassOf(typeof(ModuleBase)))
-                                    result.Add(type);
-                        }
-
-                        foreach (var item in result)
-                            Modules.Add((ModuleBase)Activator.CreateInstance(item));
-
-                        Modules = Modules.OrderBy(owo => owo.LoadOrder).ToList();
+                        var types = assembly.GetTypes();
+                        foreach (var type in types)
+                            if (type.IsSubclassOf(typeof(ModuleBase)))
+                                result.Add(type);
                     }
+
+                    foreach (var item in result)
+                        Modules.Add((ModuleBase)Activator.CreateInstance(item));
+
+                    Modules = Modules.OrderBy(owo => owo.LoadOrder).ToList();
                 }
                 catch (Exception ex)
                 {
@@ -68,7 +69,7 @@ namespace PureModLoader
             foreach (ModuleBase module in Modules)
             {
                 if (module.ShowName)
-                    CoreLogger.Trace($"{module.ModName} loaded!");
+                    CoreLogger.Trace($"{module.ModuleName} loaded!");
 
                 module.OnEarlierStart();
             }
@@ -85,6 +86,26 @@ namespace PureModLoader
         {
             foreach (ModuleBase module in Modules)
                 module.OnStart();
+
+            MelonCoroutines.Start(Init());
+        }
+
+        private static System.Collections.IEnumerator Init()
+        {
+            while (NetworkManager.field_Internal_Static_NetworkManager_0 == null)
+                yield return null;
+
+            foreach (ModuleBase module in Modules)
+                NetworkManager.field_Internal_Static_NetworkManager_0.field_Internal_VRCEventDelegate_1_Player_0.field_Private_HashSet_1_UnityAction_1_T_0.Add((Action<VRC.Player>)delegate (VRC.Player player)
+                {
+                    module.OnPlayerJoin(player);
+                });
+
+            foreach (ModuleBase module in Modules)
+                NetworkManager.field_Internal_Static_NetworkManager_0.field_Internal_VRCEventDelegate_1_Player_1.field_Private_HashSet_1_UnityAction_1_T_0.Add((Action<VRC.Player>)delegate (VRC.Player player)
+                {
+                    module.OnPlayerLeave(player);
+                });
         }
 
         public override void OnUpdate()

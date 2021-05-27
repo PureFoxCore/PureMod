@@ -2,14 +2,14 @@
 using VRC.SDKBase;
 using PureMod.API;
 using PureMod.Other;
-using PureModLoader.ButtonAPI;
+using PureModLoader.UIAPI.QM;
 
 namespace PureMod.Modules
 {
     public class MirrorOptimize : ModuleBase
     {
         public override int LoadOrder => 1;
-        public override string ModName => "Mirror Quality";
+        public override string ModuleName => "Mirror Quality";
 
         public override void OnStart()
         {

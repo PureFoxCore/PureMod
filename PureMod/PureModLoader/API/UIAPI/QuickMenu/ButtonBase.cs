@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnhollowerRuntimeLib;
 using Il2CppSystem.Reflection;
 
-namespace PureModLoader.ButtonAPI
+namespace PureModLoader.UIAPI.QM
 {
     public class ButtonBase
     {
@@ -58,6 +58,7 @@ namespace PureModLoader.ButtonAPI
         public virtual void SetBackgroundColor(Color buttonBackgroundColor, bool save = true) { }
         public virtual void SetTextColor(Color buttonTextColor, bool save = true) { }
     }
+
     public class QMStuff
     {
         private static BoxCollider QuickMenuBackgroundReference;

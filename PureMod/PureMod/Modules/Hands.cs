@@ -1,7 +1,7 @@
 ﻿using PureMod.API;
 using UnityEngine;
 using PureModLoader.API;
-using PureModLoader.ButtonAPI;
+using PureModLoader.UIAPI.QM;
 
 namespace PureMod.Modules
 {
@@ -9,7 +9,7 @@ namespace PureMod.Modules
     {
         public override int LoadOrder => 1;
 
-        public override string ModName => "Hands";
+        public override string ModuleName => "Hands";
 
         private NestedButton HandsMenu;
 
@@ -21,7 +21,7 @@ namespace PureMod.Modules
         {
             HandsMenu = new NestedButton(QMmenu.mainMenuP1.GetMenuName(), 2, 2, true, "Hands", "HandsMenu", delegate()
             {
-                controller = Utils.GetLocalPlayer().gameObject.GetComponentInChildren<RootMotion.FinalIK.VRIK>();
+                controller = Utils.LocalPlayer.gameObject.GetComponentInChildren<RootMotion.FinalIK.VRIK>();
             });
 
             new ToggleButton(HandsMenu.GetMenuName(), 1, 0, true, "Left", "Control left hand in PC", delegate (bool state)

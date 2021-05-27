@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace PureModLoader.ButtonAPI
+namespace PureModLoader.UIAPI.QM
 {
     public class SingleButton : ButtonBase
     {
@@ -11,7 +11,7 @@ namespace PureModLoader.ButtonAPI
         /// Create simple button
         /// </summary>
         /// <param name="btnMenu">Where to place this button</param>
-        /// <param name="btnXLocation">X location of button (0 means place where worlds button in "ESC" menu)</param>
+        /// <param name="btnXLocation">X location of button (1 means place where worlds button in "ESC" menu)</param>
         /// <param name="btnYLocation">Y location of button (0 means place where worlds button in "ESC" menu)</param>
         /// <param name="btnHalf">Make half button horizontally</param>
         /// <param name="btnText">Button text</param>

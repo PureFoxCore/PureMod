@@ -16,7 +16,7 @@
         /// <summary>
         /// Mod name (shows in console when loading current mod)
         /// </summary>
-        public virtual string ModName => "Default Mod";
+        public virtual string ModuleName => "Default Mod";
         /// <summary>
         /// Calls when application starts
         /// </summary>
@@ -49,5 +49,15 @@
         /// Calls every 10 seconds
         /// </summary>
         public virtual void OnUpdate10() { }
+        /// <summary>
+        /// Calls when player joins room
+        /// </summary>
+        /// <param name="player">VRCPlayer witch you can modify</param>
+        public virtual void OnPlayerJoin(VRC.Player player) { }
+        /// <summary>
+        /// Calls when player leaves room
+        /// </summary>
+        /// <param name="player">VRCPlayer witch you can modify</param>
+        public virtual void OnPlayerLeave(VRC.Player player) { }
     }
 }

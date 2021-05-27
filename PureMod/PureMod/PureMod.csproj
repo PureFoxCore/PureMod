@@ -109,6 +109,10 @@
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\VRChat\MelonLoader\Managed\Il2Cppmscorlib.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="MelonLoader">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\VRChat\MelonLoader\MelonLoader.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\VRChat\MelonLoader\Managed\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
@@ -230,16 +234,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config\DataType\Avatars.cs" />
+    <Compile Include="Config\DataType\Avatar.cs" />
     <Compile Include="Config\DataType\ModPrefs.cs" />
     <Compile Include="Modules\AllowJump.cs" />
     <Compile Include="Modules\AvatarFav.cs" />
     <Compile Include="Modules\DownloadVRCA.cs" />
+    <Compile Include="Modules\EarRape.cs" />
     <Compile Include="Modules\ESP.cs" />
     <Compile Include="Modules\Fly.cs" />
     <Compile Include="Modules\ForceClone.cs" />
     <Compile Include="Modules\FPSUnlimiter.cs" />
     <Compile Include="Modules\Hands.cs" />
+    <Compile Include="Modules\InfinityJumps.cs" />
     <Compile Include="Modules\LoadAvatarFromClipboard.cs" />
     <Compile Include="Modules\MirrorOptimize.cs" />
     <Compile Include="Modules\ObjectTeleport.cs" />

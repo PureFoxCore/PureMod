@@ -3,14 +3,14 @@ using UnityEngine;
 using PureMod.API;
 using PureMod.Other;
 using PureModLoader.API;
-using PureModLoader.ButtonAPI;
+using PureModLoader.UIAPI.QM;
 
 namespace PureMod.Modules
 {
     public class Fly : ModuleBase
     {
         public override int LoadOrder => 1;
-        public override string ModName => "Fly";
+        public override string ModuleName => "Fly";
 
         public static int flySpeed = 2;
         public static bool isFly = false;
@@ -29,11 +29,11 @@ namespace PureMod.Modules
             flyButton = new ToggleButton(flyMenu.GetMenuName(), 1, 0, true, "Fly", "Toggle fly", delegate (bool state)
             {
                 isFly = !isFly;
-                Utils.GetLocalPlayer().gameObject.GetComponent<CharacterController>().enabled = !isFly;
+                Utils.LocalPlayer.gameObject.GetComponent<CharacterController>().enabled = !isFly;
                 ModUtils.PureModLogger.Trace(isFly ? "Fly enabled" : "Fly Disabled");
 
-                player = Utils.GetLocalPlayer().gameObject;
-                playerCamera = Utils.GetLocalPlayerCamera();
+                player = Utils.LocalPlayer.gameObject;
+                playerCamera = Utils.LocalPlayerCamera;
             }, Color.magenta, Color.white);
 
             new SingleButton(flyMenu.GetMenuName(), 2, 0, true, "▲", "Speed Up", delegate ()

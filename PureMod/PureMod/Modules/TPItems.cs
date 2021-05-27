@@ -2,14 +2,14 @@
 using PureMod.API;
 using VRC.SDKBase;
 using PureModLoader.API;
-using PureModLoader.ButtonAPI;
+using PureModLoader.UIAPI.QM;
 
 namespace PureMod.Modules
 {
     public class TPItems : ModuleBase
     {
         public override int LoadOrder => 1;
-        public override string ModName => "TP items";
+        public override string ModuleName => "TP items";
 
         private bool m_State;
 
@@ -20,7 +20,7 @@ namespace PureMod.Modules
             new ToggleButton(QMmenu.mainMenuP1.GetMenuName(), 3, 2, true, "TP items", "tornado", delegate (bool state)
             {
                 m_State = state;
-                player = Utils.GetLocalPlayer().gameObject;
+                player = Utils.LocalPlayer.gameObject;
             }, Color.red, Color.white);
         }
 
@@ -32,7 +32,7 @@ namespace PureMod.Modules
 
                 for (int i = 0; i < objects.Count; i++)
                 {
-                    if (Networking.GetOwner(objects[i].gameObject) != Utils.GetLocalPlayer())
+                    if (Networking.GetOwner(objects[i].gameObject) != Utils.LocalPlayer)
                         Networking.SetOwner(Networking.LocalPlayer, objects[i].gameObject);
 
                     objects[i].transform.position = player.transform.position + new Vector3(0.0f, i * 1.5f, 0.0f);

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace PureModLoader.ButtonAPI
+namespace PureModLoader.UIAPI.QM
 {
     public class NestedButton
     {
@@ -14,7 +14,7 @@ namespace PureModLoader.ButtonAPI
         /// Create menu button (when you click you can create new menu for your buttons)
         /// </summary>
         /// <param name="btnMenu">Where to place this button</param>
-        /// <param name="btnXLocation">X location of button (0 means place where worlds button in "ESC" menu)</param>
+        /// <param name="btnXLocation">X location of button (1 means place where worlds button in "ESC" menu)</param>
         /// <param name="btnYLocation">Y location of button (0 means place where worlds button in "ESC" menu)</param>
         /// <param name="btnHalf">Make half button horizontally</param>
         /// <param name="btnText">Button text</param>

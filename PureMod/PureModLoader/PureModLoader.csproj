@@ -39,6 +39,10 @@
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\VRChat\MelonLoader\Managed\Il2Cppmscorlib.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Il2CppSystem.Core">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\VRChat\MelonLoader\Managed\Il2CppSystem.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="MelonLoader">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\VRChat\MelonLoader\MelonLoader.dll</HintPath>
       <Private>False</Private>
@@ -109,10 +113,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\ButtonAPI\ButtonBase.cs" />
-    <Compile Include="API\ButtonAPI\NestedButton.cs" />
-    <Compile Include="API\ButtonAPI\SingleButton.cs" />
-    <Compile Include="API\ButtonAPI\ToggleButton.cs" />
+    <Compile Include="API\UIAPI\MainMenu\AvatarPage\AvatarPage.cs" />
+    <Compile Include="API\UIAPI\MainMenu\AvatarPage\AvatarPageButton.cs" />
+    <Compile Include="API\UIAPI\MainMenu\AvatarPage\AvatarScroll.cs" />
+    <Compile Include="API\UIAPI\QuickMenu\ButtonBase.cs" />
+    <Compile Include="API\UIAPI\QuickMenu\NestedButton.cs" />
+    <Compile Include="API\UIAPI\QuickMenu\SingleButton.cs" />
+    <Compile Include="API\UIAPI\QuickMenu\ToggleButton.cs" />
     <Compile Include="API\Logger\LogLevel.cs" />
     <Compile Include="API\Logger\PureLogger.cs" />
     <Compile Include="API\ModuleBase.cs" />

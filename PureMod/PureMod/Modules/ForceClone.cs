@@ -4,20 +4,20 @@ using VRC.Core;
 using PureMod.API;
 using PureMod.Other;
 using PureModLoader.API;
-using PureModLoader.ButtonAPI;
+using PureModLoader.UIAPI.QM;
 
 namespace PureMod.Modules
 {
     public class ForceClone : ModuleBase
     {
-        public override string ModName => "Force Clone";
+        public override string ModuleName => "Force Clone";
         public override int LoadOrder => 1;
 
         public override void OnStart()
         {
             new SingleButton(QMmenu.userMenuP1.GetMenuName(), 1, 0, true, "ForceClone", "Force clone public avatar", delegate ()
             {
-                ApiAvatar avatar = Utils.GetSelectedPlayer().prop_ApiAvatar_0;
+                ApiAvatar avatar = Utils.SelectedPlayer.prop_ApiAvatar_0;
 
                 if (avatar.releaseStatus != "private")
                 {
