@@ -234,7 +234,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config\DataType\Avatar.cs" />
     <Compile Include="Config\DataType\ModPrefs.cs" />
     <Compile Include="Modules\AllowJump.cs" />
     <Compile Include="Modules\AvatarFav.cs" />

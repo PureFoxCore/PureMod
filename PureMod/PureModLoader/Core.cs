@@ -22,7 +22,7 @@ namespace PureModLoader
             if (!Directory.Exists(Utils.ModulesDirectory))
                 Directory.CreateDirectory(Utils.ModulesDirectory);
             if (!Directory.Exists(Utils.ConfigsDirectory))
-                Directory.CreateDirectory(Utils.ModulesDirectory);
+                Directory.CreateDirectory(Utils.ConfigsDirectory);
 
             var files = Directory.GetFiles(Utils.ModulesDirectory);
 
