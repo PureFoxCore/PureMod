@@ -64,17 +64,11 @@ namespace PureModInstaller
         #region Utils
 
         private void ShowInfo(string text) =>
-            InfoLabel.Text = text;
+            InfoLabel.Text = $"Status: {text}";
 
         #endregion
 
         #region Select & Install
-
-        private void FrechInstallCBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (FrechInstallCBox.Checked)
-                FrechInstallCBox.Checked = MessageBox.Show("FRESH INSTALL MEANS DELETING ALL Modules AND INSTALLING PUREMOD!\nDo you want this?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
-        }
 
         private void SelectPathButton_Click(object sender, EventArgs e)
         {
@@ -107,21 +101,7 @@ namespace PureModInstaller
                 if (!Directory.Exists(modulesDir))
                     Directory.CreateDirectory(modulesDir);
 
-                if (FrechInstallCBox.Checked)
-                {
-                    DirectoryInfo di = new DirectoryInfo(loaderDir);
-                    foreach (FileInfo files in di.GetFiles())
-                        files.Delete();
-                    foreach (DirectoryInfo dirs in di.GetDirectories())
-                        dirs.Delete(true);
-
-                    DirectoryInfo dim = new DirectoryInfo(modulesDir);
-                    foreach (FileInfo files in dim.GetFiles())
-                        files.Delete();
-                    foreach (DirectoryInfo dirs in dim.GetDirectories())
-                        dirs.Delete(true);
-                }
-                else if (File.Exists(loaderFile)) // Remove old Loader
+                if (File.Exists(loaderFile)) // Remove old Loader
                     File.Delete(loaderFile);
 
                 if (File.Exists(modFile)) // Remove old mod

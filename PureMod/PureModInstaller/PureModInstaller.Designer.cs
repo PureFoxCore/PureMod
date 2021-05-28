@@ -39,13 +39,12 @@ namespace PureModInstaller
             this.DiscordButton = new System.Windows.Forms.Button();
             this.LinksLabel = new System.Windows.Forms.Label();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.FrechInstallCBox = new System.Windows.Forms.CheckBox();
+            this.InfoLabel = new System.Windows.Forms.Label();
+            this.MainProgressBar = new System.Windows.Forms.ProgressBar();
             this.SelectedPathBox = new System.Windows.Forms.TextBox();
             this.SelectPathButton = new System.Windows.Forms.Button();
             this.InstallButton = new System.Windows.Forms.Button();
             this.LogoPic = new System.Windows.Forms.PictureBox();
-            this.MainProgressBar = new System.Windows.Forms.ProgressBar();
-            this.InfoLabel = new System.Windows.Forms.Label();
             this.DragPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.MainPanel.SuspendLayout();
@@ -155,7 +154,6 @@ namespace PureModInstaller
             this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.MainPanel.Controls.Add(this.InfoLabel);
             this.MainPanel.Controls.Add(this.MainProgressBar);
-            this.MainPanel.Controls.Add(this.FrechInstallCBox);
             this.MainPanel.Controls.Add(this.SelectedPathBox);
             this.MainPanel.Controls.Add(this.SelectPathButton);
             this.MainPanel.Controls.Add(this.InstallButton);
@@ -164,17 +162,28 @@ namespace PureModInstaller
             this.MainPanel.Size = new System.Drawing.Size(376, 131);
             this.MainPanel.TabIndex = 3;
             // 
-            // FrechInstallCBox
+            // InfoLabel
             // 
-            this.FrechInstallCBox.AutoSize = true;
-            this.FrechInstallCBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FrechInstallCBox.Location = new System.Drawing.Point(3, 3);
-            this.FrechInstallCBox.Name = "FrechInstallCBox";
-            this.FrechInstallCBox.Size = new System.Drawing.Size(85, 19);
-            this.FrechInstallCBox.TabIndex = 6;
-            this.FrechInstallCBox.Text = "Fresh install";
-            this.FrechInstallCBox.UseVisualStyleBackColor = true;
-            this.FrechInstallCBox.CheckedChanged += new System.EventHandler(this.FrechInstallCBox_CheckedChanged);
+            this.InfoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.InfoLabel.AutoSize = true;
+            this.InfoLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InfoLabel.Location = new System.Drawing.Point(4, 2);
+            this.InfoLabel.Name = "InfoLabel";
+            this.InfoLabel.Size = new System.Drawing.Size(197, 23);
+            this.InfoLabel.TabIndex = 6;
+            this.InfoLabel.Text = "Status: Waiting for input";
+            this.InfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // MainProgressBar
+            // 
+            this.MainProgressBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.MainProgressBar.ForeColor = System.Drawing.Color.White;
+            this.MainProgressBar.Location = new System.Drawing.Point(3, 56);
+            this.MainProgressBar.Name = "MainProgressBar";
+            this.MainProgressBar.Size = new System.Drawing.Size(370, 23);
+            this.MainProgressBar.TabIndex = 0;
             // 
             // SelectedPathBox
             // 
@@ -229,28 +238,6 @@ namespace PureModInstaller
             this.LogoPic.TabIndex = 2;
             this.LogoPic.TabStop = false;
             // 
-            // MainProgressBar
-            // 
-            this.MainProgressBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.MainProgressBar.ForeColor = System.Drawing.Color.White;
-            this.MainProgressBar.Location = new System.Drawing.Point(3, 56);
-            this.MainProgressBar.Name = "MainProgressBar";
-            this.MainProgressBar.Size = new System.Drawing.Size(370, 23);
-            this.MainProgressBar.TabIndex = 0;
-            // 
-            // InfoLabel
-            // 
-            this.InfoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.InfoLabel.AutoSize = true;
-            this.InfoLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoLabel.Location = new System.Drawing.Point(112, 3);
-            this.InfoLabel.Name = "InfoLabel";
-            this.InfoLabel.Size = new System.Drawing.Size(0, 23);
-            this.InfoLabel.TabIndex = 6;
-            this.InfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // PureModInstaller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -294,7 +281,6 @@ namespace PureModInstaller
         private System.Windows.Forms.TextBox SelectedPathBox;
         private System.Windows.Forms.Button SelectPathButton;
         private System.Windows.Forms.Button InstallButton;
-        private System.Windows.Forms.CheckBox FrechInstallCBox;
         private System.Windows.Forms.ProgressBar MainProgressBar;
         private System.Windows.Forms.Label InfoLabel;
     }
