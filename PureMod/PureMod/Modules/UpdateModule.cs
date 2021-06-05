@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
-using PureMod.API;
+using PureModLoader.API;
 using PureMod.Other;
-using PureModLoader.UIAPI.QM;
+using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
@@ -13,7 +13,7 @@ namespace PureMod.Modules
 
         public override void OnStart()
         {
-            new SingleButton(QMmenu.mainMenuP1.GetMenuName(), 1, 1, true, "Update", "Update PureMod", delegate ()
+            new SingleButton(QMmenu.mainMenuP1.MenuPath, 1, 1, true, "Update", "Update PureMod", delegate ()
             {
                 var modFile = Path.Combine(Environment.CurrentDirectory, "PureMod\\Modules\\PureMod.dll");
                 if (File.Exists(modFile))

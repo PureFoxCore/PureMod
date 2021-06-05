@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using PureMod.API;
-using VRC.SDKBase;
 using PureModLoader.API;
+using VRC.SDKBase;
 
 namespace PureMod.Modules
 {
@@ -15,7 +14,7 @@ namespace PureMod.Modules
             if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.Mouse2))
                 if (Physics.Raycast(Utils.LocalPlayerCamera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
                 {
-                    Networking.SetOwner(Utils.LocalPlayer, hit.collider.gameObject);
+                    Networking.SetOwner(Utils.LocalPlayer.field_Private_VRCPlayerApi_0, hit.collider.gameObject);
                     Networking.Destroy(hit.collider.gameObject);
                 }
         }

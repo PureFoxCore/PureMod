@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace PureModLoader.UIAPI.QM
+namespace PureModLoader.API.UIAPI.QM
 {
     public class ToggleButton : ButtonBase
     {

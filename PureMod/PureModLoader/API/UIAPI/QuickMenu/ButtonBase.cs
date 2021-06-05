@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnhollowerRuntimeLib;
 using Il2CppSystem.Reflection;
 
-namespace PureModLoader.UIAPI.QM
+namespace PureModLoader.API.UIAPI.QM
 {
     public class ButtonBase
     {
@@ -165,22 +165,18 @@ namespace PureModLoader.UIAPI.QM
                 userInteractMenu = QuickMenu.prop_QuickMenu_0.transform.Find("UserInteractMenu")?.gameObject;
 
             if (pagename == "ShortcutMenu")
-            {
-                SetIndex(0);
-            }
+                SetIndex(QuickMenu.EnumNPublicSealedvaUnShEmUsEmNoCaMo_nUnique.ShortcutMenu);
             else if (pagename == "UserInteractMenu")
-            {
-                SetIndex(3);
-            }
+                SetIndex(QuickMenu.EnumNPublicSealedvaUnShEmUsEmNoCaMo_nUnique.UserInteractMenu);
             else
             {
-                SetIndex(-1);
+                SetIndex(QuickMenu.EnumNPublicSealedvaUnShEmUsEmNoCaMo_nUnique._not_used_1); // QuickMenu.EnumNPublicSealedvaUnShEmUsEmNoCaMo_nUnique.Unknown
                 shortcutMenu?.SetActive(false);
                 userInteractMenu?.SetActive(false);
             }
         }
 
-        public static void SetIndex(int index) =>
-            GetQuickMenuInstance().field_Private_Int32_0 = index;
+        public static void SetIndex(QuickMenu.EnumNPublicSealedvaUnShEmUsEmNoCaMo_nUnique index) =>
+            GetQuickMenuInstance().field_Private_EnumNPublicSealedvaUnShEmUsEmNoCaMo_nUnique_0 = index;
     }
 }

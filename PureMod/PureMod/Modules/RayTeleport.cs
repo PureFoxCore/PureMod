@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using PureMod.API;
 using PureModLoader.API;
 
 namespace PureMod.Modules

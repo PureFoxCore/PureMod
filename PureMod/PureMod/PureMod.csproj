@@ -234,6 +234,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\ModColors.cs" />
     <Compile Include="Config\DataType\ModPrefs.cs" />
     <Compile Include="Modules\AllowJump.cs" />
     <Compile Include="Modules\AvatarFav.cs" />
@@ -243,11 +244,16 @@
     <Compile Include="Modules\Fly.cs" />
     <Compile Include="Modules\ForceClone.cs" />
     <Compile Include="Modules\FPSUnlimiter.cs" />
+    <Compile Include="Modules\MGUI.cs" />
     <Compile Include="Modules\Hands.cs" />
     <Compile Include="Modules\InfinityJumps.cs" />
+    <Compile Include="Modules\JoinNotifier.cs" />
     <Compile Include="Modules\LoadAvatarFromClipboard.cs" />
+    <Compile Include="Modules\MicColorChanger.cs" />
     <Compile Include="Modules\MirrorOptimize.cs" />
     <Compile Include="Modules\ObjectTeleport.cs" />
+    <Compile Include="Modules\ScreenInfo.cs" />
+    <Compile Include="Modules\Support.cs" />
     <Compile Include="Modules\TPItems.cs" />
     <Compile Include="Modules\PlayerList.cs" />
     <Compile Include="Modules\QMmenu.cs" />
@@ -267,6 +273,5 @@
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

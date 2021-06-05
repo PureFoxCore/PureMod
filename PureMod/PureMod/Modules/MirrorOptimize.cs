@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using VRC.SDKBase;
-using PureMod.API;
+using PureModLoader.API;
 using PureMod.Other;
-using PureModLoader.UIAPI.QM;
+using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
@@ -13,7 +13,7 @@ namespace PureMod.Modules
 
         public override void OnStart()
         {
-            new ToggleButton(QMmenu.mainMenuP1.GetMenuName(), 2, 1, true, "Mirror Q.", "Mirror Toggle Quality", delegate (bool state)
+            new ToggleButton(QMmenu.mainMenuP1.MenuPath, 2, 1, true, "Mirror Q.", "Mirror Toggle Quality", delegate (bool state)
             {
                 LayerMask mask = new LayerMask();
                 mask.value = state ? 263680 : -1025;

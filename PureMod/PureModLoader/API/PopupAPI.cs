@@ -77,7 +77,7 @@ namespace PureModLoader.API
 
         public static void CreateInputPopup(string title, string text, string placeHolder, string cancelButtonText, string confirmButtonText, InputField.InputType inputType, bool numberKeyboard, Action<string> confirm, Action cancel, Action<VRCUiPopup> open)
         {
-            VRCUiPopupManager.field_Private_Static_VRCUiPopupManager_0.Method_Public_Void_String_String_InputType_Boolean_String_Action_3_String_List_1_KeyCode_Text_Action_String_Boolean_Action_1_VRCUiPopup_0(title, text, inputType, numberKeyboard, confirmButtonText, new Action<string, List<KeyCode>, Text>((string inputText, List<KeyCode> keycodes, Text textComponent) =>
+            VRCUiPopupManager.field_Private_Static_VRCUiPopupManager_0.Method_Public_Void_String_String_InputType_Boolean_String_Action_3_String_List_1_KeyCode_Text_Action_String_Boolean_Action_1_VRCUiPopup_Boolean_Int32_0(title, text, inputType, numberKeyboard, confirmButtonText, new Action<string, List<KeyCode>, Text>((string inputText, List<KeyCode> keycodes, Text textComponent) =>
             {
                 if (confirm != null)
                     confirm.Invoke(inputText);

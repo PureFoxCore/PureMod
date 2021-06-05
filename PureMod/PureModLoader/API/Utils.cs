@@ -42,13 +42,11 @@ namespace PureModLoader.API
         /// <returns>Main game objects</returns>
         public static GameObject[] AllGameObjects { get => SceneManager.GetActiveScene().GetRootGameObjects(); }
 
-
         /// <summary>
         /// Gets all game objects (with children)
         /// </summary>
         /// <returns>all game objects (with children)</returns>
         public static List<GameObject> AllObjectsInSceneTree { get => Resources.FindObjectsOfTypeAll<GameObject>().ToList(); }
-
 
         /// <summary>
         /// Gets from api player count
@@ -60,7 +58,7 @@ namespace PureModLoader.API
         /// Main character (witch you control)
         /// </summary>
         /// <returns>Local player</returns>
-        public static VRCPlayerApi LocalPlayer { get => Networking.LocalPlayer; }
+        public static VRCPlayer LocalPlayer { get => VRCPlayer.field_Internal_Static_VRCPlayer_0; }
 
         /// <summary>
         /// Gets player from photon ID
@@ -78,7 +76,7 @@ namespace PureModLoader.API
         /// <summary>
         /// Gets from player manager all players
         /// </summary>
-        /// <returns>List of [Player]</returns>
+        /// <returns>List of [Player]</returns> 
         public static List<Player> Players { get => PlayerManager.field_Private_List_1_Player_0.ToArray().ToList(); }
 
         /// <summary>
@@ -92,6 +90,20 @@ namespace PureModLoader.API
         /// </summary>
         /// <param name="player">Player to select</param>
         public static void QMSelectPlayer(Player player) => QuickMenuInstance.Method_Public_Void_Player_0(player);
+
+        /// <summary>
+        /// Get ping from player
+        /// </summary>
+        /// <param name="player">VRC.Player player</param>
+        /// <returns>int ping of pleyer</returns>
+        public static int GetPlayerPing(Player player) => player.prop_Int32_0;
+
+        /// <summary>
+        /// Get ping from player
+        /// </summary>
+        /// <param name="player">VRCPlayer player</param>
+        /// <returns>int ping of pleyer</returns>
+        public static int GetPlayerPing(VRCPlayer player) => player.prop_Int32_1;
 
         /// <summary>
         /// Gets player local camera (eye)

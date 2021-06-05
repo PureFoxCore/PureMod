@@ -1,4 +1,4 @@
-﻿namespace PureMod.API
+﻿namespace PureModLoader.API
 {
     /// <summary>
     /// Virtual mod system base (use for creating mods :D)
@@ -49,6 +49,10 @@
         /// Calls every 10 seconds
         /// </summary>
         public virtual void OnUpdate10() { }
+        /// <summary>
+        /// Calls every second
+        /// </summary>
+        public virtual void OnUpdate1() { }
         /// <summary>
         /// Calls when player joins room
         /// </summary>

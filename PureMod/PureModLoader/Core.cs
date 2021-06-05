@@ -2,12 +2,11 @@
 using System.IO;
 using MelonLoader;
 using System.Linq;
-using PureMod.API;
+using PureModLoader.API;
 using System.Reflection;
 using PureModLoader.API.Logger;
 using System.Collections.Generic;
 using Logger = PureModLoader.API.Logger.Logger;
-using PureModLoader.API;
 
 namespace PureModLoader
 {
@@ -24,31 +23,18 @@ namespace PureModLoader
             if (!Directory.Exists(Utils.ConfigsDirectory))
                 Directory.CreateDirectory(Utils.ConfigsDirectory);
 
-            var files = Directory.GetFiles(Utils.ModulesDirectory);
+            var dllFiles = Directory.GetFiles(Utils.ModulesDirectory, "*.dll");
 
-            foreach (var file in files)
+            foreach (var file in dllFiles)
             {
                 try
                 {
-                    if (!file.EndsWith(".dll"))
-                        return;
-
-                    Assembly.LoadFile(file);
+                    var currentFileAssembly = Assembly.LoadFile(file);
                     CoreLogger.Info($"[{file}] Loaded!");
 
-                    var result = new List<Type>();
-                    var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-
-                    foreach (var assembly in assemblies)
-                    {
-                        var types = assembly.GetTypes();
-                        foreach (var type in types)
-                            if (type.IsSubclassOf(typeof(ModuleBase)))
-                                result.Add(type);
-                    }
-
-                    foreach (var item in result)
-                        Modules.Add((ModuleBase)Activator.CreateInstance(item));
+                    foreach (var type in currentFileAssembly.GetTypes())
+                        if (type.IsSubclassOf(typeof(ModuleBase)))
+                            Modules.Add((ModuleBase)Activator.CreateInstance(type));
 
                     Modules = Modules.OrderBy(owo => owo.LoadOrder).ToList();
                 }
@@ -74,16 +60,22 @@ namespace PureModLoader
                 module.OnEarlierStart();
             }
             CoreLogger.Info($"Loaded {Modules.Count} modules!");
+        }
 
+        public override void VRChat_OnUiManagerInit()
+        {
             new System.Threading.Timer((e) =>
             {
                 foreach (ModuleBase module in Modules)
                     module.OnUpdate10();
             }, null, TimeSpan.Zero, TimeSpan.FromSeconds(10));
-        }
 
-        public override void VRChat_OnUiManagerInit()
-        {
+            new System.Threading.Timer((e) =>
+            {
+                foreach (ModuleBase module in Modules)
+                    module.OnUpdate1();
+            }, null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
+
             foreach (ModuleBase module in Modules)
                 module.OnStart();
 

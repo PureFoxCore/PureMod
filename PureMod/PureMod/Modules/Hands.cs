@@ -1,7 +1,6 @@
-﻿using PureMod.API;
+﻿using PureModLoader.API;
 using UnityEngine;
-using PureModLoader.API;
-using PureModLoader.UIAPI.QM;
+using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
@@ -19,17 +18,17 @@ namespace PureMod.Modules
 
         public override void OnStart()
         {
-            HandsMenu = new NestedButton(QMmenu.mainMenuP1.GetMenuName(), 2, 2, true, "Hands", "HandsMenu", delegate()
+            HandsMenu = new NestedButton(QMmenu.mainMenuP1.MenuPath, 2, 2, true, "Hands", "HandsMenu", delegate()
             {
                 controller = Utils.LocalPlayer.gameObject.GetComponentInChildren<RootMotion.FinalIK.VRIK>();
             });
 
-            new ToggleButton(HandsMenu.GetMenuName(), 1, 0, true, "Left", "Control left hand in PC", delegate (bool state)
+            new ToggleButton(HandsMenu.MenuPath, 1, 0, true, "Left", "Control left hand in PC", delegate (bool state)
             {
                 m_LeftState = state;
             }, Color.green, Color.white);
 
-            new ToggleButton(HandsMenu.GetMenuName(), 1, 1, true, "Right", "Control right hand in PC", delegate (bool state)
+            new ToggleButton(HandsMenu.MenuPath, 1, 1, true, "Right", "Control right hand in PC", delegate (bool state)
             {
                 m_RightState = state;
             }, Color.green, Color.white);

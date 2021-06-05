@@ -1,7 +1,6 @@
 ﻿using VRC.SDKBase;
-using PureMod.API;
-using UnityEngine;
 using PureModLoader.API;
+using UnityEngine;
 
 namespace PureMod.Modules
 {
@@ -16,7 +15,7 @@ namespace PureMod.Modules
                 foreach (var pickup in Resources.FindObjectsOfTypeAll<VRC_Pickup>())
                 {
                     if (pickup.gameObject.active)
-                        Networking.SetOwner(Utils.LocalPlayer, pickup.gameObject);
+                        Networking.SetOwner(Utils.LocalPlayer.field_Private_VRCPlayerApi_0, pickup.gameObject);
                     if (Physics.Raycast(Utils.LocalPlayerCamera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
                         pickup.transform.position = hit.point;
                 }

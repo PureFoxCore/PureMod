@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
-using PureMod.API;
-using PureMod.Other;
 using PureModLoader.API;
-using PureModLoader.UIAPI.QM;
+using PureMod.Other;
+using PureModLoader.API.UIAPI.QM;
 using System.Collections.Generic;
+using PureMod.Config;
 
 namespace PureMod.Modules
 {
@@ -18,7 +18,7 @@ namespace PureMod.Modules
 
         public override void OnStart()
         {
-            teleportMenu = new NestedButton(QMmenu.mainMenuP1.GetMenuName(), 4, 1, true, "Players", "Player list", delegate ()
+            teleportMenu = new NestedButton(QMmenu.mainMenuP1.MenuPath, 4, 1, true, "Players", "Player list", delegate ()
             {
                 UpdateList();
             });
@@ -40,10 +40,10 @@ namespace PureMod.Modules
 
             foreach (var player in players)
             {
-                playerButtons.Add(new SingleButton(teleportMenu.GetMenuName(), x, y, true, player.prop_APIUser_0.displayName, $"Select {player.prop_APIUser_0.displayName}", delegate ()
+                playerButtons.Add(new SingleButton(teleportMenu.MenuPath, x, y, true, player.prop_APIUser_0.displayName, $"Select {player.prop_APIUser_0.displayName}", delegate ()
                 {
                     Utils.QMSelectPlayer(player);
-                }, player.prop_APIUser_0.isFriend ? Color.yellow : Color.white));
+                }, ModColors.TrustColor(player.prop_APIUser_0), player.prop_APIUser_0.isFriend ? Color.yellow : ModColors.ButtonDefaultBackground));
 
                 if (x < 4)
                     x++;

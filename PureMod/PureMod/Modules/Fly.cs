@@ -1,9 +1,8 @@
 ﻿using System;
 using UnityEngine;
-using PureMod.API;
-using PureMod.Other;
 using PureModLoader.API;
-using PureModLoader.UIAPI.QM;
+using PureMod.Other;
+using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
@@ -24,9 +23,9 @@ namespace PureMod.Modules
 
         public override void OnStart()
         {
-            flyMenu = new NestedButton(QMmenu.mainMenuP1.GetMenuName(), 1, 0, true, "Fly", "Fly menu");
+            flyMenu = new NestedButton(QMmenu.mainMenuP1.MenuPath, 1, 0, true, "Fly", "Fly menu");
 
-            flyButton = new ToggleButton(flyMenu.GetMenuName(), 1, 0, true, "Fly", "Toggle fly", delegate (bool state)
+            flyButton = new ToggleButton(flyMenu.MenuPath, 1, 0, true, "Fly", "Toggle fly", delegate (bool state)
             {
                 isFly = !isFly;
                 Utils.LocalPlayer.gameObject.GetComponent<CharacterController>().enabled = !isFly;
@@ -36,14 +35,14 @@ namespace PureMod.Modules
                 playerCamera = Utils.LocalPlayerCamera;
             }, Color.magenta, Color.white);
 
-            new SingleButton(flyMenu.GetMenuName(), 2, 0, true, "▲", "Speed Up", delegate ()
+            new SingleButton(flyMenu.MenuPath, 2, 0, true, "▲", "Speed Up", delegate ()
             {
                 flySpeed++;
 
                 speedResetButton.SetButtonText($"Speed [{flySpeed}]");
             });
 
-            new SingleButton(flyMenu.GetMenuName(), 2, 1, true, "▼", "Speed Down", delegate ()
+            new SingleButton(flyMenu.MenuPath, 2, 1, true, "▼", "Speed Down", delegate ()
             {
                 flySpeed--;
 
@@ -52,7 +51,7 @@ namespace PureMod.Modules
                 speedResetButton.SetButtonText($"Speed [{flySpeed}]");
             });
 
-            speedResetButton = new SingleButton(flyMenu.GetMenuName(), 1, 1, true, $"Speed [{flySpeed}]", "Reset fly Speed", delegate ()
+            speedResetButton = new SingleButton(flyMenu.MenuPath, 1, 1, true, $"Speed [{flySpeed}]", "Reset fly Speed", delegate ()
             {
                 flySpeed = 2;
                 speedResetButton.SetButtonText($"Speed [{flySpeed}]");

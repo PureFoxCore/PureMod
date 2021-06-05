@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace PureModLoader.UIAPI.QM
+namespace PureModLoader.API.UIAPI.QM
 {
     public class NestedButton
     {
@@ -34,7 +34,7 @@ namespace PureModLoader.UIAPI.QM
         {
             btnType = "NestedButton";
 
-            Transform menu = Object.Instantiate<Transform>(QMStuff.NestedMenuTemplate(), QMStuff.GetQuickMenuInstance().transform);
+            Transform menu = Object.Instantiate(QMStuff.NestedMenuTemplate(), QMStuff.GetQuickMenuInstance().transform);
             menuName = "PureMOD" + btnQMLoc + "_" + btnXLocation + "_" + btnYLocation;
             menu.name = menuName;
 
@@ -66,8 +66,7 @@ namespace PureModLoader.UIAPI.QM
         /// Needed to set buttons in to this menu [Menu ID]
         /// </summary>
         /// <returns>Menu path as string</returns>
-        public string GetMenuName() =>
-            menuName;
+        public string MenuPath { get => menuName; }
 
         /// <summary>
         /// Main button [menu button]

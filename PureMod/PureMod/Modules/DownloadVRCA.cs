@@ -1,7 +1,6 @@
-﻿using PureMod.API;
-using PureModLoader.API;
+﻿using PureModLoader.API;
 using System.Diagnostics;
-using PureModLoader.UIAPI.QM;
+using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
@@ -12,7 +11,7 @@ namespace PureMod.Modules
 
         public override void OnStart()
         {
-            new SingleButton(QMmenu.userMenuP1.GetMenuName(), 2, 0, true, "Download VRCA", "Download VRCA file of selected user's avatar", delegate ()
+            new SingleButton(QMmenu.userMenuP1.MenuPath, 2, 0, true, "Download VRCA", "Download VRCA file of selected user's avatar", delegate ()
             {
                 Process.Start(Utils.SelectedPlayer.prop_ApiAvatar_0.assetUrl);
             });

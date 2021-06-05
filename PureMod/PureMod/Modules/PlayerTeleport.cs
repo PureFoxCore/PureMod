@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using PureMod.API;
 using PureModLoader.API;
-using PureModLoader.UIAPI.QM;
+using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
@@ -12,7 +11,7 @@ namespace PureMod.Modules
 
         public override void OnStart()
         {
-            new SingleButton(QMmenu.userMenuP1.GetMenuName(), 3, 0, true, "Teleport", "Teleport to this player", delegate ()
+            new SingleButton(QMmenu.userMenuP1.MenuPath, 3, 0, true, "Teleport", "Teleport to this player", delegate ()
             {
                 Utils.LocalPlayer.gameObject.transform.position = Utils.SelectedPlayer.transform.position;
             });

@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using MelonLoader;
-using PureMod.API;
 using PureModLoader.API;
-using PureModLoader.UIAPI.QM;
+using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
@@ -12,23 +11,26 @@ namespace PureMod.Modules
 
         public override string ModuleName => "Infinity jump";
 
+        private static bool m_State = false;
+
         public override void OnStart()
         {
-            new ToggleButton(QMmenu.mainMenuP1.GetMenuName(), 4, 2, true, ModuleName, ModuleName, delegate (bool state)
+            new ToggleButton(QMmenu.mainMenuP1.MenuPath, 4, 2, true, ModuleName, ModuleName, delegate (bool state)
             {
-                MelonCoroutines.Start(Active(state));
+                m_State = state;
             }, Color.cyan, Color.white);
+            MelonCoroutines.Start(Active());
         }
 
-        private System.Collections.IEnumerator Active(bool state)
+        private System.Collections.IEnumerator Active()
         {
             while (true)
             {
                 try
                 {
-                    if (state && Input.GetAxis("Jump") != 0f)
+                    if (m_State && Input.GetAxis("Jump") != 0f)
                     {
-                        if (!Utils.LocalPlayer.IsPlayerGrounded())
+                        if (!Utils.LocalPlayer.field_Private_VRCPlayerApi_0.IsPlayerGrounded())
                         {
                             GameObject gameObject = GameObject.CreatePrimitive(PrimitiveType.Plane);
                             gameObject.GetComponent<Renderer>().enabled = false;
