@@ -1,5 +1,5 @@
-﻿using PureModLoader.API;
-using VRC;
+﻿using VRC;
+using PureModLoader.API;
 
 namespace PureMod.Modules
 {
@@ -8,16 +8,10 @@ namespace PureMod.Modules
         public override int LoadOrder => 0;
         public override string ModuleName => "Join notifier";
 
-        public override void OnPlayerJoin(Player player)
-        {
-            if (player != null)
-                MGUI.LogText($"[{player.prop_APIUser_0.displayName}] joined!");
-        }
+        public override void OnPlayerJoin(Player player) =>
+            MGUI.LogText($"[{player?.prop_APIUser_0.displayName}] [{player?.prop_APIUser_0.username}] joined!");
 
-        public override void OnPlayerLeave(Player player)
-        {
-            if (player != null)
-                MGUI.LogText($"[{player.prop_APIUser_0.displayName}] leaved!");
-        }
+        public override void OnPlayerLeave(Player player) =>
+            MGUI.LogText($"[{player?.prop_APIUser_0.displayName}] [{player?.prop_APIUser_0.username}] left!");
     }
 }

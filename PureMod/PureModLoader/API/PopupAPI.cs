@@ -23,7 +23,7 @@ namespace PureModLoader.API
             GameObject.Find("UserInterface/MenuContent/Popups/InputPopup/ButtonRight/Text").GetComponent<Text>().color = Color.white;
             GameObject.Find("UserInterface/MenuContent/Popups/InputPopup/InputField/Text").GetComponent<Text>().color = Color.white;
 
-            VRCUiPopupManager.field_Private_Static_VRCUiPopupManager_0.Method_Public_Void_4();
+            VRCUiPopupManager.field_Private_Static_VRCUiPopupManager_0.Method_Private_Void_PDM_0();
         }
 
         public static void CreateSimplePopup(string title, string description, string confirmButtonText, Action confirm, Action<VRCUiPopup> open, Color? confirmButtonTextColor = null, Color? descriptionColor = null)

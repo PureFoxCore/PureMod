@@ -24,9 +24,9 @@ namespace PureModLoader.API.UIAPI.MainMenu.AvatarPage
 
         public string Text
         {
-            //get => TextComponent.text;
-            //set => TextComponent.text = value;
-            get; set;
+            get => TextComponent.text;
+            set => TextComponent.text = value;
+            //get; set;
         }
 
         public int Index { set => gameObject.transform.SetSiblingIndex(value); }

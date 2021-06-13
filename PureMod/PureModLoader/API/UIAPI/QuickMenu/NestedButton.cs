@@ -38,7 +38,7 @@ namespace PureModLoader.API.UIAPI.QM
             menuName = "PureMOD" + btnQMLoc + "_" + btnXLocation + "_" + btnYLocation;
             menu.name = menuName;
 
-            mainButton = new SingleButton(btnQMLoc, btnXLocation, btnYLocation, btnHalf, btnText, btnToolTip, delegate() 
+            mainButton = new SingleButton(btnQMLoc, btnXLocation, btnYLocation, btnHalf, btnText, btnToolTip, delegate ()
             {
                 if (action != null)
                     action.Invoke();
@@ -47,17 +47,12 @@ namespace PureModLoader.API.UIAPI.QM
 
             Il2CppSystem.Collections.IEnumerator enumerator = menu.transform.GetEnumerator();
             while (enumerator.MoveNext())
-            {
-                Il2CppSystem.Object obj = enumerator.Current;
-                Transform btnEnum = obj.Cast<Transform>();
-                if (btnEnum != null)
-                    Object.Destroy(btnEnum.gameObject);
-            }
+                GameObject.Destroy(enumerator.Current.Cast<Transform>()?.gameObject);
 
             if (backbtnTextColor == null)
                 backbtnTextColor = Color.yellow;
             backButton = new SingleButton(menuName, 5, 5, true, "Back", "Go Back", delegate ()
-            { 
+            {
                 QMStuff.ShowQuickmenuPage(btnQMLoc);
             }, backbtnTextColor, backbtnBackgroundColor);
         }

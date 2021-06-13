@@ -119,7 +119,10 @@ namespace PureModLoader.API.UIAPI.QM
             QuickMenu quickmenu = GetQuickMenuInstance();
             Transform pageTransform = quickmenu?.transform.Find(pagename);
             if (pageTransform == null)
-                Core.CoreLogger.Critical("pageTransform is null !");
+            {
+                Core.CoreLogger.Critical("pageTransform is null!");
+                return;
+            }
 
             if (currentPageGetter == null)
             {
@@ -141,7 +144,7 @@ namespace PureModLoader.API.UIAPI.QM
                 }
                 if (currentPageGetter == null)
                 {
-                    Core.CoreLogger.Critical("Unable to find field currentPage in QuickMenu");
+                    Core.CoreLogger.Critical("Unable to find field currentPage in QuickMenu!");
                     return;
                 }
             }
@@ -152,7 +155,7 @@ namespace PureModLoader.API.UIAPI.QM
             infoBar.SetActive(pagename == "ShortcutMenu");
 
             QuickMenuContextualDisplay quickmenuContextualDisplay = GetQuickMenuInstance().field_Private_QuickMenuContextualDisplay_0;
-            quickmenuContextualDisplay.Method_Public_Void_EnumNPublicSealedvaUnNoToUs7vUsNoUnique_0(QuickMenuContextualDisplay.EnumNPublicSealedvaUnNoToUs7vUsNoUnique.NoSelection);
+            quickmenuContextualDisplay.Method_Public_Void_EnumNPublicSealedvaUnNoToUs7vUsNoUnique_PDM_0(QuickMenuContextualDisplay.EnumNPublicSealedvaUnNoToUs7vUsNoUnique.NoSelection);
 
             pageTransform.gameObject.SetActive(true);
 
@@ -165,18 +168,18 @@ namespace PureModLoader.API.UIAPI.QM
                 userInteractMenu = QuickMenu.prop_QuickMenu_0.transform.Find("UserInteractMenu")?.gameObject;
 
             if (pagename == "ShortcutMenu")
-                SetIndex(QuickMenu.EnumNPublicSealedvaUnShEmUsEmNoCaMo_nUnique.ShortcutMenu);
+                SetIndex(0);
             else if (pagename == "UserInteractMenu")
-                SetIndex(QuickMenu.EnumNPublicSealedvaUnShEmUsEmNoCaMo_nUnique.UserInteractMenu);
+                SetIndex(3);
             else
             {
-                SetIndex(QuickMenu.EnumNPublicSealedvaUnShEmUsEmNoCaMo_nUnique._not_used_1); // QuickMenu.EnumNPublicSealedvaUnShEmUsEmNoCaMo_nUnique.Unknown
+                SetIndex(-1);
                 shortcutMenu?.SetActive(false);
                 userInteractMenu?.SetActive(false);
             }
         }
 
-        public static void SetIndex(QuickMenu.EnumNPublicSealedvaUnShEmUsEmNoCaMo_nUnique index) =>
-            GetQuickMenuInstance().field_Private_EnumNPublicSealedvaUnShEmUsEmNoCaMo_nUnique_0 = index;
+        public static void SetIndex(int index) =>
+            GetQuickMenuInstance().field_Private_EnumNPublicSealedvaUnShEmUsEmNoCaMo_nUnique_0 = (QuickMenu.EnumNPublicSealedvaUnShEmUsEmNoCaMo_nUnique)index;
     }
 }

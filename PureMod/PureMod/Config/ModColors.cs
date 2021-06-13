@@ -3,30 +3,31 @@ using UnityEngine;
 
 namespace PureMod.Config
 {
-    class ModColors
+    public class ModColors
     {
-		public static Color TrustColor(APIUser user)
-		{
-			if (user.id == "usr_77979962-76e0-4b27-8ab7-ffa0cda9e223")
-				return new Color(0.7f, 1f, 0f, 1f);
-			if (user.tags.Contains("system_legend"))
-				return new Color(0.99f, 0.67f, 0.83f, 1f);
-			if (user.hasLegendTrustLevel)
-				return new Color(0.81f, 0.71f, 0.32f, 1f);
-			if (user.hasVeteranTrustLevel)
-				return new Color(0.75f, 0.1f, 0.51f, 1f);
-			if (user.hasTrustedTrustLevel)
-				return new Color(0.62f, 0.29f, 0.034f, 1f);
-			if (user.hasKnownTrustLevel)
-				return new Color(0.24f, 0.68f, 0.27f, 1f);
-			if (user.hasBasicTrustLevel)
-				return new Color(0.35f, 0.54f, 0.71f, 1f);
-			if (user.isUntrusted)
-				return new Color(0.7f, 0.7f, 0.7f, 1f);
-			return new Color(1f, 0f, 0f, 1f);
-		}
+        public static Color TrustColor(APIUser user)
+        {
+            if (user.id == "usr_77979962-76e0-4b27-8ab7-ffa0cda9e223" || user.id == "usr_39c054aa-1f3d-4791-9a9e-6e796d035f32") // Dev IDs
+                return new Color32(255, 105, 105, 255);
+            else if (user.tags.Contains("system_legend"))
+                return new Color32(255, 128, 172, 255);
+            else if (user.hasLegendTrustLevel)
+                return new Color32(255, 236, 128, 255);
+            else if (user.hasVeteranTrustLevel)
+                return new Color32(192, 153, 255, 255);
+            else if (user.hasTrustedTrustLevel)
+                return new Color32(255, 201, 153, 255);
+            else if (user.hasKnownTrustLevel)
+                return new Color32(153, 255, 156, 255);
+            else if (user.hasBasicTrustLevel)
+                return new Color32(153, 209, 255, 255);
+            else if (user.isUntrusted)
+                return new Color32(184, 184, 184, 255);
+            else
+                return new Color(1f, 0f, 0f, 1f);
+        }
 
-		public static Color ButtonDefaultBackground { get => new Color(0.03f, 0.4f, 0.4f, 1); }
-		public static Color DefaultMicColor { get => new Color32(255, 128, 0, 1); }
-	}
+        public static Color ButtonDefaultBackground { get => new Color(0.03f, 0.4f, 0.4f, 1); }
+        public static Color DefaultMicColor { get => new Color32(255, 128, 0, 1); }
+    }
 }

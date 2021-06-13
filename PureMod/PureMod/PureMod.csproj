@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\..\..\Program Files %28x86%29\Steam\steamapps\common\VRChat\PureMod\Mods\</OutputPath>
+    <OutputPath>..\..\..\..\..\..\..\Program Files %28x86%29\Steam\steamapps\common\VRChat\PureMod\Modules\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -152,6 +152,10 @@
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\VRChat\MelonLoader\Managed\UnhollowerBaseLib.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\VRChat\MelonLoader\Managed\Unity.TextMeshPro.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\VRChat\MelonLoader\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
@@ -238,6 +242,7 @@
     <Compile Include="Config\DataType\ModPrefs.cs" />
     <Compile Include="Modules\AllowJump.cs" />
     <Compile Include="Modules\AvatarFav.cs" />
+    <Compile Include="Modules\CustomNameplates.cs" />
     <Compile Include="Modules\DownloadVRCA.cs" />
     <Compile Include="Modules\EarRape.cs" />
     <Compile Include="Modules\ESP.cs" />

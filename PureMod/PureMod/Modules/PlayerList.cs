@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
+using PureMod.Config;
 using PureModLoader.API;
-using PureMod.Other;
 using PureModLoader.API.UIAPI.QM;
 using System.Collections.Generic;
-using PureMod.Config;
-
+ 
 namespace PureMod.Modules
 {
     public class PlayerList : ModuleBase
@@ -35,15 +34,14 @@ namespace PureMod.Modules
             foreach (var button in playerButtons)
                 button.Destroy();
 
-            var players = Utils.Players;
             int x = 1, y = 0;
 
-            foreach (var player in players)
+            foreach (var player in Utils.Players)
             {
-                playerButtons.Add(new SingleButton(teleportMenu.MenuPath, x, y, true, player.prop_APIUser_0.displayName, $"Select {player.prop_APIUser_0.displayName}", delegate ()
+                playerButtons.Add(new SingleButton(teleportMenu.MenuPath, x, y, true, player?.prop_APIUser_0.displayName, $"Select {player?.prop_APIUser_0.displayName}", delegate ()
                 {
                     Utils.QMSelectPlayer(player);
-                }, ModColors.TrustColor(player.prop_APIUser_0), player.prop_APIUser_0.isFriend ? Color.yellow : ModColors.ButtonDefaultBackground));
+                }, ModColors.TrustColor(player?.prop_APIUser_0), player.prop_APIUser_0.isFriend ? Color.yellow : ModColors.ButtonDefaultBackground));
 
                 if (x < 4)
                     x++;

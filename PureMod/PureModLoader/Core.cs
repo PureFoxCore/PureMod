@@ -90,13 +90,15 @@ namespace PureModLoader
             foreach (ModuleBase module in Modules)
                 NetworkManager.field_Internal_Static_NetworkManager_0.field_Internal_VRCEventDelegate_1_Player_0.field_Private_HashSet_1_UnityAction_1_T_0.Add((Action<VRC.Player>)delegate (VRC.Player player)
                 {
-                    module.OnPlayerJoin(player);
+                    if (player != null)
+                        module.OnPlayerJoin(player);
                 });
 
             foreach (ModuleBase module in Modules)
                 NetworkManager.field_Internal_Static_NetworkManager_0.field_Internal_VRCEventDelegate_1_Player_1.field_Private_HashSet_1_UnityAction_1_T_0.Add((Action<VRC.Player>)delegate (VRC.Player player)
                 {
-                    module.OnPlayerLeave(player);
+                    if (player != null)
+                        module.OnPlayerLeave(player);
                 });
         }
 

@@ -35,7 +35,7 @@ namespace PureMod.Modules
                             GameObject gameObject = GameObject.CreatePrimitive(PrimitiveType.Plane);
                             gameObject.GetComponent<Renderer>().enabled = false;
                             gameObject.transform.position = Utils.LocalPlayer.gameObject.transform.position;
-                            GameObject.Destroy(gameObject, 0.5f);
+                            GameObject.Destroy(gameObject, 0.3f);
                         }
                     }
                 }

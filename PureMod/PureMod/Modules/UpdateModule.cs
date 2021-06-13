@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
-using PureModLoader.API;
 using PureMod.Other;
+using PureModLoader.API;
 using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules

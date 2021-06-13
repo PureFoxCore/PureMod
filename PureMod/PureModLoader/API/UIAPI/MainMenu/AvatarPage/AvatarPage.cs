@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using VRC.Core;
 
 namespace PureModLoader.API.UIAPI.MainMenu.AvatarPage
 {
