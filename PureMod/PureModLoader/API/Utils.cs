@@ -92,7 +92,7 @@ namespace PureModLoader.API
         public static void QMSelectPlayer(Player player)
         {
             UIAPI.QM.QMStuff.ShowQuickmenuPage(""); // DUMB ASS FIX
-            QuickMenuInstance.Method_Public_Void_Player_PDM_0(player);
+            QuickMenuInstance.Method_Public_Void_Player_0(player);
         }
 
         /// <summary>

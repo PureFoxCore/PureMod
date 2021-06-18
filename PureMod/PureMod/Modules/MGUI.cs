@@ -25,7 +25,7 @@ namespace PureMod.Modules
 
         public override void OnGUI()
         {
-            windowRect = GUI.Window(1, windowRect, (GUI.WindowFunction)WindowFunc, $"{Utils.LocalPlayer?.prop_VRCPlayerApi_0.displayName} Console");
+            //windowRect = GUI.Window(1, windowRect, (GUI.WindowFunction)WindowFunc, $"{Utils.LocalPlayer?.prop_VRCPlayerApi_0.displayName} Console");
         }
 
         public static int GetScreenWidth(int percentage) => (Screen.width * percentage) / 100;

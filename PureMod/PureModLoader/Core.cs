@@ -60,9 +60,36 @@ namespace PureModLoader
                 module.OnEarlierStart();
             }
             CoreLogger.Info($"Loaded {Modules.Count} modules!");
+
+            if (typeof(MelonMod).GetMethod("VRChat_OnUiManagerInit") == null)
+                MelonCoroutines.Start(GetAssembly());
         }
 
-        public override void VRChat_OnUiManagerInit()
+        private static System.Collections.IEnumerator GetAssembly()
+        {
+            Assembly assembly;
+            while (true)
+            {
+                assembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault((Assembly a) => a.GetName().Name == "Assembly-CSharp");
+                if (!(assembly == null))
+                    break;
+                yield return null;
+            }
+            MelonCoroutines.Start(WaitForUiManagerInit(assembly));
+            yield break;
+        }
+
+        private static System.Collections.IEnumerator WaitForUiManagerInit(Assembly assemblyCSharp)
+        {
+            Type vrcUiManager = assemblyCSharp.GetType("VRCUiManager");
+            PropertyInfo uiManagerSingleton = vrcUiManager.GetProperties().First((PropertyInfo pi) => pi.PropertyType == vrcUiManager);
+            while (uiManagerSingleton.GetValue(null) == null)
+                yield return null;
+            OnUiManagerInit();
+            yield break;
+        }
+
+        private static void OnUiManagerInit()
         {
             new System.Threading.Timer((e) =>
             {
