@@ -3,7 +3,7 @@
     /// <summary>
     /// Virtual mod system base (use for creating mods :D)
     /// </summary>
-    public class ModuleBase
+    public abstract class ModuleBase
     {
         /// <summary>
         /// Load order for mod (by default 0)

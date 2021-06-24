@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PureModInstaller", "PureMod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PureModLoader", "PureModLoader\PureModLoader.csproj", "{E0AD13C6-CDFE-4D27-91DB-C9CC25FA1F2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PureModAutoUpdater", "PureModAutoUpdater\PureModAutoUpdater.csproj", "{D3444673-A8D6-4B63-AC8D-E4786740F7EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{E0AD13C6-CDFE-4D27-91DB-C9CC25FA1F2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0AD13C6-CDFE-4D27-91DB-C9CC25FA1F2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0AD13C6-CDFE-4D27-91DB-C9CC25FA1F2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3444673-A8D6-4B63-AC8D-E4786740F7EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3444673-A8D6-4B63-AC8D-E4786740F7EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3444673-A8D6-4B63-AC8D-E4786740F7EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3444673-A8D6-4B63-AC8D-E4786740F7EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

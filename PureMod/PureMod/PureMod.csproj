@@ -266,7 +266,6 @@
     <Compile Include="Modules\RayTeleport.cs" />
     <Compile Include="Modules\RemoveObjects.cs" />
     <Compile Include="Modules\PlayerTeleport.cs" />
-    <Compile Include="Modules\UpdateModule.cs" />
     <Compile Include="Other\Utils.cs" />
     <Compile Include="Modules\VSync.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

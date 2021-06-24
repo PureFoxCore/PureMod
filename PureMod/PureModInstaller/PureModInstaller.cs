@@ -90,26 +90,13 @@ namespace PureModInstaller
         {
             if (isVRChatGame)
             {
-                string loaderDir = SelectedPathBox.Text.Replace("VRChat.exe", "Mods"); // VRChat/Mods directory
-                string modulesDir = SelectedPathBox.Text.Replace("VRChat.exe", "PureMod") + "\\Modules"; // VRChat/PureMod/Modules directory
-                string loaderFile = $"{loaderDir}\\PureModLoader.dll";
-                string modFile = $"{modulesDir}\\PureMod.dll";
+                string pluginsDir = SelectedPathBox.Text.Replace("VRChat.exe", "Plugins"); // VRChat/Mods directory
+                string pluginFile = $"{pluginsDir}\\PureModLoader.dll";
 
-                if (!Directory.Exists(loaderDir))
-                    Directory.CreateDirectory(loaderDir);
+                if (!Directory.Exists(pluginsDir))
+                    Directory.CreateDirectory(pluginsDir);
 
-                if (!Directory.Exists(modulesDir))
-                    Directory.CreateDirectory(modulesDir);
-
-                if (File.Exists(loaderFile)) // Remove old Loader
-                    File.Delete(loaderFile);
-
-                if (File.Exists(modFile)) // Remove old mod
-                    File.Delete(modFile);
-
-                client.DownloadFileAsync(new Uri("https://github.com/PureFoxCore/PureMod/releases/latest/download/PureModLoader.dll"), loaderFile);
-                while (client.IsBusy) ;
-                client.DownloadFileAsync(new Uri("https://github.com/PureFoxCore/PureMod/releases/latest/download/PureMod.dll"), modFile);
+                client.DownloadFileAsync(new Uri("https://github.com/PureFoxCore/PureMod/releases/latest/download/PureModAutoUpdater.dll"), pluginFile);
 
                 client.DownloadFileCompleted += (object cs, System.ComponentModel.AsyncCompletedEventArgs ce) =>
                 {
