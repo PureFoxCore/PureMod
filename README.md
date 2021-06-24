@@ -10,8 +10,7 @@
 
 - Manual mode
   1. Open VRChat folder
-  2. Create **Mods** folder in VRChat folder and paste [PureModLoader](https://github.com/PureFoxCore/PureMod/releases/latest/download/PureModLoader.dll) there
-  3. Create **PureMod/Mods** folder in VRChat folder and place [PureMod](https://github.com/PureFoxCore/PureMod/releases/latest/download/PureMod.dll) there
+  2. Create **Plugins** folder in VRChat folder and paste [PureModAutoUpdater](https://github.com/PureFoxCore/PureMod/releases/latest/download/PureModAutoUpdater.dll) there
      
 
 ## How to make your own module for this mod
