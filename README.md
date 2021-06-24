@@ -3,7 +3,7 @@
 ## How to download:
 
 - Automatic mode
-  1. Download latest [installer](https://github.com/PureFoxCore/PureMod/releases/latest/download/PureModInstaller.exe)
+  1. Download [latest installer](https://github.com/PureFoxCore/PureMod/releases/latest/download/PureModInstaller.exe)
   2. Launch it and press select button
   3. Select VRChat.exe file
   4. Press Update | Install
