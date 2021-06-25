@@ -5,17 +5,18 @@ using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
-    public class InfinityJumps : ModuleBase
+    [Module]
+    public class InfinityJumps
     {
-        public override int LoadOrder => 1;
+        public int loadOrder = 1;
 
-        public override string ModuleName => "Infinity jump";
+        public string moduleName = "Infinity jump";
 
         private static bool m_State = false;
 
-        public override void OnStart()
+        public void OnStart()
         {
-            new ToggleButton(QMmenu.mainMenuP1.MenuPath, 4, 2, true, ModuleName, ModuleName, delegate (bool state)
+            new ToggleButton(QMmenu.mainMenuP1.MenuPath, 4, 2, true, moduleName, moduleName, delegate (bool state)
             {
                 m_State = state;
             }, Color.cyan, Color.white);

@@ -3,15 +3,16 @@ using PureModLoader.API;
 
 namespace PureMod.Modules
 {
-    public class JoinNotifier : ModuleBase
+    [Module]
+    public class JoinNotifier
     {
-        public override int LoadOrder => 0;
-        public override string ModuleName => "Join notifier";
+        public int loadOrder = 0;
+        public string moduleName = "Join notifier";
 
-        public override void OnPlayerJoin(Player player) =>
+        public void OnPlayerJoin(Player player) =>
             MGUI.LogText($"[{player?.prop_APIUser_0.displayName}] [{player?.prop_APIUser_0.username}] joined!");
 
-        public override void OnPlayerLeave(Player player) =>
+        public void OnPlayerLeave(Player player) =>
             MGUI.LogText($"[{player?.prop_APIUser_0.displayName}] [{player?.prop_APIUser_0.username}] left!");
     }
 }

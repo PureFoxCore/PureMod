@@ -6,16 +6,17 @@ using System.Collections.Generic;
  
 namespace PureMod.Modules
 {
-    public class PlayerList : ModuleBase
+    [Module]
+    public class PlayerList
     {
-        public override int LoadOrder => 1;
+        public int loadOrder = 1;
 
-        public override string ModuleName => "Player list";
+        public string moduleName = "Player list";
 
         private NestedButton teleportMenu;
         private List<SingleButton> playerButtons = new List<SingleButton>();
 
-        public override void OnStart()
+        public void OnStart()
         {
             teleportMenu = new NestedButton(QMmenu.mainMenuP1.MenuPath, 4, 1, true, "Players", "Player list", delegate ()
             {
@@ -23,10 +24,10 @@ namespace PureMod.Modules
             });
         }
 
-        public override void OnPlayerJoin(VRC.Player player) =>
+        public void OnPlayerJoin(VRC.Player player) =>
             UpdateList();
 
-        public override void OnPlayerLeave(VRC.Player player) =>
+        public void OnPlayerLeave(VRC.Player player) =>
             UpdateList();
 
         private void UpdateList()

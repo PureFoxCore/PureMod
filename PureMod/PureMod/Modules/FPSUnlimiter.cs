@@ -3,12 +3,13 @@ using UnityEngine;
 
 namespace PureMod.Modules
 {
-    public class FPSUnlimiter : ModuleBase
+    [Module]
+    public class FPSUnlimiter
     {
-        public override int LoadOrder => 1;
-        public override string ModuleName => "FPS Unlimiter";
+        public int loadOrder = 1;
+        public string moduleName = "FPS Unlimiter";
 
-        public override void OnStart() =>
+        public void OnStart() =>
             Application.targetFrameRate = 300;
     }
 }

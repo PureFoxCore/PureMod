@@ -1,22 +1,22 @@
-﻿using UnityEngine;
+﻿using VRC;
+using UnityEngine;
 using VRC.SDKBase;
 using PureModLoader.API;
 using PureModLoader.API.UIAPI.QM;
-using VRC;
-using PureMod.Other;
 
 namespace PureMod.Modules
 {
-    public class ESP : ModuleBase
+    [Module]
+    public class ESP
     {
-        public override int LoadOrder => 1;
+        public int loadOrder = 1;
 
-        public override string ModuleName => "ESP";
+        public string moduleName = "ESP";
 
         private bool m_PlayerState;
         private bool m_ObjectState;
 
-        public override void OnStart()
+        public void OnStart()
         {
             var menu = new NestedButton(QMmenu.mainMenuP1.MenuPath, 1, 2, true, "ESP Menu", "ESP Menu");
 
@@ -46,7 +46,7 @@ namespace PureMod.Modules
                 HighlightsFX.prop_HighlightsFX_0.Method_Public_Void_Renderer_Boolean_0(pickup.GetComponent<MeshRenderer>(), m_ObjectState);
         }
 
-        public override void OnPlayerJoin(Player player) =>
+        public void OnPlayerJoin(Player player) =>
             Update();
     }
 }

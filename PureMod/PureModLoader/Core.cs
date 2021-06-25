@@ -14,7 +14,7 @@ namespace PureModLoader
     {
         public static Logger CoreLogger = new Logger("PureModLoader", LogLevel.Trace);
 
-        private static List<ModuleBase> Modules = new List<ModuleBase>();
+        private static List<Type> modules = new List<Type>();
 
         private void LoadModules()
         {
@@ -33,10 +33,12 @@ namespace PureModLoader
                     CoreLogger.Info($"[{file}] Loaded!");
 
                     foreach (var type in currentFileAssembly.GetTypes())
-                        if (type.IsSubclassOf(typeof(ModuleBase)))
-                            Modules.Add((ModuleBase)Activator.CreateInstance(type));
+                        if (Attribute.IsDefined(type, typeof(ModuleAttribute)))
+                            foreach (var field in type.GetFields())
+                                CoreLogger.Trace($"{field.Name}: {field.GetValue(type.Module.Assembly)}");
+                    //modules.Add(type);
 
-                    Modules = Modules.OrderBy(owo => owo.LoadOrder).ToList();
+                    modules = modules.OrderBy(owo => owo.GetField("loadOrder") == null ? 0 : (int)owo.GetField("loadOrder").GetValue(owo)).ToList();
                 }
                 catch (Exception ex)
                 {
@@ -52,14 +54,14 @@ namespace PureModLoader
 
             LoadModules();
 
-            foreach (ModuleBase module in Modules)
+            foreach (var module in modules)
             {
-                if (module.ShowName)
-                    CoreLogger.Trace($"{module.ModuleName} loaded!");
+                if (module.GetField("moduleName") != null)
+                    CoreLogger.Trace($"{(string)module.GetField("moduleName").GetValue(module)} loaded!");
 
-                module.OnEarlierStart();
+                module.GetMethod("OnAwake").Invoke(module, null);
             }
-            CoreLogger.Info($"Loaded {Modules.Count} modules!");
+            CoreLogger.Info($"Loaded {modules.Count} modules!");
 
             if (typeof(MelonMod).GetMethod("VRChat_OnUiManagerInit") == null)
                 MelonCoroutines.Start(GetAssembly());
@@ -93,18 +95,18 @@ namespace PureModLoader
         {
             new System.Threading.Timer((e) =>
             {
-                foreach (ModuleBase module in Modules)
-                    module.OnUpdate10();
+                foreach (var module in modules)
+                    module.GetMethod("OnUpdate10").Invoke(module, null);
             }, null, TimeSpan.Zero, TimeSpan.FromSeconds(10));
 
             new System.Threading.Timer((e) =>
             {
-                foreach (ModuleBase module in Modules)
-                    module.OnUpdate1();
+                foreach (var module in modules)
+                    module.GetMethod("OnUpdate1").Invoke(module, null);
             }, null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
 
-            foreach (ModuleBase module in Modules)
-                module.OnStart();
+            foreach (var module in modules)
+                module.GetMethod("OnStart").Invoke(module, null);
 
             MelonCoroutines.Start(Init());
         }
@@ -114,49 +116,49 @@ namespace PureModLoader
             while (NetworkManager.field_Internal_Static_NetworkManager_0 == null)
                 yield return null;
 
-            foreach (ModuleBase module in Modules)
+            foreach (var module in modules)
                 NetworkManager.field_Internal_Static_NetworkManager_0.field_Internal_VRCEventDelegate_1_Player_0.field_Private_HashSet_1_UnityAction_1_T_0.Add((Action<VRC.Player>)delegate (VRC.Player player)
                 {
                     if (player != null)
-                        module.OnPlayerJoin(player);
+                        module.GetMethod("OnPlayerJoin").Invoke(module, new object[] { player });
                 });
 
-            foreach (ModuleBase module in Modules)
+            foreach (var module in modules)
                 NetworkManager.field_Internal_Static_NetworkManager_0.field_Internal_VRCEventDelegate_1_Player_1.field_Private_HashSet_1_UnityAction_1_T_0.Add((Action<VRC.Player>)delegate (VRC.Player player)
                 {
                     if (player != null)
-                        module.OnPlayerLeave(player);
+                        module.GetMethod("OnPlayerLeave").Invoke(module, new object[] { player });
                 });
         }
 
         public override void OnUpdate()
         {
-            foreach (ModuleBase module in Modules)
-                module.OnUpdate();
+            foreach (var module in modules)
+                module.GetMethod("OnUpdate").Invoke(module, null);
         }
 
         public override void OnLateUpdate()
         {
-            foreach (ModuleBase module in Modules)
-                module.OnLateUpdate();
+            foreach (var module in modules)
+                module.GetMethod("OnLateUpdate").Invoke(module, null);
         }
 
         public override void OnFixedUpdate()
         {
-            foreach (ModuleBase module in Modules)
-                module.OnFixedUpdate();
+            foreach (var module in modules)
+                module.GetMethod("OnFixedUpdate").Invoke(module, null);
         }
 
         public override void OnGUI()
         {
-            foreach (ModuleBase module in Modules)
-                module.OnGUI();
+            foreach (var module in modules)
+                module.GetMethod("OnGUI").Invoke(module, null);
         }
 
         public override void OnApplicationQuit()
         {
-            foreach (ModuleBase module in Modules)
-                module.OnQuit();
+            foreach (var module in modules)
+                module.GetMethod("OnQuit").Invoke(module, null);
         }
     }
 }

@@ -4,10 +4,11 @@ using PureModLoader.API;
 
 namespace PureMod.Modules
 {
-    public class ScreenInfo : ModuleBase
+    [Module]
+    public class ScreenInfo
     {
-        public override int LoadOrder => 0;
-        public override string ModuleName => "On screen info";
+        public int loadOrder = 0;
+        public string moduleName = "On screen info";
 
         //public override void OnUpdate1()
         //{

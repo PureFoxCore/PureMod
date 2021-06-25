@@ -4,10 +4,10 @@ using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
-    public class QMmenu : ModuleBase
+    [Module]
+    public class QMmenu
     {
-        public override int LoadOrder => 0;
-        public override bool ShowName => false;
+        public int loadOrder = 0;
 
         public static NestedButton mainMenuP1;
         public static NestedButton mainMenuP2;
@@ -19,7 +19,7 @@ namespace PureMod.Modules
 
         private GameObject cloneButton;
 
-        public override void OnStart()
+        public void OnStart()
         {
             cloneButton = GameObject.Find("UserInterface/QuickMenu/UserInteractMenu/CloneAvatarButton");
 
@@ -32,7 +32,7 @@ namespace PureMod.Modules
             userMenuP3 = new NestedButton(userMenuP2.MenuPath, 5, 4, true, "Page 3", "User Utils Menu Page 3");
         }
 
-        public override void OnLateUpdate()
+        public void OnLateUpdate()
         {
             if (cloneButton != null)
                 cloneButton.SetActive(false);

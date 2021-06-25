@@ -4,12 +4,13 @@ using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
-    public class PlayerTeleport : ModuleBase
+    [Module]
+    public class PlayerTeleport
     {
-        public override int LoadOrder => 1;
-        public override string ModuleName => "Player teleport";
+        public int loadOrder = 1;
+        public string moduleName = "Player teleport";
 
-        public override void OnStart()
+        public void OnStart()
         {
             new SingleButton(QMmenu.userMenuP1.MenuPath, 3, 0, true, "Teleport", "Teleport to this player", delegate ()
             {

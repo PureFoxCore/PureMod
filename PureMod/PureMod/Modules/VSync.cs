@@ -5,12 +5,13 @@ using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
-    public class VSync : ModuleBase
+    [Module]
+    public class VSync
     {
-        public override int LoadOrder => 1;
-        public override string ModuleName => "VSync";
+        public int loadOrder = 1;
+        public string moduleName = "VSync";
 
-        public override void OnStart()
+        public void OnStart()
         {
             new ToggleButton(QMmenu.mainMenuP1.MenuPath, 4, 0, true, "VSync", "Toggle vertical synchronization", delegate (bool state)
             {

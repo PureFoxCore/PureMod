@@ -4,11 +4,12 @@ using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
-    public class Hands : ModuleBase
+    [Module]
+    public class Hands
     {
-        public override int LoadOrder => 1;
+        public int loadOrder = 1;
 
-        public override string ModuleName => "Hands";
+        public string moduleName = "Hands";
 
         private NestedButton HandsMenu;
 
@@ -16,7 +17,7 @@ namespace PureMod.Modules
         private bool m_RightState = false;
         private RootMotion.FinalIK.VRIK controller;
 
-        public override void OnStart()
+        public void OnStart()
         {
             HandsMenu = new NestedButton(QMmenu.mainMenuP1.MenuPath, 2, 2, true, "Hands", "HandsMenu", delegate()
             {
@@ -34,7 +35,7 @@ namespace PureMod.Modules
             }, Color.green, Color.white);
         }
 
-        public override void OnLateUpdate() 
+        public void OnLateUpdate() 
         {
             if (controller != null)
             {

@@ -6,12 +6,13 @@ using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
-    public class MirrorOptimize : ModuleBase
+    [Module]
+    public class MirrorOptimize
     {
-        public override int LoadOrder => 1;
-        public override string ModuleName => "Mirror Quality";
+        public int loadOrder = 1;
+        public string moduleName = "Mirror Quality";
 
-        public override void OnStart()
+        public void OnStart()
         {
             new ToggleButton(QMmenu.mainMenuP1.MenuPath, 2, 1, true, "Mirror Q.", "Mirror Toggle Quality", delegate (bool state)
             {

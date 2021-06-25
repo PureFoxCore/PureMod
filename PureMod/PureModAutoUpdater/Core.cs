@@ -7,7 +7,6 @@ namespace PureModAutoUpdater
 {
     public class Core : MelonPlugin
     {
-
         public override void OnApplicationEarlyStart()
         {
             WebClient client = new WebClient();

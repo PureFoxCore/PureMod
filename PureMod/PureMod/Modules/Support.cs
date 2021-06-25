@@ -5,12 +5,12 @@ using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
-    public class Support : ModuleBase
+    [Module]
+    public class Support
     {
-        public override int LoadOrder => 1;
-        public override bool ShowName => false;
+        public int loadOrder = 1;
 
-        public override void OnStart()
+        public void OnStart()
         {
             new SingleButton(QMmenu.mainMenuP3.MenuPath, 5, 4, true, "Support", "Support PureMod", delegate()
             {

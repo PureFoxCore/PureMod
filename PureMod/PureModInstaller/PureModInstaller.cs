@@ -90,7 +90,7 @@ namespace PureModInstaller
         {
             if (isVRChatGame)
             {
-                string pluginsDir = SelectedPathBox.Text.Replace("VRChat.exe", "Plugins"); // VRChat/Mods directory
+                string pluginsDir = SelectedPathBox.Text.Replace("VRChat.exe", "Plugins"); // VRChat/Plugins directory
                 string pluginFile = $"{pluginsDir}\\PureModLoader.dll";
 
                 if (!Directory.Exists(pluginsDir))

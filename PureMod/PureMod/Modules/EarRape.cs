@@ -4,14 +4,15 @@ using UnityEngine;
 
 namespace PureMod.Modules
 {
-    public class EarRape : ModuleBase
+    [Module]
+    public class EarRape
     {
-        public override int LoadOrder => 1;
-        public override string ModuleName => "EarRape";
+        public int loadOrder = 1;
+        public string moduleName = "EarRape";
 
-        public override void OnStart()
+        public void OnStart()
         {
-            new ToggleButton(QMmenu.mainMenuP1.MenuPath, 1, 3, true, ModuleName, "Pls don't use this", delegate (bool state)
+            new ToggleButton(QMmenu.mainMenuP1.MenuPath, 1, 3, true, moduleName, "Pls don't use this", delegate (bool state)
             {
                 //USpeaker.field_Internal_Static_Single_0 = state ? float.MaxValue : 1f; UR EARS
                 USpeaker.field_Internal_Static_Single_1 = state ? float.MaxValue : 1f;

@@ -1,15 +1,16 @@
-﻿using PureModLoader.API;
-using PureMod.Other;
+﻿using PureMod.Other;
+using PureModLoader.API;
 using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
-    public class AllowJump : ModuleBase
+    [Module]
+    public class AllowJump
     {
-        public override int LoadOrder => 1;
-        public override string ModuleName => "AllowJump";
+        public int loadOrder = 1;
+        public string moduleName = "AllowJump";
 
-        public override void OnStart()
+        public void OnStart()
         {
             new SingleButton(QMmenu.mainMenuP1.MenuPath, 2, 0, true, "Add Jump", "Add jump on this map", delegate ()
             {

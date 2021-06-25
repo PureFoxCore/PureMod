@@ -5,16 +5,17 @@ using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
-    public class TPItems : ModuleBase
+    [Module]
+    public class TPItems
     {
-        public override int LoadOrder => 1;
-        public override string ModuleName => "TP items";
+        public int loadOrder = 1;
+        public string moduleName = "TP items";
 
         private bool m_State;
 
         private GameObject player;
 
-        public override void OnStart()
+        public void OnStart()
         {
             new ToggleButton(QMmenu.mainMenuP1.MenuPath, 3, 2, true, "TP items", "tornado", delegate (bool state)
             {
@@ -23,7 +24,7 @@ namespace PureMod.Modules
             }, Color.red, Color.white);
         }
 
-        public override void OnLateUpdate()
+        public void OnLateUpdate()
         {
             if (m_State)
             {

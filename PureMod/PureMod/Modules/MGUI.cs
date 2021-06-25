@@ -5,15 +5,16 @@ using System.Collections.Generic;
 
 namespace PureMod.Modules
 {
-    public class MGUI : ModuleBase
+    [Module]
+    public class MGUI
     {
-        public override int LoadOrder => 0;
-        public override string ModuleName => "GUI";
+        public int loadOrder = 0;
+        public string moduleName = "GUI";
 
         private static Rect windowRect = new Rect(GetScreenWidth(2), GetScreenHeight(68), GetScreenWidth(20), GetScreenHeight(30));
         private static List<string> texts = new List<string>();
 
-        public override void OnStart()
+        public void OnStart()
         {
             new System.Threading.Timer((e) =>
             {
@@ -23,9 +24,9 @@ namespace PureMod.Modules
 
         }
 
-        public override void OnGUI()
+        public void OnGUI()
         {
-            //windowRect = GUI.Window(1, windowRect, (GUI.WindowFunction)WindowFunc, $"{Utils.LocalPlayer?.prop_VRCPlayerApi_0.displayName} Console");
+            windowRect = GUI.Window(1, windowRect, (GUI.WindowFunction)WindowFunc, $"{Utils.LocalPlayer?.prop_VRCPlayerApi_0.displayName} Console");
         }
 
         public static int GetScreenWidth(int percentage) => (Screen.width * percentage) / 100;

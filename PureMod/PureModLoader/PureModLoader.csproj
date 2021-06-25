@@ -113,6 +113,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\ModuleAttribute.cs" />
     <Compile Include="API\UIAPI\MainMenu\AvatarPage\AvatarPage.cs" />
     <Compile Include="API\UIAPI\MainMenu\AvatarPage\AvatarPageButton.cs" />
     <Compile Include="API\UIAPI\MainMenu\AvatarPage\AvatarScroll.cs" />
@@ -122,7 +123,6 @@
     <Compile Include="API\UIAPI\QuickMenu\ToggleButton.cs" />
     <Compile Include="API\Logger\LogLevel.cs" />
     <Compile Include="API\Logger\PureLogger.cs" />
-    <Compile Include="API\ModuleBase.cs" />
     <Compile Include="API\PopupAPI.cs" />
     <Compile Include="API\Utils.cs" />
     <Compile Include="Core.cs" />

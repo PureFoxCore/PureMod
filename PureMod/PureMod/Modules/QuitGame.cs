@@ -5,12 +5,14 @@ using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
-    public class QuitGame : ModuleBase
-    {
-        public override int LoadOrder => 1;
-        public override string ModuleName => "Quit Game";
+    [Module]
 
-        public override void OnStart()
+    public class QuitGame
+    {
+        public int loadOrder = 1;
+        public string moduleName = "Quit Game";
+
+        public void OnStart()
         {
             new SingleButton(QMmenu.mainMenuP1.MenuPath, 3, 1, true, "Quit", "ShutDown Game", delegate ()
              {

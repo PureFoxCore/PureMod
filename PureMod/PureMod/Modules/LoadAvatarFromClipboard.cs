@@ -8,12 +8,13 @@ using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
-    public class LoadAvatarFromClipboard : ModuleBase
+    [Module]
+    public class LoadAvatarFromClipboard
     {
-        public override int LoadOrder => 1;
-        public override string ModuleName => "Load Avatar From Clipboard";
+        public int loadOrder = 1;
+        public string moduleName = "Load Avatar From Clipboard";
 
-        public override void OnStart()
+        public void OnStart()
         {
             new SingleButton(QMmenu.mainMenuP1.MenuPath, 3, 0, true, "Load Avatar", "Load Avatar From Clipboard", delegate ()
             {

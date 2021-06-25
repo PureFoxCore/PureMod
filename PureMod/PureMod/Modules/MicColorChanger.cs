@@ -6,14 +6,15 @@ using PureMod.Config;
 
 namespace PureMod.Modules
 {
-    public class MicColorChanger : ModuleBase
+    [Module]
+    public class MicColorChanger
     {
-        public override int LoadOrder => 0;
-        public override string ModuleName => "Microphone color changer";
+        public int loadOrder = 0;
+        public string moduleName = "Microphone color changer";
 
         public static Color imageColor;
 
-        public override void OnStart()
+        public void OnStart()
         {
             imageColor = ModColors.DefaultMicColor;
             GameObject.Find("UserInterface/UnscaledUI/HudContent/Hud/VoiceDotParent/VoiceDot").GetComponent<Image>().color = imageColor;

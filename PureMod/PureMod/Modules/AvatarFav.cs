@@ -11,10 +11,11 @@ using System.Collections.Generic;
 
 namespace PureMod.Modules
 {
-    public class AvatarFav : ModuleBase
+    [Module]
+    public class AvatarFav
     {
-        public override int LoadOrder => 2;
-        public override string ModuleName => "Avatar fav";
+        public int loadOrder = 2;
+        public string moduleName = "Avatar fav";
 
         public static List<string> avatars = new List<string>();
         public string avatarsPath = $"{Utils.ConfigsDirectory}\\PureModAvatars.json";
@@ -33,10 +34,10 @@ namespace PureMod.Modules
                 SaveAvatars();
         }
 
-        public override void OnEarlierStart() =>
+        public void OnAwake() =>
             LoadConfig();
 
-        public override void OnStart()
+        public void OnStart()
         {
             GameObject.Find("UserInterface/MenuContent/Screens/Avatar/Stats Button/").transform.position += Vector3.one * 99999;
 

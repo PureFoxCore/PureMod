@@ -6,10 +6,11 @@ using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
-    public class Fly : ModuleBase
+    [Module]
+    public class Fly
     {
-        public override int LoadOrder => 1;
-        public override string ModuleName => "Fly";
+        public int loadOrder = 1;
+        public string moduleName = "Fly";
 
         public static int flySpeed = 2;
         public static bool isFly = false;
@@ -21,7 +22,7 @@ namespace PureMod.Modules
         private ToggleButton flyButton;
         private SingleButton speedResetButton;
 
-        public override void OnStart()
+        public void OnStart()
         {
             flyMenu = new NestedButton(QMmenu.mainMenuP1.MenuPath, 1, 0, true, "Fly", "Fly menu");
 
@@ -58,7 +59,7 @@ namespace PureMod.Modules
             });
         }
 
-        public override void OnUpdate()
+        public void OnUpdate()
         {
             if (Input.GetKeyDown(KeyCode.F))
                 flyButton.Invoke();

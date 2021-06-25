@@ -7,12 +7,13 @@ using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
-    public class ForceClone : ModuleBase
+    [Module]
+    public class ForceClone
     {
-        public override string ModuleName => "Force Clone";
-        public override int LoadOrder => 1;
+        public string moduleName = "Force Clone";
+        public int loadOrder = 1;
 
-        public override void OnStart()
+        public void OnStart()
         {
             new SingleButton(QMmenu.userMenuP1.MenuPath, 1, 0, true, "ForceClone", "Force clone public avatar", delegate ()
             {

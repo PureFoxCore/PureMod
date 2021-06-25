@@ -4,12 +4,13 @@ using UnityEngine;
 
 namespace PureMod.Modules
 {
-    public class ObjectTeleport : ModuleBase
+    [Module]
+    public class ObjectTeleport
     {
-        public override int LoadOrder => 1;
-        public override string ModuleName => "Object teleport";
+        public int loadOrder = 1;
+        public string moduleName = "Object teleport";
 
-        public override void OnUpdate()
+        public void OnUpdate()
         {
             if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Alpha2))
                 foreach (var pickup in Resources.FindObjectsOfTypeAll<VRC_Pickup>())

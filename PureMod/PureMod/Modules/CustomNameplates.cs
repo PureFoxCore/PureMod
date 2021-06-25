@@ -6,12 +6,13 @@ using PureMod.Other;
 
 namespace PureMod.Modules
 {
-    public class CustomNameplates : ModuleBase
+    [Module]
+    public class CustomNameplates
     {
-        public override int LoadOrder => 0;
-        public override string ModuleName => "Custom nameplates";
+        public int loadOrder = 0;
+        public string moduleName = "Custom nameplates";
 
-        public override void OnPlayerJoin(Player player)
+        public void OnPlayerJoin(Player player)
         {
             if (player == null || player == Utils.LocalPlayer.prop_Player_0)
                 return;

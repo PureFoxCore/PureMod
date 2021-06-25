@@ -4,12 +4,13 @@ using PureModLoader.API.UIAPI.QM;
 
 namespace PureMod.Modules
 {
-    public class DownloadVRCA : ModuleBase
+    [Module]
+    public class DownloadVRCA
     {
-        public override int LoadOrder => 1;
-        public override string ModuleName => "Download VRCA";
+        public int loadOrder = 1;
+        public string moduleName = "Download VRCA";
 
-        public override void OnStart()
+        public void OnStart()
         {
             new SingleButton(QMmenu.userMenuP1.MenuPath, 2, 0, true, "Download VRCA", "Download VRCA file of selected user's avatar", delegate ()
             {
